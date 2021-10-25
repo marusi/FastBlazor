@@ -65,11 +65,14 @@
         try
         {
             await authStateProvider.Login(loginParameters);
+            
             navigationManager.NavigateTo("");
+             toastService.ShowToast($"Welcome ", ToastLevel.Success);
         }
         catch (Exception ex)
         {
             error = ex.Message;
+            toastService.ShowToast($"Login Unsuccesful", ToastLevel.Error);
         }
     }
 }

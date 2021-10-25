@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zeo23OMrDCgjCGGIv1M/DbYvLLvUQ2IcltJA/fiObahe1uuvZU8T+pw2y+N3ktgIym2xCIRL2dCJw9EyckVJMA==",
+  "dgSpecHash": "RCYq6ivWghTHmttsLl/tDrU5Fz4P+rJqHo05z/yw8ztrMWeZfGfhw2D8Nluc9XMmiItu6k0DqFMJInS+JYuRUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

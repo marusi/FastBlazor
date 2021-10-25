@@ -4,22 +4,46 @@
     right: 30px;
     max-width: 300px;
     border-radius: 0px;
-    background: #FFFFFF;
+   
     box-shadow: 0 25px 10px -15px rgba(0,0,0,0.05);
     display: none;
     padding: 1.5rem;
-    color: #1A1A1A;
+    color: #FFFFFF;
     z-index: 1;
     position: absolute;
 }
 
 .toast-icon[b-mid3ka0je8] {
     display: flex;
+    color: #FFFFFF;
     flex-direction: column;
     justify-content: center;
     padding: 0 1rem;
     font-size: 2.5rem;
 }
+
+.brand-info[b-mid3ka0je8] {
+    color: #1A1A1A;
+    background:#ffffff;
+    box-shadow: 0 25px 10px -15px rgba(0,0,0,0.05);
+}
+.brand-success[b-mid3ka0je8] {
+    background: #67c58f;
+    box-shadow: 0 25px 10px -15px rgba(0,0,0,0.05);
+}
+.brand-warning[b-mid3ka0je8] {
+    background: #ff6a00;
+    box-shadow: 0 25px 10px -15px rgba(0,0,0,0.05);
+}
+.brand-danger[b-mid3ka0je8] {
+    background: #ff0000;
+    box-shadow: 0 25px 10px -15px rgba(0,0,0,0.05);
+}
+
+.edit[b-mid3ka0je8] {}
+.accept[b-mid3ka0je8] {}
+.important[b-mid3ka0je8] {}
+.report-hacked[b-mid3ka0je8] {}
 
 .toast-body[b-mid3ka0je8] {
     display: flex;
@@ -29,7 +53,8 @@
 }
 
     .toast-body p[b-mid3ka0je8] {
-        margin-bottom: 0;
+        margin: 0;
+        line-height: 1.3;
     }
 
 .toast-visible[b-mid3ka0je8] {

@@ -10,4 +10,4 @@ build_property.EnableSingleFileAnalyzer =
 build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = BlazorWithIdentity.Client
-build_property.ProjectDir = C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\
+build_property.ProjectDir = C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\

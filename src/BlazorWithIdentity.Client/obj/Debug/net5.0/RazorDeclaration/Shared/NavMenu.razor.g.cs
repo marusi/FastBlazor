@@ -13,126 +13,126 @@ namespace BlazorWithIdentity.Client.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 1 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 4 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 5 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 6 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 7 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 8 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 9 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 10 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 11 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 12 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client.Services.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 13 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client.Services.Implementations;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 14 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client.Services.Implementations.ToastNotification;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 15 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client.States;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 16 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using System.Security.Claims;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\_Imports.razor"
+#line 17 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\Shared\NavMenu.razor"
+#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
 using Microsoft.Fast.Components.FluentUI;
 
 #line default
@@ -146,7 +146,7 @@ using Microsoft.Fast.Components.FluentUI;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\template\BlazorWithIdentity.Client\Shared\NavMenu.razor"
+#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

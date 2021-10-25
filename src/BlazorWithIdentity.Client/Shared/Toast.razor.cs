@@ -12,7 +12,7 @@ namespace BlazorWithIdentity.Client.Shared
         protected string Heading { get; set; }
         protected string Message { get; set; }
         protected bool IsVisible { get; set; }
-        protected string BackgroundCssClass { get; set; }
+        public string BackgroundCssClass { get; set; }
         protected string IconCssClass { get; set; }
 
         protected override void OnInitialized()
@@ -26,6 +26,7 @@ namespace BlazorWithIdentity.Client.Shared
             BuildToastSettings(level, message);
             IsVisible = true;
             StateHasChanged();
+         
         }
 
         private void HideToast()
@@ -36,26 +37,27 @@ namespace BlazorWithIdentity.Client.Shared
 
         private void BuildToastSettings(ToastLevel level, string message)
         {
+            
             switch (level)
             {
                 case ToastLevel.Info:
                     BackgroundCssClass = $"brand-info";
-                    IconCssClass = "info";
+                    IconCssClass = "edit";
                     Heading = "Info";
                     break;
                 case ToastLevel.Success:
                     BackgroundCssClass = $"brand-success";
-                    IconCssClass = "check";
+                    IconCssClass = "accept";
                     Heading = "Success";
                     break;
                 case ToastLevel.Warning:
                     BackgroundCssClass = $"brand-warning";
-                    IconCssClass = "exclamation";
+                    IconCssClass = "important";
                     Heading = "Warning";
                     break;
                 case ToastLevel.Error:
                     BackgroundCssClass = "brand-danger";
-                    IconCssClass = "times";
+                    IconCssClass = "report-hacked";
                     Heading = "Error";
                     break;
             }

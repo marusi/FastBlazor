@@ -64,11 +64,11 @@
                 </div>
                
                 <div class="col-md-4">
-                   <NavLinkFluentAnchor  Href="@($"categorydata/{item.Id}")" Appearance="Appearance.Outline"> Edit </NavLinkFluentAnchor> 
+                   <NavLinkFluentAnchor  Href="@($"categorydata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></NavLinkFluentAnchor> 
                  
                 </div>
                  <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteCategory(item.Id))" Appearance="Appearance.Neutral">Erase</FluentButton>
+                    <FluentButton type="submit"   @onclick="(() => DeleteCategory(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
                 </div>
             </div>
         </li>

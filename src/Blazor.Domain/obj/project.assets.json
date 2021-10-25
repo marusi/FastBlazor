@@ -749,11 +749,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Domain\\Blazor.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Domain\\Blazor.Domain.csproj",
       "projectName": "Blazor.Domain",
-      "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Domain\\Blazor.Domain.csproj",
+      "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Domain\\Blazor.Domain.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

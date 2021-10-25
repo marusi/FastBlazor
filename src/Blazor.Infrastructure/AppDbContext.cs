@@ -14,6 +14,8 @@ namespace Blazor.Infrastructure
     {
         // converting classes to tables code first migration
         public DbSet<ProductCategory> ProductCategories { get; set; }
+
+        public DbSet<Product> Products {  get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

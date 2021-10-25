@@ -4,9 +4,9 @@
 @inject HttpClient Http
 @using BlazorWithIdentity.Shared.DTO.Category
 
-<div class="row">
+<div class="row row-sm">
 <div class="container">
-
+    <FluentCard style="height:25%">
  <EditForm class="form-category" OnValidSubmit="OnSubmitCategory" Model="categoryItem">
          
       <div class="col-md-12">
@@ -24,6 +24,7 @@
 
  
         </EditForm>
+        </FluentCard>
 </div>
 
 </div>

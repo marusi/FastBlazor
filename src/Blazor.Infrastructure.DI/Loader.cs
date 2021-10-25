@@ -15,6 +15,7 @@ namespace Blazor.Infrastructure.DI
             var conn = cfg.GetConnectionString("Default");
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
             services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

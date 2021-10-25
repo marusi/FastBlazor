@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mCIKnEpQettg3RO/lTYGvmF+i6zYgS5miH7VbwSBmzXnXpBXb6WGx6nVCBuOQbo/EKWl6cWhYUSUMj07QvLRmw==",
+  "dgSpecHash": "wfg1eD51LYwlI8Ei0rgYl86baxpeb+oPfjSjgChHRYuBkmHfswsWrR/BZh46tIXVgQRx06Cnc/0xsr7Lb4hEfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.5\\microsoft.aspnetcore.authorization.5.0.5.nupkg.sha512",

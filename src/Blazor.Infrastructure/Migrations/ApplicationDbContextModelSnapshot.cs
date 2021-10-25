@@ -85,6 +85,26 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductCategoryId");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.ProductCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -227,6 +247,17 @@ namespace Blazor.Infrastructure.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Blazor.Domain.Models.Product", b =>
+                {
+                    b.HasOne("Blazor.Domain.Models.ProductCategory", "ProductCategory")
+                        .WithMany()
+                        .HasForeignKey("ProductCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

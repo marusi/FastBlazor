@@ -209,13 +209,13 @@
       "mscorlib.dll": "sha256-CUpudhojlkcrp2dsiJFF\/H\/WNg+uAhzoGkSWfOta\/U0=",
       "netstandard.dll": "sha256-vJpyW6cE\/+ewo5rVB5JUu9x2f8aLnqoIazac8ef5FzQ=",
       "System.Private.CoreLib.dll": "sha256-CvQTDivHJZAtRXyCbDa5f5+okJt39WRFrZSmXTMSau0=",
-      "Blazor.Domain.dll": "sha256-sodOUeN9HWpCAeCXQQyHa1twnkCEadMKVK5FaJqTdRU=",
-      "BlazorWithIdentity.Shared.dll": "sha256-SG1e7cWa5\/G+ShdP8DSJu90m74K2lpYUQHMdJ\/v75\/0=",
-      "BlazorWithIdentity.Client.dll": "sha256-1FwqFwu\/Uho8xYJRPSsSi6PW4p2wcZ4eo4YzEW51A4A="
+      "Blazor.Domain.dll": "sha256-9ZsWwFDw9ydIN7Lnq7sgMZ6yram1Ya+Ag0Uq40rQPgQ=",
+      "BlazorWithIdentity.Shared.dll": "sha256-bmjNxqFQtU9gAP4XP+aaYkuab7QTVaxw7Tpy8Ua1dLY=",
+      "BlazorWithIdentity.Client.dll": "sha256-fdHLR1zyccQBzhW9hivxOlsL536Syz77aLNXLH5g3J4="
     },
     "lazyAssembly": null,
     "pdb": {
-      "BlazorWithIdentity.Client.pdb": "sha256-ANAntohAJ5EFRv1HDe+N5cPre5uh\/qRGLfD7LFKWPHw="
+      "BlazorWithIdentity.Client.pdb": "sha256-pK7YSAcleH6aZwCURRRAfxtxM\/feDd124v5WOjbtjSo="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-2OdnPsDgJyoSaSlvebGMRd2MxC+4UIqparqVrQZAFDE=",

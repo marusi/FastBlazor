@@ -7463,11 +7463,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Server\\BlazorWithIdentity.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Server\\BlazorWithIdentity.Server.csproj",
       "projectName": "BlazorWithIdentity.Server",
-      "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Server\\BlazorWithIdentity.Server.csproj",
+      "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Server\\BlazorWithIdentity.Server.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Server\\obj\\",
+      "outputPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -7491,14 +7491,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj": {
-              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj"
+            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Infrastructure.DI\\Blazor.Infrastructure.DI.csproj"
             },
-            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj": {
-              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj"
+            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj"
             },
-            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Shared\\BlazorWithIdentity.Shared.csproj": {
-              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\template\\BlazorWithIdentity.Shared\\BlazorWithIdentity.Shared.csproj"
+            "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Shared\\BlazorWithIdentity.Shared.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Shared\\BlazorWithIdentity.Shared.csproj"
             }
           }
         }

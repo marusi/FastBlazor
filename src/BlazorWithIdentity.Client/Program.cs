@@ -26,6 +26,7 @@ namespace BlazorWithIdentity.Client
          
             builder.Services.AddScoped<IAuthorizeApi, AuthorizeApi>();
             builder.Services.AddScoped<ICategoryDataService, CategoryApi>();
+            builder.Services.AddScoped<IProductDataService, ProductApi>();
             builder.Services.AddSingleton<ToastService>();
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
