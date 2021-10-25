@@ -1,0 +1,119 @@
+.navbar-toggler[b-234l2opi20] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-234l2opi20] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-234l2opi20] {
+    font-size: 1.1rem;
+}
+
+.oi[b-234l2opi20] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-234l2opi20] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-234l2opi20] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-234l2opi20] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-234l2opi20]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-234l2opi20]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-234l2opi20]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-234l2opi20] {
+        display: none;
+    }
+
+    .collapse[b-234l2opi20] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
+
+
+.list-items[b-234l2opi20] {
+    padding-left: 0;
+    list-style: none;
+    margin: 1em 0;
+}
+
+    .list-items .row[b-234l2opi20] {
+        padding: 10px;
+    }
+
+        .list-items .row .row[b-234l2opi20] {
+            padding: 0;
+        }
+
+    .list-items .list-items-row[b-234l2opi20] {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .list-items [data-toggle="collapse"][b-234l2opi20] {
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        cursor: pointer;
+    }
+
+        .list-items [data-toggle="collapse"][aria-expanded="true"][b-234l2opi20], .list-items [data-toggle="collapse"]:hover[b-234l2opi20] {
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.32);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            color: #61b405;
+        }
+
+    .list-items .glyph-chevron-right[b-234l2opi20],
+    .list-items .glyph-chevron-down[b-234l2opi20] {
+        font-size: .75em;
+        height: 1.25em;
+    }
+
+    .list-items [aria-expanded="false"] .glyph-chevron-down[b-234l2opi20] {
+        display: none;
+    }
+
+    .list-items [aria-expanded="true"] .glyph-chevron-right[b-234l2opi20] {
+        display: none;
+    }
+
+    .list-items .collapse[b-234l2opi20],
+    .list-items .collapsing[b-234l2opi20] {
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+    }
+

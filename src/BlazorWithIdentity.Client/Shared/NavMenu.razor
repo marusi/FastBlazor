@@ -1,0 +1,56 @@
+﻿
+@using Microsoft.Fast.Components.FluentUI
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+
+<ol class="list-items">
+        <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                   <NavLinkFluentAnchor Match="NavLinkMatch.All" Href="/Category" Appearance="Appearance.Outline">Category</NavLinkFluentAnchor>      <!-- adjust the grid settings appropriately-->
+                </div>
+                
+               
+            </div>
+        </li>
+     @*    <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/productName" Appearance="Appearance.Outline">Product</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li>  *@
+    </ol>
+
+</div>
+                      
+                     
+            
+
+
+                 
+                
+
+               
+           
+
+
+
+
+
+
+
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
