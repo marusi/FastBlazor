@@ -13,14 +13,26 @@
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
          
       <div class="col-md-8">
-         
-        
+
+          @if(categories == null) 
+          {
+              <p><a href="/category">Insert</a> a new category </p>
+          } else {
+               <InputSelect  class="form-control" id="category" @bind-Value="saveProductDTO.ProductCategoryId">
+                                                  
+                                                    @foreach (var item in categories)
+                                                    {
+                                                       
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+                                                </InputSelect>
+           }
 
                 </div>
                 <div class="col-md-8">
 
-                    <FluentTextField id="inputCategory"  @bind-Value="productItem.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
-                    <ValidationMessage class="text-danger" For="@(() => productItem.ProductName)" />
+                    <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
+                    <ValidationMessage class="text-danger" For="@(() => saveProductDTO.ProductName)" />
 
 
                 </div>
@@ -44,7 +56,9 @@
 
 
 
-@code { [Parameter]
+@code {
+    
+    [Parameter]
     public int Id { get; set; }
     string error { get; set; }
 
@@ -66,11 +80,11 @@
         error = null;
         try
         {
-            await ProductDataService.UpdateProduct(Id, productItem);
+            await ProductDataService.UpdateProduct(Id, saveProductDTO);
             toastService.ShowToast($"{productItem.ProductName} added Succesfuly", ToastLevel.Success);
             //  StateHasChanged();
             //    await OnInitializedAsync();
-            navigationManager.NavigateTo("/category");
+            navigationManager.NavigateTo("/product");
 
 
 
@@ -82,16 +96,17 @@
     }
     @functions {
 
-
        
+       private ProductCategoryDTO[] categories { get; set; }
        
       
       protected override async Task OnInitializedAsync()
     {
           
-            productItem = await ProductDataService.GetProductById(Id);
+          
             
-          // dataList = await CategoryDataService.GetCategories();
+          categories = await CategoryDataService.GetCategories();
+            productItem = await ProductDataService.GetProductById(Id);
             // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 

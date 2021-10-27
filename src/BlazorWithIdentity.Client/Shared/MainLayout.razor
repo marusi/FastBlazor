@@ -20,26 +20,16 @@
      </div>
       <div class="row">
           
-
-        <div  class="col-md-4 ">
+ <div  class="col-md-4 ">
                  <NavMenu />
         </div>
         <div class="col-md-20">
-                
-            <Toast></Toast>
+             <Toast></Toast>
              @Body
         </div>
 
         </div>
-        
-     
-
-              
-           
-       
-
-              
-            
+      
       <Footer/>
 
         </Authorized>
@@ -56,6 +46,7 @@
     async Task LogoutClick()
     {
         await authStateProvider.Logout();
+        toastService.ShowToast("Logged out!", ToastLevel.Info);
         navigationManager.NavigateTo("/login");
     }
 }

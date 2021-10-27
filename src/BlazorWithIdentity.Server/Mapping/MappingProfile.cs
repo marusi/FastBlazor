@@ -22,7 +22,7 @@ namespace BlazorWithIdentity.Server.Mapping
             CreateMap<ProductCategory, ProductCategoryDTO>();
             CreateMap<ProductCategory, KeyValuePairDTO>();
 
-            
+            CreateMap<Product, SaveProductDTO>();
             CreateMap<Product, ProductDTO>()
                .ForMember(pr => pr.ProductCategory, opt => opt.MapFrom(p => p.ProductCategory))
                 .ForMember(pr => pr.ProductName, opt => opt.MapFrom(p => p.ProductName));
@@ -39,10 +39,13 @@ namespace BlazorWithIdentity.Server.Mapping
 
             //API DTO to Domain
             CreateMap<SaveProductCategoryDTO, ProductCategory>()
-            .ForMember(p => p.Id, opt => opt.Ignore());
+            .ForMember(p => p.Id, opt => opt.Ignore())
+            .ForMember(p => p.Name, opt => opt.MapFrom(pr => pr.Name));
 
             CreateMap<SaveProductDTO, Product>()
-           .ForMember(p => p.Id, opt => opt.Ignore());
+           .ForMember(p => p.Id, opt => opt.Ignore())
+            .ForMember(p => p.ProductName, opt => opt.MapFrom(pr => pr.ProductName));
+            //.ForMember(p => p.ProductCategoryId, opt => opt.MapFrom(pr => pr.ProductCategoryId));
 
             CreateMap<SaveOptionDTO, Option>()
            .ForMember(p => p.Id, opt => opt.Ignore());

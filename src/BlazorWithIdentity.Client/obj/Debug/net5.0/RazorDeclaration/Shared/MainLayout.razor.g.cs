@@ -146,12 +146,13 @@ using Microsoft.Fast.Components.FluentUI;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
+#line 44 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
       
 
     async Task LogoutClick()
     {
         await authStateProvider.Logout();
+        toastService.ShowToast("Logged out!", ToastLevel.Info);
         navigationManager.NavigateTo("/login");
     }
 

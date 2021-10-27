@@ -11,7 +11,7 @@ namespace BlazorWithIdentity.Client.Services.Contracts
 
         Task CreateProduct(SaveProductDTO saveProductDTO);
 
-        Task UpdateProduct(int id, ProductDTO saveProductDTO);
+        Task UpdateProduct(int id, SaveProductDTO saveProductDTO);
 
         Task<ProductDTO[]> GetProducts();
 

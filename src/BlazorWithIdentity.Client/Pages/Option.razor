@@ -13,7 +13,8 @@
 
 
  <div class="row">
-  
+  <div class="container">
+   <h6>Option</h6>
    <div class="col-md-12">
     <FluentCard  style="height:50%">  
     
@@ -36,8 +37,9 @@
                      <li class="list-items-row">
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveOptionDTO">
-                                  <div class="col-md-12">
-                                        <h6>Choose Category</h6>
+                                   <div class="col-md-24">
+                                      <div class="col-md-12">
+                                        <h6>Choose Product</h6>
                                                <InputSelect  class="form-control" id="product" @bind-Value="saveOptionDTO.ProductId">
                                                   
                                                     @foreach (var item in products)
@@ -45,7 +47,13 @@
                                                         <option value="@item.Id">@item.ProductName</option>
                                                     }
                                                 </InputSelect>
-                                              <br>
+                                              <br/>
+                                              </div>
+                                              <div class="col-md-12"></div>
+                                     
+                                  </div> 
+                                  
+                                  <div class="col-md-12">
                                                    
                                                         <FluentTextField id="inputCategory"  @bind-Value="saveOptionDTO.OptionName"  placeholder="New Option"  ></FluentTextField>
                                                             <ValidationMessage class="text-danger" For="@(() => saveOptionDTO.OptionName)" />
@@ -89,6 +97,7 @@
 
      </div>
      <div class="col-md-12"> </div>
+ </div>
  </div>
 
 

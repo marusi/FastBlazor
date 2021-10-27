@@ -49,7 +49,7 @@ namespace BlazorWithIdentity.Client.Services.Implementations
 
         }
 
-        public async Task UpdateProduct(int id, ProductDTO saveProductDTO)
+        public async Task UpdateProduct(int id, SaveProductDTO saveProductDTO)
         {
             var stringContent = new StringContent(JsonSerializer.Serialize(saveProductDTO), Encoding.UTF8, "application/json");
             var result = await _httpClient.PutAsJsonAsync($"{ProductsUrl}/{id}", saveProductDTO);

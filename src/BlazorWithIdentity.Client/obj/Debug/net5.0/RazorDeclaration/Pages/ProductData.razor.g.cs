@@ -168,8 +168,10 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
-        [Parameter]
+#line 59 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+       
+    
+    [Parameter]
     public int Id { get; set; }
     string error { get; set; }
 
@@ -191,11 +193,11 @@ using BlazorWithIdentity.Shared.DTO.Product;
         error = null;
         try
         {
-            await ProductDataService.UpdateProduct(Id, productItem);
+            await ProductDataService.UpdateProduct(Id, saveProductDTO);
             toastService.ShowToast($"{productItem.ProductName} added Succesfuly", ToastLevel.Success);
             //  StateHasChanged();
             //    await OnInitializedAsync();
-            navigationManager.NavigateTo("/category");
+            navigationManager.NavigateTo("/product");
 
 
 
@@ -211,19 +213,20 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 83 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+#line 97 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
                 
 
-
        
+       private ProductCategoryDTO[] categories { get; set; }
        
       
       protected override async Task OnInitializedAsync()
     {
           
-            productItem = await ProductDataService.GetProductById(Id);
+          
             
-          // dataList = await CategoryDataService.GetCategories();
+          categories = await CategoryDataService.GetCategories();
+            productItem = await ProductDataService.GetProductById(Id);
             // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 
