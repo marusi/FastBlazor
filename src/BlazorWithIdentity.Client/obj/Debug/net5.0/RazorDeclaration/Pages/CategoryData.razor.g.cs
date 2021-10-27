@@ -161,7 +161,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
+#line 41 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
        
     [Parameter]
     public int Id { get; set; }
@@ -199,6 +199,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
       protected override async Task OnInitializedAsync()
     {
        categoryItem = await CategoryDataService.GetCategoryById(Id);
+
       // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 

@@ -168,7 +168,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 110 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Category.razor"
+#line 91 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Category.razor"
       
 
     // private SuccessNotification _notification;
@@ -188,11 +188,18 @@ using BlazorWithIdentity.Shared.DTO.Category;
         error = null;
         try
         {
-            await CategoryDataService.CreateCategory(saveProductCategoryDTO);
-            toastService.ShowToast($"{saveProductCategoryDTO.Name} added Succesfuly", ToastLevel.Success);
-            StateHasChanged();
-             await OnInitializedAsync();
-            navigationManager.NavigateTo("/category");
+            if (saveProductCategoryDTO.Name != null)
+            {
+                  await CategoryDataService.CreateCategory(saveProductCategoryDTO);
+                  toastService.ShowToast($"{saveProductCategoryDTO.Name} added Succesfuly", ToastLevel.Success);
+                  StateHasChanged();
+                  await OnInitializedAsync();
+                  navigationManager.NavigateTo("/category");
+            } else
+            {
+                 toastService.ShowToast($"Kindly, insert category name", ToastLevel.Warning);
+            }
+
             
            
 
@@ -212,7 +219,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
 #line hidden
 #nullable disable
 #nullable restore
-#line 147 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Category.razor"
+#line 135 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Category.razor"
               
 
 

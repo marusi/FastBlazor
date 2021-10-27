@@ -7,6 +7,8 @@ using AutoMapper;
 using Blazor.Domain.Models;
 using BlazorWithIdentity.Shared.DTO;
 using BlazorWithIdentity.Shared.DTO.Category;
+using BlazorWithIdentity.Shared.DTO.Option;
+using BlazorWithIdentity.Shared.DTO.OptionValue;
 using BlazorWithIdentity.Shared.DTO.Product;
 
 namespace BlazorWithIdentity.Server.Mapping
@@ -20,14 +22,32 @@ namespace BlazorWithIdentity.Server.Mapping
             CreateMap<ProductCategory, ProductCategoryDTO>();
             CreateMap<ProductCategory, KeyValuePairDTO>();
 
+            
             CreateMap<Product, ProductDTO>()
                .ForMember(pr => pr.ProductCategory, opt => opt.MapFrom(p => p.ProductCategory))
                 .ForMember(pr => pr.ProductName, opt => opt.MapFrom(p => p.ProductName));
 
+            CreateMap<Option, SaveOptionDTO>();
+            CreateMap<Option, OptionDTO>()
+               .ForMember(pr => pr.Product, opt => opt.MapFrom(p => p.Product))
+                .ForMember(pr => pr.OptionName, opt => opt.MapFrom(p => p.OptionName));
+
+            CreateMap<OptionValue, SaveOptionValueDTO>();
+            CreateMap<OptionValue, OptionValueDTO>()
+               .ForMember(pr => pr.Option, opt => opt.MapFrom(p => p.Option))
+                .ForMember(pr => pr.OptionValueName, opt => opt.MapFrom(p => p.OptionValueName));
+
             //API DTO to Domain
             CreateMap<SaveProductCategoryDTO, ProductCategory>()
             .ForMember(p => p.Id, opt => opt.Ignore());
+
             CreateMap<SaveProductDTO, Product>()
+           .ForMember(p => p.Id, opt => opt.Ignore());
+
+            CreateMap<SaveOptionDTO, Option>()
+           .ForMember(p => p.Id, opt => opt.Ignore());
+
+            CreateMap<SaveOptionValueDTO, OptionValue>()
            .ForMember(p => p.Id, opt => opt.Ignore());
         }
     }

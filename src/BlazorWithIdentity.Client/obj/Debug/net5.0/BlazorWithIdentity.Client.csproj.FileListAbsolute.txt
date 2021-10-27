@@ -1143,9 +1143,11 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Category.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\CategoryData.razor.g.cs
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Option.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\OptionValue.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\OptionValueData.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Product.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\ProductData.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Register.razor.g.cs
@@ -1167,9 +1169,11 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\App.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Category.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\CategoryData.razor.g.cs
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Option.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\OptionValue.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\OptionValueData.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Product.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\ProductData.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Register.razor.g.cs
@@ -1406,3 +1410,5 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\ref\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.pdb
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\OptionData.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\OptionData.razor.g.cs

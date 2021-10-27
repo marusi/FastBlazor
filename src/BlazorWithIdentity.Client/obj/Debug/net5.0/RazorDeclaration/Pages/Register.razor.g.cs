@@ -160,11 +160,13 @@ using Microsoft.Fast.Components.FluentUI;
         try
         {
             await authStateProvider.Register(registerParameters);
+            toastService.ShowToast($"Welcome ", ToastLevel.Success);
             navigationManager.NavigateTo("");
         }
         catch (Exception ex)
         {
             error = ex.Message;
+             toastService.ShowToast($"Registration Unsuccesful", ToastLevel.Error);
         }
     }
 

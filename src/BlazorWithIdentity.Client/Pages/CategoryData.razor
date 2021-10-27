@@ -6,10 +6,15 @@
 
 <div class="row row-sm">
 <div class="container">
+    <h6>Edit Category</h6>
+
     <FluentCard style="height:25%">
  <EditForm class="form-category" OnValidSubmit="OnSubmitCategory" Model="categoryItem">
+      <div class="col-md-2">
+          <NavLinkFluentAnchor  Href="@($"category")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></NavLinkFluentAnchor> 
+      </div>
          
-      <div class="col-md-12">
+      <div class="col-md-10">
        
        <FluentTextField id="inputCategory"  @bind-Value="categoryItem.Name"  placeholder="@categoryItem.Name"  ></FluentTextField>
          <ValidationMessage class="text-danger" For="@(() => categoryItem.Name)" />
@@ -70,6 +75,7 @@
       protected override async Task OnInitializedAsync()
     {
        categoryItem = await CategoryDataService.GetCategoryById(Id);
+
       // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 }

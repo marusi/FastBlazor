@@ -1,0 +1,80 @@
+﻿@page "/optiondata/{Id:int}"
+@attribute [Authorize]
+@using BlazorWithIdentity.Shared
+@inject HttpClient Http
+@using BlazorWithIdentity.Shared.DTO.Option
+@using BlazorWithIdentity.Shared.DTO.Product
+
+
+
+
+
+
+<div class="row row-sm">
+<div class="container">
+    <FluentCard style="height:25%">
+  
+ <EditForm class="form-category" OnValidSubmit="OnSubmitOption" Model="optionItem">
+         
+      <div class="col-md-8">
+         
+        
+
+                </div>
+                <div class="col-md-8">
+
+                    <FluentTextField id="inputCategory"  @bind-Value="optionItem.OptionName"  placeholder="@optionItem.OptionName"  ></FluentTextField>
+                    <ValidationMessage class="text-danger" For="@(() => optionItem.OptionName)" />
+
+
+                </div>
+
+                <div class="col-md-8">
+                    <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
+                    <label class="text-danger">@error</label> 
+
+                </div>
+
+
+
+            </EditForm>
+        </FluentCard>
+    </div>
+
+</div>
+
+
+@code {
+    [Parameter]
+     public  int Id {get; set;}
+     string error { get; set; }
+
+     OptionDTO optionItem {get; set;} = new OptionDTO();
+     SaveOptionDTO saveOptionDTO {get; set;} = new SaveOptionDTO();
+
+     [Inject]
+    public IOptionDataService OptionDataService { get; set; }
+    [Inject]
+    public IProductDataService ProductDataService { get; set; }
+
+    async Task OnSubmitOption()
+    {
+        error = null;
+        try
+        {
+            await OptionDataService.UpdateOption(Id, optionItem);
+            toastService.ShowToast($"{optionItem.OptionName} updated succesfuly", ToastLevel.Success);
+            await OnInitializedAsync();
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+    }
+    @functions {
+        protected override async Task OnInitializedAsync()
+        {
+            optionItem = await OptionDataService.GetOptionById(Id);
+        }
+    }
+}

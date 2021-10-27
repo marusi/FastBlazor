@@ -16,6 +16,9 @@ namespace Blazor.Infrastructure
         public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public DbSet<Product> Products {  get; set; }
+
+        public DbSet<Option> Options { get; set; }
+        public DbSet<OptionValue> OptionValues { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

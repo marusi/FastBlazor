@@ -146,7 +146,7 @@ using Microsoft.Fast.Components.FluentUI;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
+#line 67 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

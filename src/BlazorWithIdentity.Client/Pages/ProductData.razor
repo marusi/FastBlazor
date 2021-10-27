@@ -13,32 +13,29 @@
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
          
       <div class="col-md-8">
-            <InputSelect  class="form-control" id="category" @bind-Value="saveProductDTO.ProductCategoryId">
-                                               
-                                                  
-             </InputSelect>
-                                              
-          
-          </div>
-      <div class="col-md-8">
-       
-       <FluentTextField id="inputCategory"  @bind-Value="productItem.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
-         <ValidationMessage class="text-danger" For="@(() => productItem.ProductName)" />
+         
+        
+
+                </div>
+                <div class="col-md-8">
+
+                    <FluentTextField id="inputCategory"  @bind-Value="productItem.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
+                    <ValidationMessage class="text-danger" For="@(() => productItem.ProductName)" />
 
 
-       </div>
+                </div>
 
-        <div class="col-md-8">
-        <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
-            <label class="text-danger">@error</label> 
-    
-        </div>
+                <div class="col-md-8">
+                    <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
+                    <label class="text-danger">@error</label> 
+
+                </div>
 
 
- 
-        </EditForm>
+
+            </EditForm>
         </FluentCard>
-</div>
+    </div>
 
 </div>
 
@@ -47,33 +44,35 @@
 
 
 
-@code {
-    [Parameter]
+@code { [Parameter]
     public int Id { get; set; }
     string error { get; set; }
 
-  
+
     ProductDTO productItem { get; set; } = new ProductDTO();
     SaveProductDTO saveProductDTO { get; set; } = new SaveProductDTO();
-   
-   
-     [Inject]
+
+
+
+
+
+    [Inject]
     public ICategoryDataService CategoryDataService { get; set; }
-     [Inject]
+    [Inject]
     public IProductDataService ProductDataService { get; set; }
 
-      async Task OnSubmitProduct()
+    async Task OnSubmitProduct()
     {
         error = null;
         try
         {
-           await ProductDataService.UpdateProduct(Id, productItem);
+            await ProductDataService.UpdateProduct(Id, productItem);
             toastService.ShowToast($"{productItem.ProductName} added Succesfuly", ToastLevel.Success);
-         //  StateHasChanged();
-         //    await OnInitializedAsync();
+            //  StateHasChanged();
+            //    await OnInitializedAsync();
             navigationManager.NavigateTo("/category");
-            
-           
+
+
 
         }
         catch (Exception ex)
@@ -82,13 +81,20 @@
         }
     }
     @functions {
-        private ProductCategoryDTO[] categories { get; set; } 
 
+
+       
+       
+      
       protected override async Task OnInitializedAsync()
     {
-       productItem = await ProductDataService.GetProductById(Id); 
-       categories = await CategoryDataService.GetCategories();
-      // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
+          
+            productItem = await ProductDataService.GetProductById(Id);
+            
+          // dataList = await CategoryDataService.GetCategories();
+            // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
+
+      
     }
 }

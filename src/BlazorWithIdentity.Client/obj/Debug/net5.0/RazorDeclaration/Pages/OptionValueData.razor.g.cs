@@ -69,13 +69,6 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
-using BlazorWithIdentity.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 10 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using BlazorWithIdentity.Client;
 
@@ -139,14 +132,35 @@ using Microsoft.Fast.Components.FluentUI;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Counter.razor"
+#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+using BlazorWithIdentity.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+using BlazorWithIdentity.Shared.DTO.Option;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+using BlazorWithIdentity.Shared.DTO.OptionValue;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
            [Authorize]
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
-    public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/optionvaluedata/{Id:int}")]
+    public partial class OptionValueData : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -154,18 +168,72 @@ using Microsoft.Fast.Components.FluentUI;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Counter.razor"
-       
-    private int currentCount = 0;
+#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+        [Parameter]
+    public int Id { get; set; }
+    string error { get; set; }
 
-    private void IncrementCount()
+
+    OptionValueDTO optionValueItem { get; set; } = new OptionValueDTO();
+    SaveOptionValueDTO saveOptionValuetDTO { get; set; } = new SaveOptionValueDTO();
+
+
+
+
+
+    [Inject]
+    public IOptionValueDataService OptionValueDataService { get; set; }
+    [Inject]
+    public IOptionDataService OptionDataService { get; set; }
+
+    async Task OnSubmitOptionValue()
     {
-        currentCount++;
+        error = null;
+        try
+        {
+            await OptionValueDataService.UpdateOptionValue(Id, optionValueItem);
+            toastService.ShowToast($"{optionValueItem.OptionValueName} added Succesfuly", ToastLevel.Success);
+            //  StateHasChanged();
+            //    await OnInitializedAsync();
+            navigationManager.NavigateTo("/optionvalue");
+
+
+
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
     }
+    
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 83 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+                
+
+
+       
+       
+      
+      protected override async Task OnInitializedAsync()
+    {
+          
+            optionValueItem = await OptionValueDataService.GetOptionValueById(Id);
+            
+          // dataList = await CategoryDataService.GetCategories();
+            // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
+    }
+
+      
+    
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
     }

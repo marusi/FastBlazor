@@ -159,9 +159,9 @@ using Microsoft.Fast.Components.FluentUI;
         try
         {
             await authStateProvider.Login(loginParameters);
-            
-            navigationManager.NavigateTo("");
              toastService.ShowToast($"Welcome ", ToastLevel.Success);
+            navigationManager.NavigateTo("");
+            
         }
         catch (Exception ex)
         {

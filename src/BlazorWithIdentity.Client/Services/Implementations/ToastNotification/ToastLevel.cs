@@ -11,5 +11,6 @@ namespace BlazorWithIdentity.Client.Services.Implementations.ToastNotification
         Success,
         Warning,
         Error
+
     }
 }

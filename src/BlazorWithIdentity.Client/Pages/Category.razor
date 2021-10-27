@@ -15,7 +15,8 @@
 
       
   <div class="row">
-  
+  <div class="container">
+   <h6>Categories</h6>
    <div class="col-md-12">
     <FluentCard  style="height:50%">  
    
@@ -29,6 +30,8 @@
           }
          else
          {
+        
+              
   <ol class="list-items">
 
       <li class="list-items-row">
@@ -83,29 +86,7 @@
 
    </div>
   </div>
-
-
-
- 
-
-      
-
-     
-  
-
-  
-     
-   
-    
-  
-
-
-   
-
-
-  
-
-
+  </div>
 
 @code{
 
@@ -126,11 +107,18 @@
         error = null;
         try
         {
-            await CategoryDataService.CreateCategory(saveProductCategoryDTO);
-            toastService.ShowToast($"{saveProductCategoryDTO.Name} added Succesfuly", ToastLevel.Success);
-            StateHasChanged();
-             await OnInitializedAsync();
-            navigationManager.NavigateTo("/category");
+            if (saveProductCategoryDTO.Name != null)
+            {
+                  await CategoryDataService.CreateCategory(saveProductCategoryDTO);
+                  toastService.ShowToast($"{saveProductCategoryDTO.Name} added Succesfuly", ToastLevel.Success);
+                  StateHasChanged();
+                  await OnInitializedAsync();
+                  navigationManager.NavigateTo("/category");
+            } else
+            {
+                 toastService.ShowToast($"Kindly, insert category name", ToastLevel.Warning);
+            }
+
             
            
 
