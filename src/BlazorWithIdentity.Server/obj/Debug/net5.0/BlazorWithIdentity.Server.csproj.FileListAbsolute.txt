@@ -249,4 +249,3 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.S
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\obj\Debug\net5.0\ref\BlazorWithIdentity.Server.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\obj\Debug\net5.0\BlazorWithIdentity.Server.pdb
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\obj\Debug\net5.0\BlazorWithIdentity.Server.genruntimeconfig.cache
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\obj\Debug\net5.0\BlazorWithIdentity.Server.csproj.CopyComplete

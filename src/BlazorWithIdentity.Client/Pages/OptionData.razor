@@ -29,12 +29,12 @@
              
                <InputSelect  class="form-control" id="products" @bind-Value="saveOptionDTO.ProductId">
                                                   
-                                                    @foreach (var item in products)
-                                                    {
+                       @foreach (var item in products)
+                          {
                                                        
-                                                        <option value="@item.Id">@item.ProductName</option>
-                                                    }
-                                                </InputSelect>
+                                 <option value="@item.Id">@item.ProductName</option>
+                           }
+                </InputSelect>
                                                  <p>Product</p>
            }
 

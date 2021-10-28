@@ -19,6 +19,7 @@ namespace Blazor.Infrastructure
 
         public DbSet<Option> Options { get; set; }
         public DbSet<OptionValue> OptionValues { get; set; }
+        public DbSet<SkuValue> SkuValues { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

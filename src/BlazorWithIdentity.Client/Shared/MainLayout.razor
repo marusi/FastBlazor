@@ -11,7 +11,7 @@
                   <FluentToolbar id="toolbar-fluent-components-main" style="width:100%" >
 
                         <NavLinkFluentAnchor Href="/" Appearance="Appearance.Outline">Home</NavLinkFluentAnchor>
-                           <h5 slot="end">Hi, @context.User.Identity.Name  <FluentCheckbox  @onclick="@LogoutClick" slot="end">Log out</FluentCheckbox> </h5>   
+                           <h5 slot="end">Hi, @context.User.Identity.Name  <span class="glyph glyph-undo" data-toggle="tooltip" title="Log out"  @onclick="@LogoutClick" slot="end">Log out</span> </h5>   
                       </FluentToolbar>
 
 
