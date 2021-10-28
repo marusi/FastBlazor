@@ -16,15 +16,33 @@
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitOption" Model="optionItem">
          
-      <div class="col-md-8">
+      <div class="col-md-2">
+          <NavLinkFluentAnchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></NavLinkFluentAnchor> 
+      </div>
          
-        
+      <div class="col-md-6">
+
+          @if(products == null) 
+          {
+              <p><a href="/category">Insert</a> a new category </p>
+          } else {
+             
+               <InputSelect  class="form-control" id="products" @bind-Value="saveOptionDTO.ProductId">
+                                                  
+                                                    @foreach (var item in products)
+                                                    {
+                                                       
+                                                        <option value="@item.Id">@item.ProductName</option>
+                                                    }
+                                                </InputSelect>
+                                                 <p>Product</p>
+           }
 
                 </div>
                 <div class="col-md-8">
 
-                    <FluentTextField id="inputCategory"  @bind-Value="optionItem.OptionName"  placeholder="@optionItem.OptionName"  ></FluentTextField>
-                    <ValidationMessage class="text-danger" For="@(() => optionItem.OptionName)" />
+                    <FluentTextField id="inputCategory"  @bind-Value="saveOptionDTO.OptionName"  placeholder="@optionItem.OptionName"  ></FluentTextField>
+                    <ValidationMessage class="text-danger" For="@(() => saveOptionDTO.OptionName)" />
 
 
                 </div>
@@ -62,18 +80,23 @@
         error = null;
         try
         {
-            await OptionDataService.UpdateOption(Id, optionItem);
-            toastService.ShowToast($"{optionItem.OptionName} updated succesfuly", ToastLevel.Success);
+            await OptionDataService.UpdateOption(Id, saveOptionDTO);
+            toastService.ShowToast($"{saveOptionDTO.OptionName} updated succesfuly", ToastLevel.Success);
             await OnInitializedAsync();
+             navigationManager.NavigateTo("/option");
         }
         catch (Exception ex)
         {
             error = ex.Message;
+             toastService.ShowToast($"{saveOptionDTO.OptionName} failed to add", ToastLevel.Error);
         }
     }
     @functions {
+
+        private ProductDTO[] products { get; set; }
         protected override async Task OnInitializedAsync()
         {
+            products = await ProductDataService.GetProducts();
             optionItem = await OptionDataService.GetOptionById(Id);
         }
     }

@@ -8,16 +8,22 @@
 
 <div class="row row-sm">
 <div class="container">
+      <h6>Edit Product</h6>
     <FluentCard style="height:25%">
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
+     
+     <div class="col-md-2">
+          <NavLinkFluentAnchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></NavLinkFluentAnchor> 
+      </div>
          
-      <div class="col-md-8">
+      <div class="col-md-6">
 
           @if(categories == null) 
           {
               <p><a href="/category">Insert</a> a new category </p>
           } else {
+             
                <InputSelect  class="form-control" id="category" @bind-Value="saveProductDTO.ProductCategoryId">
                                                   
                                                     @foreach (var item in categories)
@@ -26,6 +32,7 @@
                                                         <option value="@item.Id">@item.Name</option>
                                                     }
                                                 </InputSelect>
+                                                 <p>Category</p>
            }
 
                 </div>
@@ -81,7 +88,7 @@
         try
         {
             await ProductDataService.UpdateProduct(Id, saveProductDTO);
-            toastService.ShowToast($"{productItem.ProductName} added Succesfuly", ToastLevel.Success);
+            toastService.ShowToast($"{saveProductDTO.ProductName} added Succesfuly", ToastLevel.Success);
             //  StateHasChanged();
             //    await OnInitializedAsync();
             navigationManager.NavigateTo("/product");
@@ -92,6 +99,7 @@
         catch (Exception ex)
         {
             error = ex.Message;
+             toastService.ShowToast($"{saveProductDTO.ProductName} failed to add", ToastLevel.Error);
         }
     }
     @functions {

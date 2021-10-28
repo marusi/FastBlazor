@@ -168,14 +168,14 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+#line 65 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
         [Parameter]
     public int Id { get; set; }
     string error { get; set; }
 
 
     OptionValueDTO optionValueItem { get; set; } = new OptionValueDTO();
-    SaveOptionValueDTO saveOptionValuetDTO { get; set; } = new SaveOptionValueDTO();
+    SaveOptionValueDTO saveOptionValueDTO { get; set; } = new SaveOptionValueDTO();
 
 
 
@@ -191,10 +191,10 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
         error = null;
         try
         {
-            await OptionValueDataService.UpdateOptionValue(Id, optionValueItem);
-            toastService.ShowToast($"{optionValueItem.OptionValueName} added Succesfuly", ToastLevel.Success);
-            //  StateHasChanged();
-            //    await OnInitializedAsync();
+            await OptionValueDataService.UpdateOptionValue(Id, saveOptionValueDTO);
+            toastService.ShowToast($"{saveOptionValueDTO.OptionValueName} added Succesfuly", ToastLevel.Success);
+             StateHasChanged();
+               await OnInitializedAsync();
             navigationManager.NavigateTo("/optionvalue");
 
 
@@ -203,6 +203,7 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
         catch (Exception ex)
         {
             error = ex.Message;
+            toastService.ShowToast($"{saveOptionValueDTO.OptionValueName} failed to add", ToastLevel.Error);
         }
     }
     
@@ -211,16 +212,12 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 83 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+#line 102 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
                 
-
-
-       
-       
-      
+       private OptionDTO[] options { get; set; }
       protected override async Task OnInitializedAsync()
     {
-          
+          options = await OptionDataService.GetOptions();
             optionValueItem = await OptionValueDataService.GetOptionValueById(Id);
             
           // dataList = await CategoryDataService.GetCategories();

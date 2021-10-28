@@ -11,7 +11,7 @@ namespace BlazorWithIdentity.Client.Services.Contracts
         // ProductCategoryDTO SavedCategory { get; set; }
         Task CreateOption(SaveOptionDTO saveOptionDTO);
 
-        Task UpdateOption(int id, OptionDTO saveOptionDTO);
+        Task UpdateOption(int id, SaveOptionDTO saveOptionDTO);
 
         Task<OptionDTO[]> GetOptions();
 

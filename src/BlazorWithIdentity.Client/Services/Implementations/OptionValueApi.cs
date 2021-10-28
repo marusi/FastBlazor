@@ -49,7 +49,7 @@ namespace BlazorWithIdentity.Client.Services.Implementations
 
         }
 
-        public async Task UpdateOptionValue(int id, OptionValueDTO saveOptionValueDTO)
+        public async Task UpdateOptionValue(int id, SaveOptionValueDTO saveOptionValueDTO)
         {
             var stringContent = new StringContent(JsonSerializer.Serialize(saveOptionValueDTO), Encoding.UTF8, "application/json");
             var result = await _httpClient.PutAsJsonAsync($"{OptionValuesUrl}/{id}", saveOptionValueDTO);

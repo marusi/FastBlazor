@@ -168,7 +168,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
+#line 65 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
        
     [Parameter]
      public  int Id {get; set;}
@@ -187,13 +187,15 @@ using BlazorWithIdentity.Shared.DTO.Product;
         error = null;
         try
         {
-            await OptionDataService.UpdateOption(Id, optionItem);
-            toastService.ShowToast($"{optionItem.OptionName} updated succesfuly", ToastLevel.Success);
+            await OptionDataService.UpdateOption(Id, saveOptionDTO);
+            toastService.ShowToast($"{saveOptionDTO.OptionName} updated succesfuly", ToastLevel.Success);
             await OnInitializedAsync();
+             navigationManager.NavigateTo("/option");
         }
         catch (Exception ex)
         {
             error = ex.Message;
+             toastService.ShowToast($"{saveOptionDTO.OptionName} failed to add", ToastLevel.Error);
         }
     }
     
@@ -202,10 +204,13 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 74 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
+#line 94 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
                 
+
+        private ProductDTO[] products { get; set; }
         protected override async Task OnInitializedAsync()
         {
+            products = await ProductDataService.GetProducts();
             optionItem = await OptionDataService.GetOptionById(Id);
         }
     

@@ -168,7 +168,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+#line 66 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
        
     
     [Parameter]
@@ -194,7 +194,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         try
         {
             await ProductDataService.UpdateProduct(Id, saveProductDTO);
-            toastService.ShowToast($"{productItem.ProductName} added Succesfuly", ToastLevel.Success);
+            toastService.ShowToast($"{saveProductDTO.ProductName} added Succesfuly", ToastLevel.Success);
             //  StateHasChanged();
             //    await OnInitializedAsync();
             navigationManager.NavigateTo("/product");
@@ -205,6 +205,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         catch (Exception ex)
         {
             error = ex.Message;
+             toastService.ShowToast($"{saveProductDTO.ProductName} failed to add", ToastLevel.Error);
         }
     }
     
@@ -213,7 +214,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 97 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+#line 105 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
                 
 
        

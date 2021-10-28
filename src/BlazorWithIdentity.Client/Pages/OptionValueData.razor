@@ -10,17 +10,35 @@
 <div class="container">
     <FluentCard style="height:25%">
   
- <EditForm class="form-category" OnValidSubmit="OnSubmitOptionValue" Model="optionValueItem">
+ <EditForm class="form-category" OnValidSubmit="OnSubmitOptionValue" Model="saveOptionValueDTO">
          
-      <div class="col-md-8">
+     <div class="col-md-2">
+          <NavLinkFluentAnchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></NavLinkFluentAnchor> 
+      </div>
          
-        
+      <div class="col-md-6">
+
+          @if(options == null) 
+          {
+              <p><a href="/options">Insert</a> a new category </p>
+          } else {
+             
+               <InputSelect  class="form-control" id="options" @bind-Value="saveOptionValueDTO.OptionId">
+                                                  
+                                                    @foreach (var item in options)
+                                                    {
+                                                       
+                                                        <option value="@item.Id">@item.OptionName</option>
+                                                    }
+                                                </InputSelect>
+                                                 <p>Option</p>
+           }
 
                 </div>
                 <div class="col-md-8">
 
-                    <FluentTextField id="inputCategory"  @bind-Value="optionValueItem.OptionValueName"  placeholder="@optionValueItem.OptionValueName"  ></FluentTextField>
-                    <ValidationMessage class="text-danger" For="@(() => optionValueItem.OptionValueName)" />
+                    <FluentTextField id="inputCategory"  @bind-Value="saveOptionValueDTO.OptionValueName"  placeholder="@optionValueItem.OptionValueName"  ></FluentTextField>
+                    <ValidationMessage class="text-danger" For="@(() => saveOptionValueDTO.OptionValueName)" />
 
 
                 </div>
@@ -50,7 +68,7 @@
 
 
     OptionValueDTO optionValueItem { get; set; } = new OptionValueDTO();
-    SaveOptionValueDTO saveOptionValuetDTO { get; set; } = new SaveOptionValueDTO();
+    SaveOptionValueDTO saveOptionValueDTO { get; set; } = new SaveOptionValueDTO();
 
 
 
@@ -66,10 +84,10 @@
         error = null;
         try
         {
-            await OptionValueDataService.UpdateOptionValue(Id, optionValueItem);
-            toastService.ShowToast($"{optionValueItem.OptionValueName} added Succesfuly", ToastLevel.Success);
-            //  StateHasChanged();
-            //    await OnInitializedAsync();
+            await OptionValueDataService.UpdateOptionValue(Id, saveOptionValueDTO);
+            toastService.ShowToast($"{saveOptionValueDTO.OptionValueName} added Succesfuly", ToastLevel.Success);
+             StateHasChanged();
+               await OnInitializedAsync();
             navigationManager.NavigateTo("/optionvalue");
 
 
@@ -78,17 +96,14 @@
         catch (Exception ex)
         {
             error = ex.Message;
+            toastService.ShowToast($"{saveOptionValueDTO.OptionValueName} failed to add", ToastLevel.Error);
         }
     }
     @functions {
-
-
-       
-       
-      
+       private OptionDTO[] options { get; set; }
       protected override async Task OnInitializedAsync()
     {
-          
+          options = await OptionDataService.GetOptions();
             optionValueItem = await OptionValueDataService.GetOptionValueById(Id);
             
           // dataList = await CategoryDataService.GetCategories();

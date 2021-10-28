@@ -10,7 +10,7 @@ namespace BlazorWithIdentity.Client.Services.Contracts
     {
         Task CreateOptionValue(SaveOptionValueDTO saveOptionValueDTO);
 
-        Task UpdateOptionValue(int id, OptionValueDTO saveOptionValueDTO);
+        Task UpdateOptionValue(int id, SaveOptionValueDTO saveOptionValueDTO);
 
         Task<OptionValueDTO[]> GetOptionValues();
 
