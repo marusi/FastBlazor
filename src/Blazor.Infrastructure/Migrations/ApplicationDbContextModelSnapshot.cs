@@ -163,6 +163,29 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("ProductCategories");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.ProductSku", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LastUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SkuValueId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SkuValueId");
+
+                    b.ToTable("ProductSkus");
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.SkuValue", b =>
                 {
                     b.Property<int>("Id")
@@ -343,6 +366,17 @@ namespace Blazor.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("ProductCategory");
+                });
+
+            modelBuilder.Entity("Blazor.Domain.Models.ProductSku", b =>
+                {
+                    b.HasOne("Blazor.Domain.Models.SkuValue", "SkuValue")
+                        .WithMany()
+                        .HasForeignKey("SkuValueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SkuValue");
                 });
 
             modelBuilder.Entity("Blazor.Domain.Models.SkuValue", b =>

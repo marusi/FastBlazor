@@ -10,6 +10,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
 using BlazorWithIdentity.Shared.DTO.Option;
 using BlazorWithIdentity.Shared.DTO.OptionValue;
 using BlazorWithIdentity.Shared.DTO.Product;
+using BlazorWithIdentity.Shared.DTO.ProductSku;
 using BlazorWithIdentity.Shared.DTO.SkuValue;
 
 namespace BlazorWithIdentity.Server.Mapping
@@ -43,6 +44,14 @@ namespace BlazorWithIdentity.Server.Mapping
               .ForMember(s => s.OptionValue, opt => opt.MapFrom(p => p.OptionValue))
                .ForMember(s => s.SkuValueName, opt => opt.MapFrom(o => o.SkuValueName));
 
+            CreateMap<ProductSku, SaveProductSkuDTO>();
+            CreateMap<ProductSku, ProductSkuDTO>()
+              .ForMember(s => s.SkuValue, opt => opt.MapFrom(p => p.SkuValue))
+               .ForMember(s => s.Price, opt => opt.MapFrom(o => o.Price));
+
+
+
+
             //API DTO to Domain
             CreateMap<SaveProductCategoryDTO, ProductCategory>()
             .ForMember(p => p.Id, opt => opt.Ignore())
@@ -60,6 +69,9 @@ namespace BlazorWithIdentity.Server.Mapping
            .ForMember(p => p.Id, opt => opt.Ignore());
 
             CreateMap<SaveSkuValueDTO, SkuValue>()
+            .ForMember(p => p.Id, opt => opt.Ignore());
+
+            CreateMap<SaveProductSkuDTO, ProductSku>()
             .ForMember(p => p.Id, opt => opt.Ignore());
         }
     }
