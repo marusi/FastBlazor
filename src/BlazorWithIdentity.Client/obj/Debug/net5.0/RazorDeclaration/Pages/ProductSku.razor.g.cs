@@ -173,6 +173,13 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
+#line 15 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
+using BlazorWithIdentity.Shared.DTO.SkuValue;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
            [Authorize]
 
@@ -188,7 +195,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 115 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
+#line 120 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
       
 
     // private SuccessNotification _notification;
@@ -198,14 +205,14 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
     SaveProductSkuDTO saveProductSkuDTO { get; set; } = new SaveProductSkuDTO();
     string error { get; set; }
 
-    OptionValueDTO optionValueDTO { get; set; } = new OptionValueDTO();
+    ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
   //  ProductCategoryDTO productCategoryDTO { get; set; } = new ProductCategoryDTO();
    
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
 
       [Inject]
-    public IOptionValueDataService OptionValueDataService { get; set; }
+    public ISkuValueDataService SkuValueDataService { get; set; }
 
     async Task OnSubmit()
     {
@@ -236,18 +243,18 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 156 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
+#line 161 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
               
 
 
         private ProductSkuDTO[] productSkus { get; set; }
-        private OptionValueDTO[] optionValues { get; set; }
+        private SkuValueDTO[] skuValues { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
        productSkus = await ProductSkuDataService.GetProductSkus();
-       optionValues = await OptionValueDataService.GetOptionValues();
+       skuValues = await SkuValueDataService.GetSkuValues();
 
 
       // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);

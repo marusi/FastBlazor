@@ -85,6 +85,36 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.CombinedProduct", b =>
+                {
+                    b.Property<int>("CompositeProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductSkuId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CompositeProductId", "ProductSkuId");
+
+                    b.HasIndex("ProductSkuId");
+
+                    b.ToTable("CombinedProducts");
+                });
+
+            modelBuilder.Entity("Blazor.Domain.Models.CompositeProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CompositeProducts");
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.Option", b =>
                 {
                     b.Property<int>("Id")
@@ -335,6 +365,25 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.CombinedProduct", b =>
+                {
+                    b.HasOne("Blazor.Domain.Models.CompositeProduct", "CompositeProduct")
+                        .WithMany("CombinedProducts")
+                        .HasForeignKey("CompositeProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Blazor.Domain.Models.ProductSku", "ProductSku")
+                        .WithMany()
+                        .HasForeignKey("ProductSkuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CompositeProduct");
+
+                    b.Navigation("ProductSku");
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.Option", b =>
                 {
                     b.HasOne("Blazor.Domain.Models.Product", "Product")
@@ -439,6 +488,11 @@ namespace Blazor.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Blazor.Domain.Models.CompositeProduct", b =>
+                {
+                    b.Navigation("CombinedProducts");
                 });
 #pragma warning restore 612, 618
         }

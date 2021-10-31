@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\AllProduct.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.2" />
 	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.2" />
 	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.2" PrivateAssets="all" />
@@ -15,6 +19,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorWithIdentity.Shared\BlazorWithIdentity.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Shared\AllProduct.razor" />
   </ItemGroup>
 
 </Project>

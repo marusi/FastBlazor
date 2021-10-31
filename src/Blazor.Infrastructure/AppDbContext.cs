@@ -17,6 +17,8 @@ namespace Blazor.Infrastructure
 
         public DbSet<Product> Products {  get; set; }
 
+        public DbSet<CompositeProduct> CompositeProducts { get; set; }
+
         public DbSet<Option> Options { get; set; }
         public DbSet<OptionValue> OptionValues { get; set; }
         public DbSet<SkuValue> SkuValues { get; set; }
@@ -37,6 +39,9 @@ namespace Blazor.Infrastructure
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+            //many to many relationship
+            builder.Entity<CombinedProduct>().HasKey(ps =>
+               new { ps.CompositeProductId, ps.ProductSkuId });
 
         }
 

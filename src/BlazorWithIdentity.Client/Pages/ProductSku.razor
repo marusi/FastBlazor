@@ -12,6 +12,7 @@
 @using BlazorWithIdentity.Shared.DTO.OptionValue
 @using BlazorWithIdentity.Shared.DTO.Product
 @using BlazorWithIdentity.Shared.DTO.ProductSku
+@using BlazorWithIdentity.Shared.DTO.SkuValue
 
 
  <div class="row">
@@ -44,11 +45,15 @@
                                           <p>Choose Category</p>
                                                <InputSelect  class="form-control" id="optionValue" @bind-Value="saveProductSkuDTO.SkuValueId">
                                                   
-                                                    @foreach (var item in optionValues)
+                                                    @foreach (var item in skuValues)
                                                     {
                                                        
                                                       
-                                                     <option value="@item.Id">@item.Option.Product.ProductName-@item.OptionValueName - </option>
+                                                     <option value="@item.Id">
+                                                         @item.OptionValue.Option.Product.ProductName
+                                                         @item.OptionValue.OptionValueName  @item.SkuValueName 
+                                                         
+                                                         </option>
 
                                                      
                                                 }
@@ -92,7 +97,7 @@
                                 </div>
                
                 <div class="col-md-4">
-                   <NavLinkFluentAnchor  Href="@($"productdata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></NavLinkFluentAnchor> 
+                   <NavLinkFluentAnchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></NavLinkFluentAnchor> 
                  
                 </div>
                  <div class="col-md-4">
@@ -121,14 +126,14 @@
     SaveProductSkuDTO saveProductSkuDTO { get; set; } = new SaveProductSkuDTO();
     string error { get; set; }
 
-    OptionValueDTO optionValueDTO { get; set; } = new OptionValueDTO();
+    ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
   //  ProductCategoryDTO productCategoryDTO { get; set; } = new ProductCategoryDTO();
    
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
 
       [Inject]
-    public IOptionValueDataService OptionValueDataService { get; set; }
+    public ISkuValueDataService SkuValueDataService { get; set; }
 
     async Task OnSubmit()
     {
@@ -157,13 +162,13 @@
 
 
         private ProductSkuDTO[] productSkus { get; set; }
-        private OptionValueDTO[] optionValues { get; set; }
+        private SkuValueDTO[] skuValues { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
        productSkus = await ProductSkuDataService.GetProductSkus();
-       optionValues = await OptionValueDataService.GetOptionValues();
+       skuValues = await SkuValueDataService.GetSkuValues();
 
 
       // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);

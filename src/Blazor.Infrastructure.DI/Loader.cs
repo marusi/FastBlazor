@@ -20,7 +20,7 @@ namespace Blazor.Infrastructure.DI
             services.AddScoped<IOptionValueRepository, OptionValueRepository>();
             services.AddScoped<ISkuValueRepository, SkuValueRepository>();
             services.AddScoped<IProductSkuRepository, ProductSkuRepository>();
-
+            services.AddScoped<ICompositeProductRepository, CompositeProductRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
         }
