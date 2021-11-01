@@ -253,6 +253,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 
     protected override async Task OnInitializedAsync()
     {
+        
        productSkus = await ProductSkuDataService.GetProductSkus(empty);
        skuValues = await SkuValueDataService.GetSkuValues();
 

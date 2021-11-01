@@ -211,11 +211,11 @@
       "System.Private.CoreLib.dll": "sha256-CvQTDivHJZAtRXyCbDa5f5+okJt39WRFrZSmXTMSau0=",
       "Blazor.Domain.dll": "sha256-0ukQxxJyQRhX3rvSvK2wzVJToyzJ6yz+XmZ1EH2dRzU=",
       "BlazorWithIdentity.Shared.dll": "sha256-Q3fK8n02g0rmF\/VpEzF78bYO91pkF5wAdCPaV3jL5GI=",
-      "BlazorWithIdentity.Client.dll": "sha256-dD\/p\/RXDirzdr18+6l\/StBT9WkaGiHzBXYe1sZl7VUA="
+      "BlazorWithIdentity.Client.dll": "sha256-P9kPPdle8IyjSYk8+ryLKITWYlh7cPuTRviwQBoSHSQ="
     },
     "lazyAssembly": null,
     "pdb": {
-      "BlazorWithIdentity.Client.pdb": "sha256-Sfh2obcXm8\/+vn2qdpTOYSLyGYcxk0dWDQziuj7cnnU="
+      "BlazorWithIdentity.Client.pdb": "sha256-xkeuGsdwACCn0BlLsPVBYKq122KtRw9UYtgYXWmE8ds="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-2OdnPsDgJyoSaSlvebGMRd2MxC+4UIqparqVrQZAFDE=",

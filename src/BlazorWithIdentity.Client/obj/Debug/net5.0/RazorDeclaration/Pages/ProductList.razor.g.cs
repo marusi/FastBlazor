@@ -147,6 +147,13 @@ using BlazorWithIdentity.Shared.DTO.Category;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+using BlazorWithIdentity.Shared.DTO.CompositeProduct;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
 using BlazorWithIdentity.Shared.DTO.ProductSku;
 
 #line default
@@ -160,16 +167,19 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 117 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 141 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
        
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
+
      
    
     string error { get; set; }
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
+    [Inject]
+    public ICompositeProductDataService CompositeProductDataService { get; set; }
 
       [Inject]
     public ICategoryDataService CategoryDataService { get; set; }
@@ -187,23 +197,46 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 137 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 164 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                 
 
 
         // private ProductSkuDTO[] productSkus { get; set; }
         private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
          private ProductCategoryDTO[] categories { get; set; }
+
+          [Parameter]
+        public int Id { get; set; }
+
+        SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
+        string errorTwo { get; set; }
         protected override async Task OnInitializedAsync()
         {
           
-
+           // await   OnFilterProducts();
              categories = await CategoryDataService.GetCategories();
-             OnFilterProducts();
            
           
-            StateHasChanged();
+            
         
+        }        async Task OnSubmitComposite()        {            errorTwo = null;
+            try
+            {
+                if (saveCompositeProductDTO.CombinedProducts != null)
+                {
+                    // logic here
+                    await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                    toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                   
+                } else
+                {
+                     toastService.ShowToast($"Select at least two product", ToastLevel.Warning);
+                }
+            }
+            catch (Exception x)
+            {
+                errorTwo = x.Message;
+            }
         }        private  async Task OnFilterProducts()
         {              var props = GetProperties(query);
             foreach (var prop in props)
@@ -215,7 +248,11 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 
                     var combined = $"{prop.Key}={prop.Value}";
                     productSkus = await ProductSkuDataService.GetProductSkus(combined);
-                      await OnInitializedAsync();
+
+                    await OnInitializedAsync();
+                    // await OnFilterProducts();
+                 
+                 
                  } else if (prop.Key == "OptionValueId") {
 
                     var combined = $"{prop.Key}=";
