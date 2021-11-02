@@ -153,7 +153,7 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 138 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
        
 
      CompositeProductDTO compositeProductDTO { get; set; } = new CompositeProductDTO();
@@ -168,9 +168,9 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 146 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
                 
-       
+
 
         private CompositeProductDTO[] compositeProducts { get; set; }
 
@@ -178,11 +178,22 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
         {
             compositeProducts  = await CompositeProductDataService.GetCompositeProducts();
               StateHasChanged();
-             await OnInitializedAsync();
+            OnInitializedAsync();
         }
-            
+             protected async Task DeleteProduct(int Id)
+        {
+          await CompositeProductDataService.DeleteCompositeProduct(Id);
+          toastService.ShowToast($"Item({Id}) deleted succesfuly", ToastLevel.Success);
+            StateHasChanged();
+            await OnInitializedAsync();
+            //  StatusClass = "alert-success";
+          //  Message = "Deleted successfully";
 
-        
+           // Saved = true;
+        }
+
+ 
+  
 
 #line default
 #line hidden

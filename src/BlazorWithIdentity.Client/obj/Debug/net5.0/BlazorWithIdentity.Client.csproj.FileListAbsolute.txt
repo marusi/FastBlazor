@@ -1157,7 +1157,6 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Register.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\SkuValue.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\SkuValueData.razor.g.cs
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\AllProduct.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\CustomNotFound.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\Footer.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\HeaderMenu.razor.g.cs
@@ -1191,7 +1190,6 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Register.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\SkuValue.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\SkuValueData.razor.g.cs
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\AllProduct.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\CustomNotFound.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\Footer.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\HeaderMenu.razor.g.cs
@@ -1427,3 +1425,4 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\ref\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.pdb
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\scopedcss\Pages\CompositeProductList.razor.rz.scp.css

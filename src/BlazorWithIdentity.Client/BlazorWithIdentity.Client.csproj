@@ -24,7 +24,9 @@
 
   <ItemGroup>
     <None Include="Pages\TryCode.razor" />
-    <None Include="Shared\AllProduct.razor" />
+    <None Include="wwwroot\script\vendor\bootstrap.min.js" />
+    <None Include="wwwroot\script\vendor\jquery.min.js" />
+    <None Include="wwwroot\script\vendor\jquery.min.map" />
   </ItemGroup>
 
   <ItemGroup>

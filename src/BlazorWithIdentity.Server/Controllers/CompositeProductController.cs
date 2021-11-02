@@ -82,7 +82,7 @@ namespace BlazorWithIdentity.Server.Controllers
 
             // logic for getting the totalPrice
             var productSku = await context.ProductSkus.ToListAsync();
-            product.TotalPrice += productSku.Sum(p => p.Price);
+            product.TotalPrice = productSku.Sum(p => p.Price);
 
             repository.Add(product);
             await unitOfWork.CompleteAsync();

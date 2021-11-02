@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>BlazorWithIdentity</title>
     <base href="/" />
-
+    <script src="script/vendor/jquery.min.js"></script>
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/winstrap.min.css" rel="stylesheet" />
     <link href="BlazorWithIdentity.Client.styles.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 <body>
     <div id="app">
         <div class="container">
-            <h4 class="text-center">Loading... <fluent-progress-ring></fluent-progress-ring></h4>  
+            <h4 class="text-center">Loading... <fluent-progress-ring></fluent-progress-ring></h4>
         </div>
 
     </div>
@@ -25,7 +25,10 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <!-- <script type="module" src="script/fast-components.min.js"></script> -->
     <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
-    <!--  <script>navigator.serviceWorker.register('service-worker.js');</script> -->
+    
+    <script src="script/vendor/bootstrap.min.js"></script>
+    <script src="script/app.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
 
 </body>
     </html>
