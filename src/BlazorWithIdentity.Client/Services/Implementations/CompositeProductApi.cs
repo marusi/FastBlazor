@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BlazorWithIdentity.Client.Services.Implementations
 {
-    public class CompositeProductApi : ICompositeProductDataService
+    public  class CompositeProductApi : ICompositeProductDataService
     {
         private readonly HttpClient _httpClient;
 
@@ -56,5 +56,7 @@ namespace BlazorWithIdentity.Client.Services.Implementations
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) throw new Exception(await result.Content.ReadAsStringAsync());
             result.EnsureSuccessStatusCode();
         }
+
+       
     }
 }

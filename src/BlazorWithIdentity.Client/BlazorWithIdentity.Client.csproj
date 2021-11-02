@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Content Remove="Pages\AllProduct.razor" />
+    <Content Remove="Pages\TryCode.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\TryCode.razor" />
     <None Include="Shared\AllProduct.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\TryCode.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\TryCode.razor" />
   </ItemGroup>
 
 </Project>

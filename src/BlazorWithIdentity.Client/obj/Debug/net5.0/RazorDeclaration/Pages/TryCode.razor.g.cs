@@ -138,55 +138,13 @@ using Microsoft.Fast.Components.FluentUI;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 1 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
-using BlazorWithIdentity.Shared.DTO.CompositeProduct;
-
-#line default
-#line hidden
-#nullable disable
-    public partial class CompositeProductList : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class TryCode : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 23 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
-       
-
-     CompositeProductDTO compositeProductDTO { get; set; } = new CompositeProductDTO();
-  //  ProductCategoryDTO productCategoryDTO { get; set; } = new ProductCategoryDTO();
-   
-     [Inject]
-    public ICompositeProductDataService CompositeProductDataService { get; set; }
-
-    
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 31 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
-                
-       
-
-        private CompositeProductDTO[] compositeProducts { get; set; }
-
-        protected override async Task OnInitializedAsync()
-        {
-            compositeProducts  = await CompositeProductDataService.GetCompositeProducts();
-              StateHasChanged();
-             await OnInitializedAsync();
-        }
-            
-
-        
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
     }

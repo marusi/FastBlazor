@@ -1,5 +1,6 @@
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
+ 
 }
 
 .top-row {
@@ -19,8 +20,9 @@
 }
 
 .nav-item {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     padding-bottom: 0.5rem;
+    color:#2a1b3d;
 }
 
     .nav-item:first-of-type {

@@ -3,13 +3,10 @@
 @using BlazorWithIdentity.Shared.DTO.ProductSku
 
 <div class="row row-sm">
-
-
-
-  <div class="col-md-12">
-  @*Pagination*@
-  </div>
-  <div class="col-md-12">
+     <div class="col-md-12">
+       @*Pagination*@
+     </div>
+    <div class="col-md-12">
     <div class="putbox-content">
       <div class="content-title"></div>
 
@@ -17,7 +14,7 @@
 
           @if (categories== null)
         {
-                    OnFilterProducts();
+                  
         }
             else
         {
@@ -39,7 +36,7 @@
     </div>
   </div>
 
-</div>
+
   
 
 
@@ -75,6 +72,8 @@
   </li>
 } else
 {
+
+       <EditForm class="form-category" OnValidSubmit="OnSubmitComposite" Model="saveCompositeProductDTO">
     @foreach (var item in productSkus.Items)
     {
        <li class="list-items-row" >
@@ -101,13 +100,27 @@
                   <div class="content-text-tertiary ">
                    <div class="checkbox">
                 <label>
-                    <input type="checkbox" />
+                 
+                    @if (@item.Id > 0)
+                    {
+                          <input name="AreChecked" type="checkbox" 
+                            value="@item.Id" 
+                            @onchange = "eventArgs => { CheckChanged
+                            (saveCompositeProductDTO, eventArgs.Value, item.Id);}" />                                 
+                    }
+                     else
+                     {
+                     <input name="AreChecked" type="checkbox" 
+                            value="@item.Id"  checked
+                            @onchange="eventArgs => { CheckChanged
+                            (saveCompositeProductDTO, eventArgs.Value, item.Id);}" />
+                     }
                     <span>Pick</span>
                 </label>
             </div>
               </div>
             
-                       
+                   
 
                </div>
 
@@ -120,11 +133,14 @@
     </div>
   </li>
     }
+
+      <button class="btn btn-primary" onclick="ListUpdated()">Update</button>  
+    </EditForm>
 }
 
  
 </ol>
-
+</div>
 
 
 
@@ -164,6 +180,9 @@
     @functions {
 
 
+
+
+
         // private ProductSkuDTO[] productSkus { get; set; }
         private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
          private ProductCategoryDTO[] categories { get; set; }
@@ -176,16 +195,20 @@
         protected override async Task OnInitializedAsync()
         {
           
-           // await   OnFilterProducts();
+            await   OnFilterProducts();
              categories = await CategoryDataService.GetCategories();
-           
+         
           
             
         
-        }        async Task OnSubmitComposite()        {            errorTwo = null;
+        }
+
+        async Task OnSubmitComposite()
+        {
+            errorTwo = null;
             try
             {
-                if (saveCompositeProductDTO.CombinedProducts != null)
+                if (saveCompositeProductDTO != null)
                 {
                     // logic here
                     await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
@@ -200,8 +223,42 @@
             {
                 errorTwo = x.Message;
             }
-        }        private  async Task OnFilterProducts()
-        {              var props = GetProperties(query);
+        }
+
+        protected async Task CheckChanged(SaveCompositeProductDTO saveProduct,
+                                     object checkValue, int id)
+       {
+            int number = 0;
+            if (id > number)
+            {
+                number = (int)id;
+               // saveProduct = await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                if((bool)checkValue)
+                {
+                    saveCompositeProductDTO.CombinedProducts.Add(number);
+                    saveCompositeProductDTO.CombinedProducts.ToList();
+                   
+
+
+                  //  await CompositeProductDataService.CreateCompositeProduct(saveProduct);
+                   //  toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                }
+            } else
+            {
+                
+            }
+          
+      }
+       
+   }
+    async Task ListUpdated()
+           {
+               await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                toastService.ShowToast($"Products Created Succesfuly", ToastLevel.Success);
+           }
+        private  async Task OnFilterProducts()
+        {
+              var props = GetProperties(query);
             foreach (var prop in props)
 		{
                 if (prop.Key != "CategoryId")
@@ -212,7 +269,7 @@
                     var combined = $"{prop.Key}={prop.Value}";
                     productSkus = await ProductSkuDataService.GetProductSkus(combined);
 
-                    await OnInitializedAsync();
+                 //   await OnInitializedAsync();
                     // await OnFilterProducts();
                  
                  
@@ -222,7 +279,9 @@
                     productSkus = await ProductSkuDataService.GetProductSkus(combined);
                 }
 		}
-        }        private static Dictionary<string, string> GetProperties(object obj)
+        }
+
+        private static Dictionary<string, string> GetProperties(object obj)
 	{
 		var props = new Dictionary<string, string>();
 		if (obj == null)
@@ -237,7 +296,14 @@
 		}
 
 		return props;
-	}            
+	}
 
-        }
+
+  
+
+     
+
+            
+
+ }
 }

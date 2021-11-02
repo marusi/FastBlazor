@@ -167,7 +167,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 141 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 157 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
        
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
@@ -197,48 +197,16 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 164 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
-                
-
-
-        // private ProductSkuDTO[] productSkus { get; set; }
-        private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
-         private ProductCategoryDTO[] categories { get; set; }
-
-          [Parameter]
-        public int Id { get; set; }
-
-        SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
-        string errorTwo { get; set; }
-        protected override async Task OnInitializedAsync()
+#line 253 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+    
+    async Task ListUpdated()
+           {
+               await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                toastService.ShowToast($"Products Created Succesfuly", ToastLevel.Success);
+           }
+        private  async Task OnFilterProducts()
         {
-          
-           // await   OnFilterProducts();
-             categories = await CategoryDataService.GetCategories();
-           
-          
-            
-        
-        }        async Task OnSubmitComposite()        {            errorTwo = null;
-            try
-            {
-                if (saveCompositeProductDTO.CombinedProducts != null)
-                {
-                    // logic here
-                    await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
-                    toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
-                   
-                } else
-                {
-                     toastService.ShowToast($"Select at least two product", ToastLevel.Warning);
-                }
-            }
-            catch (Exception x)
-            {
-                errorTwo = x.Message;
-            }
-        }        private  async Task OnFilterProducts()
-        {              var props = GetProperties(query);
+              var props = GetProperties(query);
             foreach (var prop in props)
 		{
                 if (prop.Key != "CategoryId")
@@ -249,7 +217,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
                     var combined = $"{prop.Key}={prop.Value}";
                     productSkus = await ProductSkuDataService.GetProductSkus(combined);
 
-                    await OnInitializedAsync();
+                 //   await OnInitializedAsync();
                     // await OnFilterProducts();
                  
                  
@@ -259,7 +227,9 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
                     productSkus = await ProductSkuDataService.GetProductSkus(combined);
                 }
 		}
-        }        private static Dictionary<string, string> GetProperties(object obj)
+        }
+
+        private static Dictionary<string, string> GetProperties(object obj)
 	{
 		var props = new Dictionary<string, string>();
 		if (obj == null)
@@ -274,9 +244,96 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 		}
 
 		return props;
-	}            
+	}
 
+
+  
+
+     
+
+            
+
+ 
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 180 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+                
+
+
+
+
+
+        // private ProductSkuDTO[] productSkus { get; set; }
+        private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
+         private ProductCategoryDTO[] categories { get; set; }
+
+          [Parameter]
+        public int Id { get; set; }
+
+        SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
+        string errorTwo { get; set; }
+        protected override async Task OnInitializedAsync()
+        {
+          
+            await   OnFilterProducts();
+             categories = await CategoryDataService.GetCategories();
+         
+          
+            
         
+        }
+
+        async Task OnSubmitComposite()
+        {
+            errorTwo = null;
+            try
+            {
+                if (saveCompositeProductDTO != null)
+                {
+                    // logic here
+                    await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                    toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                   
+                } else
+                {
+                     toastService.ShowToast($"Select at least two product", ToastLevel.Warning);
+                }
+            }
+            catch (Exception x)
+            {
+                errorTwo = x.Message;
+            }
+        }
+
+        protected async Task CheckChanged(SaveCompositeProductDTO saveProduct,
+                                     object checkValue, int id)
+       {
+            int number = 0;
+            if (id > number)
+            {
+                number = (int)id;
+               // saveProduct = await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                if((bool)checkValue)
+                {
+                    saveCompositeProductDTO.CombinedProducts.Add(number);
+                    saveCompositeProductDTO.CombinedProducts.ToList();
+                   
+
+
+                  //  await CompositeProductDataService.CreateCompositeProduct(saveProduct);
+                   //  toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                }
+            } else
+            {
+                
+            }
+          
+      }
+       
+   
 
 #line default
 #line hidden

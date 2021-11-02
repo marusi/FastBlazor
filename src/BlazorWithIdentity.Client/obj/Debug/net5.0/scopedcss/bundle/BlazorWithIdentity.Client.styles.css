@@ -375,6 +375,7 @@
 /* /Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-234l2opi20] {
     background-color: rgba(255, 255, 255, 0.1);
+ 
 }
 
 .top-row[b-234l2opi20] {
@@ -394,8 +395,9 @@
 }
 
 .nav-item[b-234l2opi20] {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     padding-bottom: 0.5rem;
+    color:#2a1b3d;
 }
 
     .nav-item:first-of-type[b-234l2opi20] {
