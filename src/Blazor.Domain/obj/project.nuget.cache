@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "p8MieEY6miW9yh5ndsrD+KgEOIUHBmtaawvf2NggnOdxxwMW+qNx5JLEpXOzfr5uo7C9bPdgKtiDYLV57/dGLg==",
+  "dgSpecHash": "+7Ywjtkaw8xYb6Kb2S72xfjQf8vVXAOqYkQulMIYnbBsQMWuSfksO0vx2WnccGKThkijKBSwrNmFluYq8wRrmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\Blazor.Domain\\Blazor.Domain.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Hp\\.nuget\\packages\\nodatime\\2.4.1\\nodatime.2.4.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"

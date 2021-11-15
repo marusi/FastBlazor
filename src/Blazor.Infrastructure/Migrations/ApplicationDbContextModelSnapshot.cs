@@ -85,7 +85,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.CombinedProduct", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.CombinedProduct", b =>
                 {
                     b.Property<int>("CompositeProductId")
                         .HasColumnType("int");
@@ -100,7 +100,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("CombinedProducts");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.CompositeProduct", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.CompositeProduct", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,7 +115,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("CompositeProducts");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.Option", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Option", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("Options");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.OptionValue", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.OptionValue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("OptionValues");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.Product", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,7 +178,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.ProductCategory", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.ProductCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -193,7 +193,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.ProductSku", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.ProductSku", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,7 +216,7 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("ProductSkus");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.SkuValue", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.SkuValue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -234,6 +234,183 @@ namespace Blazor.Infrastructure.Migrations
                     b.HasIndex("OptionValueId");
 
                     b.ToTable("SkuValues");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.ArticleDAO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PublishedDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Published");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Topic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique()
+                        .HasFilter("[Slug] IS NOT NULL");
+
+                    b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AuthorId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            AuthorName = "Unknown",
+                            Content = "This is the default home page. Please change me!",
+                            PublishedDateTime = new DateTime(2018, 6, 19, 14, 31, 2, 265, DateTimeKind.Utc),
+                            Slug = "home-page",
+                            Topic = "Home Page",
+                            Version = 1,
+                            ViewCount = 0
+                        });
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.ArticleHistoryDAO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PublishedDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Published");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Topic")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("ArticleHistories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ArticleId = 1,
+                            AuthorId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            AuthorName = "Unknown",
+                            Content = "This is the default home page. Please change me!",
+                            PublishedDateTime = new DateTime(2018, 6, 19, 14, 31, 2, 265, DateTimeKind.Utc),
+                            Slug = "home-page",
+                            Topic = "Home Page",
+                            Version = 1
+                        });
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.CommentDAO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("IdArticle")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SubmittedDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Submitted");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.SlugHistoryDAO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Added");
+
+                    b.Property<int?>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OldSlug")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("OldSlug", "AddedDateTime");
+
+                    b.ToTable("SlugHistories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -365,15 +542,15 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.CombinedProduct", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.CombinedProduct", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.CompositeProduct", "CompositeProduct")
+                    b.HasOne("Blazor.Domain.Models.Products.CompositeProduct", "CompositeProduct")
                         .WithMany("CombinedProducts")
                         .HasForeignKey("CompositeProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Blazor.Domain.Models.ProductSku", "ProductSku")
+                    b.HasOne("Blazor.Domain.Models.Products.ProductSku", "ProductSku")
                         .WithMany()
                         .HasForeignKey("ProductSkuId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -384,9 +561,9 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("ProductSku");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.Option", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Option", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.Product", "Product")
+                    b.HasOne("Blazor.Domain.Models.Products.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -395,9 +572,9 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.OptionValue", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.OptionValue", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.Option", "Option")
+                    b.HasOne("Blazor.Domain.Models.Products.Option", "Option")
                         .WithMany()
                         .HasForeignKey("OptionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -406,9 +583,9 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("Option");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.Product", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Product", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.ProductCategory", "ProductCategory")
+                    b.HasOne("Blazor.Domain.Models.Products.ProductCategory", "ProductCategory")
                         .WithMany()
                         .HasForeignKey("ProductCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -417,9 +594,9 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("ProductCategory");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.ProductSku", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.ProductSku", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.SkuValue", "SkuValue")
+                    b.HasOne("Blazor.Domain.Models.Products.SkuValue", "SkuValue")
                         .WithMany()
                         .HasForeignKey("SkuValueId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -428,15 +605,46 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("SkuValue");
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.SkuValue", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.SkuValue", b =>
                 {
-                    b.HasOne("Blazor.Domain.Models.OptionValue", "OptionValue")
+                    b.HasOne("Blazor.Domain.Models.Products.OptionValue", "OptionValue")
                         .WithMany()
                         .HasForeignKey("OptionValueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("OptionValue");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.ArticleHistoryDAO", b =>
+                {
+                    b.HasOne("Blazor.Infrastructure.Models.ArticleDAO", "Article")
+                        .WithMany("History")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.CommentDAO", b =>
+                {
+                    b.HasOne("Blazor.Infrastructure.Models.ArticleDAO", "Article")
+                        .WithMany("Comments")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.SlugHistoryDAO", b =>
+                {
+                    b.HasOne("Blazor.Infrastructure.Models.ArticleDAO", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId");
+
+                    b.Navigation("Article");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -490,9 +698,16 @@ namespace Blazor.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Blazor.Domain.Models.CompositeProduct", b =>
+            modelBuilder.Entity("Blazor.Domain.Models.Products.CompositeProduct", b =>
                 {
                     b.Navigation("CombinedProducts");
+                });
+
+            modelBuilder.Entity("Blazor.Infrastructure.Models.ArticleDAO", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("History");
                 });
 #pragma warning restore 612, 618
         }

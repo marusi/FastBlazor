@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using BlazorWithIdentity.Shared.DTO;
 using BlazorWithIdentity.Shared.DTO.Category;
 using BlazorWithIdentity.Shared.DTO.CompositeProduct;

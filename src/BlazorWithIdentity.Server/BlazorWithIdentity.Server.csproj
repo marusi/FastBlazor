@@ -5,6 +5,8 @@
 	</PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="MediatR" Version="9.0.0" />
+	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.11" />
 	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10" />
@@ -17,6 +19,7 @@
     <ProjectReference Include="..\Blazor.Infrastructure.DI\Blazor.Infrastructure.DI.csproj" />
     <ProjectReference Include="..\BlazorWithIdentity.Client\BlazorWithIdentity.Client.csproj" />
     <ProjectReference Include="..\BlazorWithIdentity.Shared\BlazorWithIdentity.Shared.csproj" />
+    <ProjectReference Include="..\Blazor.Application\Blazor.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

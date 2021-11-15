@@ -21,6 +21,10 @@ namespace Blazor.Infrastructure.DI
             services.AddScoped<ISkuValueRepository, SkuValueRepository>();
             services.AddScoped<IProductSkuRepository, ProductSkuRepository>();
             services.AddScoped<ICompositeProductRepository, CompositeProductRepository>();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<ISlugHistoryRepository, SlugHistoryRepository>();
+           
+            services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
         }

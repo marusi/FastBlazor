@@ -18,6 +18,9 @@ using Microsoft.OpenApi.Models;
 using Blazor.Infrastructure.DI;
 using Blazor.Domain.Models;
 using Blazor.Infrastructure;
+using MediatR;
+using System.Reflection;
+using NodaTime;
 
 namespace BlazorWithIdentity.Server
 {
@@ -37,6 +40,10 @@ namespace BlazorWithIdentity.Server
 
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            services.AddLocalization();
+            services.AddSingleton<IClock>(SystemClock.Instance);
+            services.AddLogging();
             Loader.Register(services, Configuration);
             services.AddSwaggerGen(c =>
             {

@@ -222,6 +222,14 @@
           }
         }
       },
+      "NodaTime/2.4.1": {
+        "runtime": {
+          "lib/netstandard2.0/NodaTime.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
       "System.Collections.Immutable/5.0.0": {},
       "System.ComponentModel.Annotations/5.0.0": {},
       "System.Diagnostics.DiagnosticSource/5.0.1": {
@@ -235,7 +243,8 @@
       "System.Reflection.Emit/4.7.0": {},
       "Blazor.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11",
+          "NodaTime": "2.4.1"
         },
         "runtime": {
           "Blazor.Domain.dll": {}
@@ -388,6 +397,13 @@
       "sha512": "sha512-cI/VWn9G1fghXrNDagX9nYaaB/nokkZn0HYAawGaELQrl8InSezfe9OnfPZLcJq3esXxygh3hkq2c3qoV3SDyQ==",
       "path": "microsoft.extensions.primitives/5.0.0",
       "hashPath": "microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+    },
+    "NodaTime/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GzslA0cDxlPQbZX4y+C0pVBTHqzAwe7VPJhjXuA4damOGcLmmAcv0awuMlKcrKUu1VM6wX+7kCakaDEy0jIChA==",
+      "path": "nodatime/2.4.1",
+      "hashPath": "nodatime.2.4.1.nupkg.sha512"
     },
     "System.Collections.Immutable/5.0.0": {
       "type": "package",

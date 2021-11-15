@@ -167,14 +167,14 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 161 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 166 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
        
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
-   ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
+    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
 
-     
-   
+    protected bool IsDisabled = true;
+  
     string error { get; set; }
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
@@ -191,62 +191,113 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 178 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 183 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                 
 
         // private ProductSkuDTO[] productSkus { get; set; }
         private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
-         private ProductCategoryDTO[] categories { get; set; }
+        private ProductCategoryDTO[] categories { get; set; }
 
-          [Parameter]
+        [Parameter]
         public int Id { get; set; }
 
         SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
         string errorTwo { get; set; }
         protected override async Task OnInitializedAsync()
         {
-          
+
             await   OnFilterProducts();
-             categories = await CategoryDataService.GetCategories();
-         
-          
-            
-        
+            categories = await CategoryDataService.GetCategories();
+
+
+
+
         }
 
-    
 
-        protected async Task CheckChanged(SaveCompositeProductDTO saveProduct,
-                                     object checkValue, int id)
-       {
+
+        protected void CheckChanged(SaveCompositeProductDTO saveProduct,
+                                     object checkValue, int id, decimal price)
+        {
+
             int number = 0;
             if (id > number)
             {
                 number = (int)id;
-               // saveProduct = await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+                // saveProduct = await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
                 if((bool)checkValue)
                 {
+                  
                     saveCompositeProductDTO.CombinedProducts.Add(number);
                     saveCompositeProductDTO.CombinedProducts.ToList();
-                   
+                    saveCompositeProductDTO.TotalPrice += price;
+                    Console.WriteLine($"First total: {saveCompositeProductDTO.TotalPrice}");
+                    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 223 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+                     if (saveCompositeProductDTO.CombinedProducts.Count > 1)
+                    {
+                      IsDisabled = false;  
+                    }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 226 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+                     
 
 
-                  //  await CompositeProductDataService.CreateCompositeProduct(saveProduct);
-                   //  toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                    //  await CompositeProductDataService.CreateCompositeProduct(saveProduct);
+                    //  toastService.ShowToast($"Product Created Succesfuly", ToastLevel.Success);
+                } else 
+                {
+                    saveCompositeProductDTO.TotalPrice = saveCompositeProductDTO.TotalPrice - price;
+                    saveCompositeProductDTO.CombinedProducts.Remove(number);
+                    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 235 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+                     if (saveCompositeProductDTO.CombinedProducts.Count < 2)
+                    {
+                      IsDisabled = true;  
+                    }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 238 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+                     
+                    
+                    Console.WriteLine($"Last total: {saveCompositeProductDTO.TotalPrice}");
+                    
+                    
+                    
                 }
             } else {
-                
+                    
             }
-          
-      }
-       
-  
-    async Task ListUpdated()
-           {
-               await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
-                toastService.ShowToast($"Products Created Succesfuly", ToastLevel.Success);
-                 saveCompositeProductDTO.CombinedProducts.Clear();
-            await CompositeProductDataService.GetCompositeProducts();
+
+        }
+
+
+        async Task ListUpdated()
+        {
+            await CompositeProductDataService.CreateCompositeProduct(saveCompositeProductDTO);
+            toastService.ShowToast($"Products Created Succesfuly", ToastLevel.Success);
+            saveCompositeProductDTO.CombinedProducts.Clear();
+
+            saveCompositeProductDTO.TotalPrice = 0;
+         
+            navigationManager.NavigateTo("/composite");
         }
         private  async Task OnFilterProducts()
         {

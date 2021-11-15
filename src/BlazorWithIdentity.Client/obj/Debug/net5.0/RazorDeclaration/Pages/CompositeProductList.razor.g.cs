@@ -10,15 +10,7 @@ namespace BlazorWithIdentity.Client.Pages
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
-#nullable restore
-#line 1 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
-using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
 #nullable restore
 #line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
@@ -125,13 +117,6 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 18 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.Fast.Components.FluentUI;
 
@@ -145,6 +130,35 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+using System.Net.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+using System.Threading.Tasks;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/composite")]
     public partial class CompositeProductList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -153,7 +167,7 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 138 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 153 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
        
 
      CompositeProductDTO compositeProductDTO { get; set; } = new CompositeProductDTO();
@@ -168,7 +182,7 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
 #line hidden
 #nullable disable
 #nullable restore
-#line 146 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 161 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
                 
 
 
@@ -176,9 +190,12 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
 
         protected override async Task OnInitializedAsync()
         {
+            
             compositeProducts  = await CompositeProductDataService.GetCompositeProducts();
-              StateHasChanged();
-            OnInitializedAsync();
+            await InvokeAsync(() => StateHasChanged())
+                        .ConfigureAwait(false);
+         
+         //  await OnInitializedAsync();
         }
              protected async Task DeleteProduct(int Id)
         {
@@ -198,6 +215,8 @@ using BlazorWithIdentity.Shared.DTO.CompositeProduct;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
     }

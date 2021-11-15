@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wfg1eD51LYwlI8Ei0rgYl86baxpeb+oPfjSjgChHRYuBkmHfswsWrR/BZh46tIXVgQRx06Cnc/0xsr7Lb4hEfQ==",
+  "dgSpecHash": "akd1YF6mTQoT8uzp+9Fura+qjSzD1dTusD9AFwavf6GjJ5s1O6sj7OIYSemCq7k38tDxIhBolzylOZ5KPH/cMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hp\\Desktop\\dddEven\\TwoTouch\\BlazorWithIdentity\\src\\BlazorWithIdentity.Client\\BlazorWithIdentity.Client.csproj",
   "expectedPackageFiles": [
@@ -44,13 +44,14 @@
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.fast.components.fluentui\\0.4.0\\microsoft.fast.components.fluentui.0.4.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.jsinterop\\5.0.5\\microsoft.jsinterop.5.0.5.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.jsinterop.webassembly\\5.0.2\\microsoft.jsinterop.webassembly.5.0.2.nupkg.sha512",
+    "C:\\Users\\Hp\\.nuget\\packages\\nodatime\\2.4.1\\nodatime.2.4.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
-    "C:\\Users\\Hp\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.8\\microsoft.netcore.app.runtime.browser-wasm.5.0.8.nupkg.sha512"
+    "C:\\Users\\Hp\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.12\\microsoft.netcore.app.runtime.browser-wasm.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }

@@ -8,7 +8,7 @@ using AutoMapper;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
 using BlazorWithIdentity.Shared.DTO.CompositeProduct;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using BlazorWithIdentity.Shared.DTO.ProductSku;
 using Microsoft.AspNetCore.Authorization;
 
@@ -80,10 +80,12 @@ namespace BlazorWithIdentity.Server.Controllers
 
             var product = mapper.Map<SaveCompositeProductDTO, CompositeProduct>(productResource);
 
-            // logic for getting the totalPrice
-            var productSku = await context.ProductSkus.ToListAsync();
-            product.TotalPrice = productSku.Sum(p => p.Price);
 
+
+            // logic for getting the totalPrice
+          //  var productSku = await repository.GetCompositeProduct(product.Id, includeRelated: false);
+           // product.TotalPrice = // productSku.SumTotal(p => p.Price);
+            
             repository.Add(product);
             await unitOfWork.CompleteAsync();
 

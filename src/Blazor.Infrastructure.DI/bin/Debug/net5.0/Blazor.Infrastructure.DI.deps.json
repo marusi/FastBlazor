@@ -511,6 +511,14 @@
           }
         }
       },
+      "NodaTime/2.4.1": {
+        "runtime": {
+          "lib/netstandard2.0/NodaTime.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
       "runtime.native.System/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1271,7 +1279,8 @@
       },
       "Blazor.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11",
+          "NodaTime": "2.4.1"
         },
         "runtime": {
           "Blazor.Domain.dll": {}
@@ -1578,6 +1587,13 @@
       "sha512": "sha512-ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
       "path": "newtonsoft.json/10.0.1",
       "hashPath": "newtonsoft.json.10.0.1.nupkg.sha512"
+    },
+    "NodaTime/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GzslA0cDxlPQbZX4y+C0pVBTHqzAwe7VPJhjXuA4damOGcLmmAcv0awuMlKcrKUu1VM6wX+7kCakaDEy0jIChA==",
+      "path": "nodatime/2.4.1",
+      "hashPath": "nodatime.2.4.1.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",

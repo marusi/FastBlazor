@@ -1,4 +1,4 @@
-﻿using Blazor.Domain.Models;
+﻿using Blazor.Domain.Models.Products;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
 using Microsoft.EntityFrameworkCore;

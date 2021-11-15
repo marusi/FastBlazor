@@ -1,0 +1,15 @@
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.csproj.AssemblyReference.cache
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.AssemblyInfoInputs.cache
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.AssemblyInfo.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\Blazor.Application.deps.json
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\Blazor.Application.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\ref\Blazor.Application.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\Blazor.Application.pdb
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\Blazor.Domain.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\bin\Debug\net5.0\Blazor.Domain.pdb
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.csproj.CopyComplete
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\ref\Blazor.Application.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\Blazor.Application\obj\Debug\net5.0\Blazor.Application.pdb

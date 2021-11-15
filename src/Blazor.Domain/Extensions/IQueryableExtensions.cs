@@ -1,5 +1,5 @@
 using Blazor.Domain;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;

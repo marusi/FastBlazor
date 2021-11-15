@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
 using BlazorWithIdentity.Shared.DTO.ProductSku;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BlazorWithIdentity.Controllers

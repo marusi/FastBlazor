@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using BlazorWithIdentity.Shared.DTO.Product;
 using Microsoft.AspNetCore.Authorization;
 

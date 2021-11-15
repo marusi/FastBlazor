@@ -1,5 +1,14 @@
 ﻿@using BlazorWithIdentity.Shared.DTO.CompositeProduct
+@page "/composite"
 
+@attribute [Authorize]
+
+@inject IdentityAuthenticationStateProvider authStateProvider
+
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Threading.Tasks
+@inject HttpClient Http
 
 <h3>Composite Product List</h3>
 @if (compositeProducts == null)
@@ -21,8 +30,8 @@
 
       <ol class="list-items">
         <li class="list-items-row">
-          
-          <div data-toggle="collapse" aria-expanded="false" data-target="#list-item-line-@item.Id">
+          <div class="col-md-22">
+              <div data-toggle="collapse" aria-expanded="false" data-target="#list-item-line-@item.Id">
             <div class="container">
               <div class="row ">
                 <div class="col-md-16 type-h5">
@@ -48,7 +57,7 @@
           </div>
           <div class="collapse" id="list-item-line-@item.Id">
             <div class="row">
-              <div class="col-md-18 col-md-offset-2 color-type-secondary">
+              <div class="col-md-22 color-type-secondary">
 
                 <div class="row">
                  @foreach(var product in item.CombinedProducts)
@@ -96,14 +105,20 @@
 
 
               </div>
-              <div class="col-md-4 ">
- 
-              </div>
+            
             </div>
           </div>
-           <div class="col-md-2 ">
-             <FluentButton class="type-h5" type="submit"   @onclick="(() => DeleteProduct(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete "></span></FluentButton>
-             </div>
+           
+
+          </div>
+          <div class="col-md-2"> 
+               <div class="putbox">
+             <div class="putbox-icon">
+            <span @onclick="(() => DeleteProduct(item.Id))"  class="glyph glyph-delete"></span>
+            </div>
+            </div>
+               </div>
+         
         </li>
         
       </ol>
@@ -150,9 +165,12 @@
 
         protected override async Task OnInitializedAsync()
         {
+            
             compositeProducts  = await CompositeProductDataService.GetCompositeProducts();
-              StateHasChanged();
-            OnInitializedAsync();
+            await InvokeAsync(() => StateHasChanged())
+                        .ConfigureAwait(false);
+         
+         //  await OnInitializedAsync();
         }
              protected async Task DeleteProduct(int Id)
         {

@@ -8,7 +8,7 @@ using AutoMapper;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
 using BlazorWithIdentity.Shared.DTO.Category;
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BlazorWithIdentity.Server.Controllers

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Blazor.Domain.Services;
 using Blazor.Infrastructure;
 
-using Blazor.Domain.Models;
+using Blazor.Domain.Models.Products;
 
 using BlazorWithIdentity.Shared.DTO.Option;
 using Microsoft.AspNetCore.Authorization;
