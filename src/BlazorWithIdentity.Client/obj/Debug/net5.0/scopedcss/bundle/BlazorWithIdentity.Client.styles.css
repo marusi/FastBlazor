@@ -583,9 +583,15 @@
 /* /Shared/LoginLayout.razor.rz.scp.css */
 
 /* /Shared/MainLayout.razor.rz.scp.css */
+.fluent-design-system-provider[b-07g7jfs9u7] {
+  background-color: #1a1a1a;
+}
+
+
 .page[b-07g7jfs9u7] {
     position: relative;
     display: flex;
+   
     flex-direction: column;
 }
 
@@ -594,40 +600,7 @@
 }
 
 .sidebar[b-07g7jfs9u7] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-.top-row[b-07g7jfs9u7] {
-    background-color: #000000;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-    .top-row[b-07g7jfs9u7]  a, .top-row .btn-link[b-07g7jfs9u7] {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-    }
-
-    .top-row a:first-child[b-07g7jfs9u7] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row:not(.auth)[b-07g7jfs9u7] {
-        display: none;
-    }
-
-    .top-row.auth[b-07g7jfs9u7] {
-        justify-content: space-between;
-    }
-
-    .top-row a[b-07g7jfs9u7], .top-row .btn-link[b-07g7jfs9u7] {
-        margin-left: 0;
-    }
+    background: #fbfbfb;
 }
 
 @media (min-width: 641px) {

@@ -1,82 +1,40 @@
 ﻿
 @using Microsoft.Fast.Components.FluentUI
 
-<div class="@NavMenuCssClass navBack " @onclick="ToggleNavMenu">
-<ul class="list-items">
-        <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                   <NavLinkFluentAnchor   Href="/Category" Appearance="Appearance.Stealth">Category</NavLinkFluentAnchor>      <!-- adjust the grid settings appropriately-->
-                </div>
-                 
-               
-            </div>
-        </li>
-      <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/product" Appearance="Appearance.Stealth">Product Name</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li>
-         <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/option" Appearance="Appearance.Stealth">Option</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
-         <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/optionvalue" Appearance="Appearance.Stealth">Option Value</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
-         <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/skuvalue" Appearance="Appearance.Stealth">Sku Value</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
+<div class="@NavMenuCssClass navBack" @onclick="ToggleNavMenu">
+ <span class="glyph glyph-back" data-toggle="tooltip" title="Log out"  @onclick="@LogoutClick" slot="end">Log out</span> 
 
-         <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/productsku" Appearance="Appearance.Stealth">Price</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
-          <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/composite" Appearance="Appearance.Stealth">Composite</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
-          <li class="list-items-row">
-            <div class="row">
-                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
-                    <NavLinkFluentAnchor Href="/footballdata" Appearance="Appearance.Stealth">Football data</NavLinkFluentAnchor>
-                </div>
-                
-               
-            </div>
-        </li> 
-    </ul>
+
+<FluentTreeView RenderCollapsedNodes="false">
+    <FluentTreeItem class="type-h4">
+      Add Product
+     
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/category" >Categories</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/product" >Product Name</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/option" >Option</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Href="/skuvalue" Appearance="Appearance.Hypertext">Sku Value</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Href="/productsku" Appearance="Appearance.Hypertext">Price</NavLinkFluentAnchor></FluentTreeItem>
+            
+           
+        
+      
+    </FluentTreeItem>
+     <FluentTreeItem>
+       Product List
+     
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/composite" >Composite Products</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/productlist" >Products</NavLinkFluentAnchor></FluentTreeItem>
+
+            
+           
+        
+      
+    </FluentTreeItem>
+   
+ 
+</FluentTreeView>
+
 
 </div>
                       
@@ -106,5 +64,12 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    async Task LogoutClick()
+    {
+        await authStateProvider.Logout();
+        toastService.ShowToast("Logged out!", ToastLevel.Info);
+        navigationManager.NavigateTo("/login");
     }
 }

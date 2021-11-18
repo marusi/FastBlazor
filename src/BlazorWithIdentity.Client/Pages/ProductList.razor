@@ -1,12 +1,14 @@
 ﻿@using BlazorWithIdentity.Shared.DTO.Category
 @using BlazorWithIdentity.Shared.DTO.CompositeProduct
 @using BlazorWithIdentity.Shared.DTO.ProductSku
+@page "/productlist"
 
 <div class="row row-sm">
    
         <h6>Product List</h6>
      <div class="col-md-12">
-       @*Pagination*@
+       <button disabled=@(IsDisabled) class="btn btn-secondary" 
+    @onclick="(() => ListUpdated())">Create Composite Selection</button> 
      </div>
      <div class="col-md-12">
 
@@ -15,8 +17,11 @@
          <div class="content-title">Categories Filter</div>
           <div class="combobox">
 
-         @if (categories== null)  {  } else
-           {
+                    @if (categories == null)
+                    {
+                        
+                    } else
+                    {
              
               <select  class="form-control" @onclick="OnFilterProducts"   @bind="query.CategoryId">
                   <option value="">All Products</option>
@@ -25,6 +30,7 @@
                      <option value="@item.Id">@item.Name</option>
                    }
              </select>
+
           }
   
       
@@ -111,7 +117,8 @@
                          
                      <input name="AreChecked" type="checkbox" 
                             value="@item.Id"  checked 
-                            @onchange="eventArgs => { CheckChanged (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"
+                            @onchange="eventArgs => { CheckChanged 
+                            (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"
                             
                               />
                      }
@@ -135,7 +142,7 @@
     }
    <li>
 
- <button disabled=@(IsDisabled) class="btn btn-secondary" @onclick="(() => ListUpdated())">Create Composite Selection</button>  
+ 
    </li>
    
 

@@ -1,35 +1,38 @@
 ﻿@inherits LayoutComponentBase
-@inject NavigationManager navigationManager
-@inject IdentityAuthenticationStateProvider authStateProvider
+
 @using BlazorWithIdentity.Client.Pages
 @using Microsoft.Fast.Components.FluentUI
 
     <AuthorizeView>
         <Authorized>
-            @*Show the menu and the rest of the body*@
-     <div class="row-sm">
-             <FluentDesignSystemProvider  fill-color="#2A1B3D" style="padding:10px;min-width:100%">
-                  <FluentToolbar id="toolbar-fluent-components-main" style="width:100%" >
-                        <NavLinkFluentAnchor Href="/" Appearance="Appearance.Outline">Home</NavLinkFluentAnchor>
-                           <h5 slot="end">Hi, @context.User.Identity.Name  <span class="glyph glyph-undo" data-toggle="tooltip" title="Log out"  @onclick="@LogoutClick" slot="end">Log out</span> </h5>   
-                      </FluentToolbar>
-     </FluentDesignSystemProvider>
-     </div>
-      <div class="row">
-            <Toast></Toast>
-      <div  class="col-md-6">
-      <NavMenu />
-      
-        </div>
-        <div class="col-md-18">
              
-             @Body
-        </div>
-        
-
-        </div>
+            <FluentDesignSystemProvider fill-color="#333" >
+               
+               
+                  <FluentToolbar   id="toolbar-fluent-components-main" style="width:100%; " >
+                        <NavLinkFluentAnchor Href="/" Appearance="Appearance.Outline">Home</NavLinkFluentAnchor>
+                          
+                          <p class="type-p3" slot="end">Hi, @context.User.Identity.Name</p> 
     
-      <Footer/>
+                      </FluentToolbar>
+             </FluentDesignSystemProvider>
+     
+    <div class="page">
+ <Toast></Toast>
+    <div class="sidebar col-md-3">
+        <NavMenu />
+    </div>
+
+    <div class="main col-md-21">
+       
+
+        <div class="content px-4">
+            @Body
+        </div>
+       
+    </div>
+
+</div> 
 
         </Authorized>
         <NotAuthorized>
@@ -40,12 +43,3 @@
 
 
 
-@code{
-
-    async Task LogoutClick()
-    {
-        await authStateProvider.Logout();
-        toastService.ShowToast("Logged out!", ToastLevel.Info);
-        navigationManager.NavigateTo("/login");
-    }
-}

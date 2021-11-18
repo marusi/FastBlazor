@@ -146,7 +146,7 @@ using Microsoft.Fast.Components.FluentUI;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 101 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
+#line 59 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -157,9 +157,17 @@ using Microsoft.Fast.Components.FluentUI;
         collapseNavMenu = !collapseNavMenu;
     }
 
+    async Task LogoutClick()
+    {
+        await authStateProvider.Logout();
+        toastService.ShowToast("Logged out!", ToastLevel.Info);
+        navigationManager.NavigateTo("/login");
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
     }

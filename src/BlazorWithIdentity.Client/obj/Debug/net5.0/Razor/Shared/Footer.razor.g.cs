@@ -151,6 +151,7 @@ using Microsoft.Fast.Components.FluentUI;
           <li role=""presentation""><a href=""#nav-item-3"">Seller Terms</a></li></ul></div></div></div></div>");
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
     }
