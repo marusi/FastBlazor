@@ -157,12 +157,7 @@ using Microsoft.Fast.Components.FluentUI;
         collapseNavMenu = !collapseNavMenu;
     }
 
-    async Task LogoutClick()
-    {
-        await authStateProvider.Logout();
-        toastService.ShowToast("Logged out!", ToastLevel.Info);
-        navigationManager.NavigateTo("/login");
-    }
+    
 
 #line default
 #line hidden

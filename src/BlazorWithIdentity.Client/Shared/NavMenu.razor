@@ -2,7 +2,7 @@
 @using Microsoft.Fast.Components.FluentUI
 
 <div class="@NavMenuCssClass navBack" @onclick="ToggleNavMenu">
- <span class="glyph glyph-back" data-toggle="tooltip" title="Log out"  @onclick="@LogoutClick" slot="end">Log out</span> 
+
 
 
 <FluentTreeView RenderCollapsedNodes="false">
@@ -12,7 +12,7 @@
             <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/category" >Categories</NavLinkFluentAnchor></FluentTreeItem>
             <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/product" >Product Name</NavLinkFluentAnchor></FluentTreeItem>
             <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/option" >Option</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option</NavLinkFluentAnchor></FluentTreeItem>
+            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option Value</NavLinkFluentAnchor></FluentTreeItem>
             <FluentTreeItem > <NavLinkFluentAnchor Href="/skuvalue" Appearance="Appearance.Hypertext">Sku Value</NavLinkFluentAnchor></FluentTreeItem>
             <FluentTreeItem > <NavLinkFluentAnchor Href="/productsku" Appearance="Appearance.Hypertext">Price</NavLinkFluentAnchor></FluentTreeItem>
             
@@ -66,10 +66,5 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
-    async Task LogoutClick()
-    {
-        await authStateProvider.Logout();
-        toastService.ShowToast("Logged out!", ToastLevel.Info);
-        navigationManager.NavigateTo("/login");
-    }
+    
 }

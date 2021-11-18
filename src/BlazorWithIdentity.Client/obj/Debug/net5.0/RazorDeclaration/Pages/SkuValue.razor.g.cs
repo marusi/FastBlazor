@@ -181,7 +181,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 105 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValue.razor"
+#line 101 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValue.razor"
       
 
     // private SuccessNotification _notification;
@@ -229,7 +229,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 146 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValue.razor"
+#line 142 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValue.razor"
               
 
 

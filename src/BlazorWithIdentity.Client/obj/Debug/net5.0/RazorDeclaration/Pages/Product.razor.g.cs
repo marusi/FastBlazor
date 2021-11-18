@@ -174,7 +174,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 109 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Product.razor"
+#line 105 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Product.razor"
       
 
     // private SuccessNotification _notification;
@@ -222,7 +222,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 150 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Product.razor"
+#line 146 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Product.razor"
               
 
 

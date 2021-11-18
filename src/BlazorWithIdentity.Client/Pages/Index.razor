@@ -12,19 +12,57 @@
   <div class="row">
    
 
-  <h1>Call JS Example 2</h1>
 
-<p>
-    <button @onclick="SetStock">Set Stock</button>
-</p>
 
-@if (stockSymbol is not null)
-{
-    <p>@stockSymbol price: @price.ToString("c")</p>
-    <input @ref="inputElement" type="number" bind="@price.ToString("c")" />
-} 
+<h1>Checkbox</h1>
+<h4>Default</h4>
+<FluentCheckbox></FluentCheckbox>
+<FluentCheckbox>label</FluentCheckbox>
 
-<ProductList /> 
+<h4>Checked</h4>
+<FluentCheckbox Checked="true"></FluentCheckbox>
+
+<!-- Required -->
+<h4>Required</h4>
+<FluentCheckbox Required="true"></FluentCheckbox>
+
+<h4>Indeterminate</h4>
+<FluentCheckbox class="flag-indeterminate">Unchecked</FluentCheckbox>
+<FluentCheckbox Checked="true" class="flag-indeterminate">Checked</FluentCheckbox>
+
+<!-- Disabled -->
+<h4>Disabled</h4>
+<FluentCheckbox Disabled="true"></FluentCheckbox>
+<FluentCheckbox Disabled="true">label</FluentCheckbox>
+<FluentCheckbox Disabled="true" Checked="true">Checked="true"</FluentCheckbox>
+<FluentCheckbox Disabled="true" Checked="true" class="flag-indeterminate">
+    Indeterminate checked
+</FluentCheckbox>
+<FluentCheckbox Disabled="true" class="flag-indeterminate">
+    Indeterminate unchecked
+</FluentCheckbox>
+
+<h4>Inline</h4>
+<FluentCheckbox Checked="true">Apples</FluentCheckbox>
+<FluentCheckbox Checked="true">Bananas</FluentCheckbox>
+<FluentCheckbox>Honeydew</FluentCheckbox>
+<FluentCheckbox Checked="true">Oranges</FluentCheckbox>
+
+<h4>Vertical</h4>
+<fieldset style="display: flex; flex-direction: column; align-items: start;">
+    <legend>Fruit</legend>
+    <FluentCheckbox Checked="true">Apples</FluentCheckbox>
+    <FluentCheckbox Checked="true">Bananas</FluentCheckbox>
+    <FluentCheckbox>Honeydew</FluentCheckbox>
+    <FluentCheckbox Checked="true">Oranges</FluentCheckbox>
+</fieldset>
+
+<h4>Visual vs audio label</h4>
+<FluentCheckbox>
+    <span aria-label="Audio label">Visible label</span>
+</FluentCheckbox>
+<!-- With label -->
+
 
   </div>
 </div>
@@ -37,35 +75,8 @@
 </AuthorizeView>
 
 @code {
-     private Random r = new();
-    private string? stockSymbol;
-    private decimal price;
-    private ElementReference inputElement { get; set; }
-    protected override void OnInitialized()
-    {
-             
-               JS.InvokeVoidAsync("interop.watch",  DotNetObjectReference.Create(this));
-    }
+    
     @functions{
-        private async Task SetStock()
-        {
-            stockSymbol = 
-                $"{(char)('A' + r.Next(0, 26))}{(char)('A' + r.Next(0, 26))}";
-            price = r.Next(1, 101);
-            await JS.InvokeVoidAsync("displayTickerAlert", stockSymbol, price);
-            await JS.InvokeVoidAsync("interop.getProperty", stockSymbol);
-            await JS.InvokeVoidAsync("interop.setProperty", stockSymbol, price);
-            await JS.InvokeVoidAsync("interop.setFocus", inputElement);
-            OnInitialized();
-            await UpdateCounter();
-        }
-
-        [JSInvokable]
-        public Task UpdateCounter()
-        {
-            this.StateHasChanged();
-            toastService.ShowToast($"Task Completed: {Task.CompletedTask}", ToastLevel.Success);
-            return Task.CompletedTask;
-        }
+       
     }
 }

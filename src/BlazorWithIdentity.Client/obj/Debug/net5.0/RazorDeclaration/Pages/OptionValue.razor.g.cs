@@ -174,7 +174,7 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 104 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValue.razor"
+#line 100 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValue.razor"
       
 
     // private SuccessNotification _notification;
@@ -222,7 +222,7 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 145 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValue.razor"
+#line 141 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValue.razor"
               
 
 

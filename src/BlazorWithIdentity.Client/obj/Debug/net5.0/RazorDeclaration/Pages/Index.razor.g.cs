@@ -153,51 +153,6 @@ using Microsoft.Fast.Components.FluentUI;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 39 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Index.razor"
-       
-     private Random r = new();
-    private string? stockSymbol;
-    private decimal price;
-    private ElementReference inputElement { get; set; }
-    protected override void OnInitialized()
-    {
-             
-               JS.InvokeVoidAsync("interop.watch",  DotNetObjectReference.Create(this));
-    }
-    
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 49 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Index.razor"
-               
-        private async Task SetStock()
-        {
-            stockSymbol = 
-                $"{(char)('A' + r.Next(0, 26))}{(char)('A' + r.Next(0, 26))}";
-            price = r.Next(1, 101);
-            await JS.InvokeVoidAsync("displayTickerAlert", stockSymbol, price);
-            await JS.InvokeVoidAsync("interop.getProperty", stockSymbol);
-            await JS.InvokeVoidAsync("interop.setProperty", stockSymbol, price);
-            await JS.InvokeVoidAsync("interop.setFocus", inputElement);
-            OnInitialized();
-            await UpdateCounter();
-        }
-
-        [JSInvokable]
-        public Task UpdateCounter()
-        {
-            this.StateHasChanged();
-            toastService.ShowToast($"Task Completed: {Task.CompletedTask}", ToastLevel.Success);
-            return Task.CompletedTask;
-        }
-    
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ToastService toastService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }

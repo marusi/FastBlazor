@@ -12,7 +12,17 @@
                   <FluentToolbar   id="toolbar-fluent-components-main" style="width:100%; " >
                         <NavLinkFluentAnchor Href="/" Appearance="Appearance.Outline">Home</NavLinkFluentAnchor>
                           
-                          <p class="type-p3" slot="end">Hi, @context.User.Identity.Name</p> 
+                          <FluentListbox slot="end">
+                          <FluentOption   Value="Value content loses">
+                                Hi, @context.User.Identity.Name
+                          </FluentOption>
+                          
+                         <FluentOption @onclick="@LogoutClick" Value="log">
+                              <span class="glyph glyph-back" data-toggle="tooltip" title="Log out"   slot="end"></span> 
+                             Log Out
+                         </FluentOption>
+    
+                    </FluentListbox>
     
                       </FluentToolbar>
              </FluentDesignSystemProvider>
@@ -43,3 +53,11 @@
 
 
 
+@code {
+    async Task LogoutClick()
+    {
+        await authStateProvider.Logout();
+        toastService.ShowToast("Logged out!", ToastLevel.Info);
+        navigationManager.NavigateTo("/login");
+    }
+}

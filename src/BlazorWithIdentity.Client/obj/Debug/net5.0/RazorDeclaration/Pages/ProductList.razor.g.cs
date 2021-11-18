@@ -168,14 +168,18 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 173 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 166 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
        
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
     ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
 
     protected bool IsDisabled = true;
-  
+    private bool HideLabel   = true;
+    private void Toggle()
+      {
+         HideLabel =   !HideLabel;
+      } 
     string error { get; set; }
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
@@ -192,7 +196,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 190 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 187 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                 
 
         // private ProductSkuDTO[] productSkus { get; set; }
@@ -239,7 +243,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 230 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 227 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      if (saveCompositeProductDTO.CombinedProducts.Count > 1)
                     {
                       IsDisabled = false;  
@@ -249,7 +253,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 233 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 230 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      
 
 
@@ -265,7 +269,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 242 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 239 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      if (saveCompositeProductDTO.CombinedProducts.Count < 2)
                     {
                       IsDisabled = true;  
@@ -275,7 +279,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 245 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 242 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      
                     
                     Console.WriteLine($"Last total: {saveCompositeProductDTO.TotalPrice}");

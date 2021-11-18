@@ -6,24 +6,21 @@
 <div class="row row-sm">
    
         <h6>Product List</h6>
+    
      <div class="col-md-12">
-       <button disabled=@(IsDisabled) class="btn btn-secondary" 
-    @onclick="(() => ListUpdated())">Create Composite Selection</button> 
-     </div>
-     <div class="col-md-12">
-
-         <div class="form-group">
-         <div class="putbox-content">
-         <div class="content-title">Categories Filter</div>
-          <div class="combobox">
-
-                    @if (categories == null)
+         <div class="putbox">
+        <div class="putbox-icon">
+            <span @onclick="@Toggle" class="glyph glyph-checkbox-composite"></span>
+        </div>
+        <div class="putbox-content">
+            <div class="content-title">Filter products by category:</div>
+            <form class="content-form">
+                <div class="combobox">
+                     @if (categories == null)
                     {
                         
-                    } else
-                    {
-             
-              <select  class="form-control" @onclick="OnFilterProducts"   @bind="query.CategoryId">
+                    } else { 
+                        <select  class="form-control" @onclick="OnFilterProducts"   @bind="query.CategoryId">
                   <option value="">All Products</option>
                  @foreach (var item in categories)
                   {
@@ -32,17 +29,15 @@
              </select>
 
           }
-  
+                </div>
+            </form>
+           
+        </div>
+        </div>
+ 
+     </div>
+      <div class="col-md-12">
       
-      </div>
-
-      </div>
-    
-
-
-    
-         </div>
-       
      </div>
 
      <div class="col-md-24">
@@ -52,25 +47,7 @@
   @if (productSkus == null)
 {
    <li class="list-items-row">
-       <div class="entity-list ">
-        <div class="entity-list-item "  >
-          <div class="item-icon">
-            <span class="glyph glyph-warning"></span>
-          </div>
-           <div class="item-content-secondary">
-              <div class="content-text-tertiary "> <span class="label label-danger">Nothing here</span>  </div>
-          </div>
-           <div class="content-text-tertiary ">
-                  <div class="progress-bar">
-      <div class="progress-circle"></div>
-      <div class="progress-circle"></div>
-      <div class="progress-circle"></div>
-      <div class="progress-circle"></div>
-      <div class="progress-circle"></div>
-    </div>
-            </div>
-          </div>
-          </div>
+       <fluent-progress-ring></fluent-progress-ring>
   </li>
 } else
 {
@@ -80,6 +57,42 @@
     {
        <li class="list-items-row" >
     <div class="row">
+        <div class="col-md-1">
+            <div hidden="@HideLabel">
+                
+               <div  class="checkbox">
+                <label>
+                 
+                    @if (@item.Id > 0)
+                    {
+                       
+                          <input name="AreChecked" type="checkbox" 
+                            value="@item.Id" 
+                            @onchange = "eventArgs => { CheckChanged
+                            (saveCompositeProductDTO, eventArgs.Value, item.Id, item.Price);
+                            }"
+                                />                                 
+                    }
+                     else
+                     {
+                         
+                     <input name="AreChecked" type="checkbox" 
+                            value="@item.Id"  checked 
+                            @onchange="eventArgs => { CheckChanged 
+                            (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"
+                            
+                              />
+                     }
+                    <span></span>
+                </label>
+            </div>
+                
+            </div>
+
+            <div hidden="@(!HideLabel)"></div>
+             
+        </div>
+        <div class="col-md-23">
       <div class="entity-list ">
         <div class="entity-list-item "  >
           <div class="item-icon">
@@ -100,31 +113,7 @@
               </div>
               <div class="col-md-6">
                   <div class="content-text-tertiary ">
-                   <div class="checkbox">
-                <label>
-                 
-                    @if (@item.Id > 0)
-                    {
-                          <input name="AreChecked" type="checkbox" 
-                            value="@item.Id" 
-                            @onchange = "eventArgs => { CheckChanged
-                            (saveCompositeProductDTO, eventArgs.Value, item.Id, item.Price);
-                            }"
-                                />                                 
-                    }
-                     else
-                     {
-                         
-                     <input name="AreChecked" type="checkbox" 
-                            value="@item.Id"  checked 
-                            @onchange="eventArgs => { CheckChanged 
-                            (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"
-                            
-                              />
-                     }
-                    <span>Pick</span>
-                </label>
-            </div>
+                  
               </div>
             
                    
@@ -136,11 +125,15 @@
 
         </div>
       </div>
+      </div>
 
     </div>
   </li>
     }
    <li>
+<FluentButton Appearance="Appearance.Accent" Disabled=@(IsDisabled)  
+    @onclick="(() => ListUpdated())">Create Composite Selection</FluentButton> 
+
 
  
    </li>
@@ -176,7 +169,11 @@
     ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
 
     protected bool IsDisabled = true;
-  
+    private bool HideLabel   = true;
+    private void Toggle()
+      {
+         HideLabel =   !HideLabel;
+      } 
     string error { get; set; }
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
