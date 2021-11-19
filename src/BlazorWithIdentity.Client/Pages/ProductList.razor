@@ -5,12 +5,14 @@
 
 <div class="row row-sm">
    
-        <h6>Product List</h6>
-    
-     <div class="col-md-12">
-         <div class="putbox">
+        
+        <FluentDesignSystemProvider  fill-color="#ffffff" style="padding:10px;min-width:100%;position: sticky; ">
+    <FluentToolbar id="toolbar-fluent-product-list" style="width:100%">
+        <div class="putbox">
+             
         <div class="putbox-icon">
             <span @onclick="@Toggle" class="glyph glyph-checkbox-composite"></span>
+            
         </div>
         <div class="putbox-content">
             <div class="content-title">Filter products by category:</div>
@@ -34,11 +36,14 @@
            
         </div>
         </div>
- 
-     </div>
-      <div class="col-md-12">
-      
-     </div>
+        <FluentButton slot="end" Appearance="Appearance.Accent" Disabled=@(IsDisabled)  
+    @onclick="(() => ListUpdated())">Create Composite Selection</FluentButton> 
+    </FluentToolbar>
+</FluentDesignSystemProvider>
+
+
+    
+    
 
      <div class="col-md-24">
          
@@ -57,7 +62,7 @@
     {
        <li class="list-items-row" >
     <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
             <div hidden="@HideLabel">
                 
                <div  class="checkbox">
@@ -92,7 +97,7 @@
             <div hidden="@(!HideLabel)"></div>
              
         </div>
-        <div class="col-md-23">
+        <div class="col-md-18">
       <div class="entity-list ">
         <div class="entity-list-item "  >
           <div class="item-icon">
@@ -126,13 +131,22 @@
         </div>
       </div>
       </div>
+      <div class="col-md-4">
+           <div class="col-md-12">
+                   <NavLinkFluentAnchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></NavLinkFluentAnchor> 
+                 
+                </div>
+                 <div class="col-md-12">
+                    <FluentButton type="submit"   @onclick="(() => DeleteProductSku(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
+                </div>
+
+      </div>
 
     </div>
   </li>
     }
    <li>
-<FluentButton Appearance="Appearance.Accent" Disabled=@(IsDisabled)  
-    @onclick="(() => ListUpdated())">Create Composite Selection</FluentButton> 
+
 
 
  
@@ -151,9 +165,6 @@
 
 
 </div>
-
-
-
 
 
 
@@ -306,7 +317,18 @@
 	}
 
 
-  
+  protected async Task DeleteProductSku(int Id)
+        {
+          await ProductSkuDataService.DeleteProductSku(Id);
+          toastService.ShowToast($"Item({Id}) deleted succesfuly", ToastLevel.Success);
+            StateHasChanged();
+            await OnInitializedAsync();
+            //  StatusClass = "alert-success";
+          //  Message = "Deleted successfully";
+
+           // Saved = true;
+        }
+
 
      
 

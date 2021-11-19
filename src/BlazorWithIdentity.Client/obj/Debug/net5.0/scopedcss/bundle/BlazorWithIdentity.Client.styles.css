@@ -668,6 +668,7 @@
 
 .sidebar[b-07g7jfs9u7] {
     background: #fbfbfb;
+     box-shadow: 0 9px 19px rgba(0,0,0,0.30), 0 7px 6px rgba(0,0,0,0.22);
 }
 
 @media (min-width: 641px) {
