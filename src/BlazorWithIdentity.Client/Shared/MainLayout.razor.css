@@ -1,47 +1,49 @@
-.fluent-design-system-provider {
-  background-color: #1a1a1a;
-}
-
-
-.page {
-    position: relative;
-    display: flex;
-   
-    flex-direction: column;
-}
-
 .main {
-    flex: 1;
+    display: grid;
+    grid-template-areas: 'navigation content';
+    grid-template-columns: 1fr 3fr;
+    min-height: 100vh;
 }
 
-.sidebar {
-    background: #fbfbfb;
-     box-shadow: 0 9px 19px rgba(0,0,0,0.30), 0 7px 6px rgba(0,0,0,0.22);
+.head {
+    grid-area: head;
 }
 
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
+.navigation {
+    grid-area: navigation;
+    padding-left: calc(var(--design-unit) * 3px);
+    box-shadow: 0 9px 19px rgba(0,0,0,0.30), 0 7px 6px rgba(0,0,0,0.22);
+}
+
+    .navigation > ul {
+        list-style: none;
+        padding: 0;
     }
 
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
+    .navigation h1 {
+        font-size: var(--type-ramp-plus-1-font-size);
+        line-height: var(--type-ramp-plus-1-line-height);
+        padding: 0 calc((10 + (var(--design-unit) * 2 * var(--density))) * 1px);
     }
 
-    .top-row {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .main > div {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.content {
+    --elevation: 2;
+    --background-luminance: 1;
+    padding-inline-start: calc(var(--design-unit) * 6px);
+    box-shadow: 0 0 calc((var(--elevation) * 0.225px) + 2px) rgba(0, 0, 0, calc(.11 * (2 - var(--background-luminance, 1)))), 0 calc(var(--elevation) * 0.4px) calc((var(--elevation) * 0.9px)) rgba(0, 0, 0, calc(.13 * (2 - var(--background-luminance, 1))));
 }
 
 
+.navigation fluent-anchor {
+    width: 100%;
+    color: #4cff00;
+}
 
+.navigation fluent-anchor::part(control) {
+        justify-content: start;
+ }
+
+.fluent-tree-item {
+    font-size: larger;
+    color: #b6ff00;
+}

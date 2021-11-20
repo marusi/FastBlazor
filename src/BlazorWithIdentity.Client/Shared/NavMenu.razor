@@ -1,42 +1,39 @@
 ﻿
-@using Microsoft.Fast.Components.FluentUI
-
-<div class="@NavMenuCssClass navBack" @onclick="ToggleNavMenu">
 
 
 
-<FluentTreeView RenderCollapsedNodes="false">
-    <FluentTreeItem class="type-h4">
+<fluent-tree-view  RenderCollapsedNodes="false">
+    <fluent-tree-item style="color: #555555;" >
       Add Product
      
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/category" >Categories</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/product" >Product Name</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/option" >Option</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option Value</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Href="/skuvalue" Appearance="Appearance.Hypertext">Sku Value</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Href="/productsku" Appearance="Appearance.Hypertext">Price</NavLinkFluentAnchor></FluentTreeItem>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/category" >Categories</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/product" >Product Name</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/option" >Option</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option Value</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Href="/skuvalue" Appearance="Appearance.Hypertext">Sku Value</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Href="/productsku" Appearance="Appearance.Hypertext">Price</fluent-anchor></fluent-tree-item>
             
            
         
       
-    </FluentTreeItem>
-     <FluentTreeItem>
+    </fluent-tree-item>
+     <fluent-tree-item>
        Product List
      
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/composite" >Composite Products</NavLinkFluentAnchor></FluentTreeItem>
-            <FluentTreeItem > <NavLinkFluentAnchor Appearance="Appearance.Hypertext" Href="/productlist" >Products</NavLinkFluentAnchor></FluentTreeItem>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/composite" >Composite Products</fluent-anchor></fluent-tree-item>
+            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/productlist" >Products</fluent-anchor></fluent-tree-item>
 
             
            
         
       
-    </FluentTreeItem>
+    </fluent-tree-item>
    
  
-</FluentTreeView>
+</fluent-tree-view>
 
 
-</div>
+
                       
                      
             
@@ -59,7 +56,7 @@
 @code {
     private bool collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {

@@ -12,6 +12,7 @@
 @using BlazorWithIdentity.Client.Services.Contracts
 @using BlazorWithIdentity.Client.Services.Implementations
 @using BlazorWithIdentity.Client.Services.Implementations.ToastNotification
+@using BlazorWithIdentity.Client.Services.Implementations.Sidebar
 @using BlazorWithIdentity.Client.States
 @using System.Security.Claims
 @using System.Net.Http.Json
@@ -19,5 +20,6 @@
 @inject ToastService toastService
 @inject NavigationManager navigationManager
 @inject IdentityAuthenticationStateProvider authStateProvider
+@inject ViewOptionService ViewOption
 
 

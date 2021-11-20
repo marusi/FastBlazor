@@ -4,8 +4,6 @@
     src: url(/css/fonts/glyphs/winjs-symbols.eot#iefix) format("embedded-opentype"),url(/css/fonts/glyphs/winjs-symbols.ttf) format("truetype")
 }
 
-
-
 fluent-card {
     --card-height: 400px;
     --card-width: 500px;

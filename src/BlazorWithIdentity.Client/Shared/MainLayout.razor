@@ -1,17 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
 @using BlazorWithIdentity.Client.Pages
-@using Microsoft.Fast.Components.FluentUI
+
 
     <AuthorizeView>
         <Authorized>
              
-            <FluentDesignSystemProvider fill-color="#333" >
+            <fluent-design-system-provider fill-color="#333" >
                
                
-                  <FluentToolbar   id="toolbar-fluent-components-main" style="width:100%; " >
-                        <NavLinkFluentAnchor Href="/" Appearance="Appearance.Outline">Home</NavLinkFluentAnchor>
-                          
+                  <fluent-toolbar   id="toolbar-fluent-components-main" style="width:100%; " >
+                        <fluent-anchor Href="/" Appearance="Appearance.Outline">Home</fluent-anchor>
+                           <fluent-switch onclick="document.darkTheme = !document.darkTheme; document.getElementsByTagName('fluent-design-system-provider')[0].setAttribute('background-color', darkTheme ? '#333333' : '#F7F7F7');">
+                      <span style="padding-inline-end: 8px;"> Theme</span>
+                      <span slot="checked-message">Dark</span>
+                       <span slot="unchecked-message">Light</span>
+                        </fluent-switch>
                           <FluentListbox slot="end">
                           <FluentOption   Value="Value content loses">
                                 Hi, @context.User.Identity.Name
@@ -24,25 +28,29 @@
     
                     </FluentListbox>
     
-                      </FluentToolbar>
-             </FluentDesignSystemProvider>
+                      </fluent-toolbar>
+             </fluent-design-system-provider>
      
-    <div class="page">
+  
  <Toast></Toast>
-    <div class="sidebar col-md-4">
-        <NavMenu />
-    </div>
+   
+ <div class="main">
+  <FluentDesignSystemProvider role="navigation" class="navigation" FillColor="#E5E5E5">
+       <NavMenu/>
+      </FluentDesignSystemProvider>
+   <div class="content">
+        @Body
+  </div>
+</div>
 
-    <div class="main col-md-20">
-       
 
-        <div class="content px-4">
-            @Body
-        </div>
-       
-    </div>
 
-</div> 
+           
+      
+ 
+
+
+
 
         </Authorized>
         <NotAuthorized>
@@ -54,6 +62,13 @@
 
 
 @code {
+     protected override async Task OnInitializedAsync()
+    {
+        ViewOption.OnChanged = () =>
+        {
+          StateHasChanged();//Refresh
+        };
+    }
     async Task LogoutClick()
     {
         await authStateProvider.Logout();
@@ -61,3 +76,9 @@
         navigationManager.NavigateTo("/login");
     }
 }
+
+
+
+
+
+

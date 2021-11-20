@@ -1145,6 +1145,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Category.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\CategoryData.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\ToggleMenuBotton.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Option.razor.g.cs
@@ -1158,6 +1159,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Register.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\SkuValue.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\SkuValueData.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\ClientNotAuthorized.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\CustomNotFound.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\FootBallLayout.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Shared\Footer.razor.g.cs
@@ -1180,6 +1182,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\App.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Category.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\CategoryData.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Components\ToggleMenuBotton.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Option.razor.g.cs
@@ -1193,6 +1196,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Register.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\SkuValue.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\SkuValueData.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\ClientNotAuthorized.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\CustomNotFound.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\FootBallLayout.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Shared\Footer.razor.g.cs

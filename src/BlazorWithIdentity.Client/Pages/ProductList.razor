@@ -6,12 +6,12 @@
 <div class="row row-sm">
    
         
-        <FluentDesignSystemProvider  fill-color="#ffffff" style="padding:10px;min-width:100%;position: sticky; ">
-    <FluentToolbar id="toolbar-fluent-product-list" style="width:100%">
+        <fluent-design-system-provider  fill-color="#ffffff" style="padding:10px;min-width:100%;position: sticky; ">
+    <fluent-toolbar id="toolbar-fluent-product-list" style="width:100%">
         <div class="putbox">
              
         <div class="putbox-icon">
-            <span @onclick="@Toggle" class="glyph glyph-checkbox-composite"></span>
+            <span  class="glyph glyph-filter"></span>
             
         </div>
         <div class="putbox-content">
@@ -36,16 +36,47 @@
            
         </div>
         </div>
-        <FluentButton slot="end" Appearance="Appearance.Accent" Disabled=@(IsDisabled)  
-    @onclick="(() => ListUpdated())">Create Composite Selection</FluentButton> 
-    </FluentToolbar>
-</FluentDesignSystemProvider>
+        
+        
+         <fluent-menu  slot="end">
+         <fluent-menu-item @onclick="@Toggle" role="menuitem">
+             <b hidden="@(!HideLabel)">
+                <span class="glyph glyph-multi-select"> </span>
+                Open Select
+             </b>
+             <b hidden="@HideLabel">
+                 <span class="glyph glyph-hide-bcc"> </span>
+                 Hide Select
+             </b>
+             </fluent-menu-item>
+         <fluent-menu-item @onclick="@ToggleAction" role="menuitem">            
+             <b hidden="@(!HideAction)">
+                 <span class="glyph glyph-edit"> </span>
+                 Edit & Delete
+                 <span class="glyph glyph-delete"> </span>
+            </b>
+             <b hidden="@HideAction">
+              <span class="glyph glyph-view"> </span>
+                 View only
+             </b>
+         </fluent-menu-item>
+         <fluent-divider></fluent-divider>
+         
+           <fluent-button style="width:100%;" appearance="accent" Disabled=@(IsDisabled)  
+            @onclick="(() => ListUpdated())">Create Composite </fluent-button> 
+      
+         </fluent-menu>
+
+       
+       
+    </fluent-toolbar>
+</fluent-design-system-provider>
 
 
     
     
 
-     <div class="col-md-24">
+     <div class="col-md-18">
          
          <ol class="list-items">
 
@@ -62,7 +93,7 @@
     {
        <li class="list-items-row" >
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-1">
             <div hidden="@HideLabel">
                 
                <div  class="checkbox">
@@ -132,15 +163,20 @@
       </div>
       </div>
       <div class="col-md-4">
+          <div hidden="@HideAction">
            <div class="col-md-12">
-                   <NavLinkFluentAnchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></NavLinkFluentAnchor> 
+                   <fluent-anchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
                  
                 </div>
                  <div class="col-md-12">
                     <FluentButton type="submit"   @onclick="(() => DeleteProductSku(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
                 </div>
+          </div>
+          <div hidden="@(!HideAction)">
+          </div>
 
       </div>
+      <div class="col-md-1"></div>
 
     </div>
   </li>
@@ -178,13 +214,11 @@
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
     ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
-
+   
     protected bool IsDisabled = true;
     private bool HideLabel   = true;
-    private void Toggle()
-      {
-         HideLabel =   !HideLabel;
-      } 
+    private bool HideAction   = true;
+   
     string error { get; set; }
      [Inject]
     public IProductSkuDataService ProductSkuDataService { get; set; }
@@ -217,7 +251,20 @@
 
         }
 
-
+         private void Toggle()
+         {
+            HideLabel =   !HideLabel;
+            if (HideLabel) {  
+              //  saveCompositeProductDTO.CombinedProducts.Clear();
+              //  saveCompositeProductDTO.TotalPrice = 0;
+              // logic to remove checkboxes
+            }
+         } 
+         private void ToggleAction()
+         {
+            HideAction =   !HideAction;
+            
+          }
 
         protected void CheckChanged(SaveCompositeProductDTO saveProduct,
                                      object checkValue, int id, decimal price)

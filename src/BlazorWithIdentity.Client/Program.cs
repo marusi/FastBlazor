@@ -1,5 +1,6 @@
 ﻿using BlazorWithIdentity.Client.Services.Contracts;
 using BlazorWithIdentity.Client.Services.Implementations;
+using BlazorWithIdentity.Client.Services.Implementations.Sidebar;
 using BlazorWithIdentity.Client.Services.Implementations.ToastNotification;
 using BlazorWithIdentity.Client.States;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -34,6 +35,8 @@ namespace BlazorWithIdentity.Client
             builder.Services.AddScoped<ICompositeProductDataService, CompositeProductApi>();
             builder.Services.AddScoped<IFootballDataService, FootballApi>();
             builder.Services.AddSingleton<ToastService>();
+            //Add additional Service for Hide/Show Navbar
+            builder.Services.AddSingleton<ViewOptionService>();
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
