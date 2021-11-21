@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorWithIdentity.Client.Pages
+namespace BlazorWithIdentity.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -64,6 +64,13 @@ using Microsoft.AspNetCore.Authorization;
 #nullable restore
 #line 8 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using Microsoft.JSInterop;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
+using BlazorWithIdentity.Shared;
 
 #line default
 #line hidden
@@ -138,82 +145,13 @@ using Microsoft.Fast.Components.FluentUI;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
-using BlazorWithIdentity.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
-using BlazorWithIdentity.Shared.DTO.Category;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
-           [Authorize]
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categorydata/{Id:int}")]
-    public partial class CategoryData : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class FluentOptionNumber : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 42 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
-       
-    [Parameter]
-    public int Id { get; set; }
-
-      string error { get; set; }
-
-   ProductCategoryDTO categoryItem { get; set; } = new ProductCategoryDTO();
-    SaveProductCategoryDTO saveProductCategoryDTO { get; set; } = new SaveProductCategoryDTO();
-   
-   
-     [Inject]
-    public ICategoryDataService CategoryDataService { get; set; }
-
-      async Task OnSubmitCategory()
-    {
-        error = null;
-        try
-        {
-           await CategoryDataService.UpdateCategory(Id, categoryItem);
-            toastService.ShowToast($"{categoryItem.Name} added Succesfuly", ToastLevel.Success);
-         //  StateHasChanged();
-         //    await OnInitializedAsync();
-            navigationManager.NavigateTo("/category");
-            
-           
-
-        }
-        catch (Exception ex)
-        {
-            error = ex.Message;
-        }
-    }
-  
-
-      protected override async Task OnInitializedAsync()
-    {
-       categoryItem = await CategoryDataService.GetCategoryById(Id);
-
-      // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ViewOptionService ViewOption { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }

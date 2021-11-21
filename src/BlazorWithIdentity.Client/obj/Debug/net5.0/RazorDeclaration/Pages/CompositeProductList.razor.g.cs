@@ -174,7 +174,7 @@ using System.Threading.Tasks;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 151 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 152 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
        
 
      CompositeProductDTO compositeProductDTO { get; set; } = new CompositeProductDTO();
@@ -189,7 +189,7 @@ using System.Threading.Tasks;
 #line hidden
 #nullable disable
 #nullable restore
-#line 159 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
+#line 160 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CompositeProductList.razor"
                 
 
 

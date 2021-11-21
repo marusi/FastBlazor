@@ -3,10 +3,13 @@
 @using BlazorWithIdentity.Shared.DTO.ProductSku
 @page "/productlist"
 
+
+
+ <FluentDesignSystemProvider>
 <div class="row row-sm">
    
         
-        <fluent-design-system-provider  fill-color="#ffffff" style="padding:10px;min-width:100%;position: sticky; ">
+       
     <fluent-toolbar id="toolbar-fluent-product-list" style="width:100%">
         <div class="putbox">
              
@@ -17,21 +20,24 @@
         <div class="putbox-content">
             <div class="content-title">Filter products by category:</div>
             <form class="content-form">
-                <div class="combobox">
-                     @if (categories == null)
+              
+                 @if (categories == null){} else {
+                       if (testValue == null){ } 
+                       else {
+                           int number;
+                           int.TryParse(testValue, out number);
+                           query.CategoryId = number;
+                        }
+                  <FluentSelect   @onclick="OnFilterProducts"   @bind-value="testValue">
+                  <FluentOption Value="0">All Products</FluentOption>
+                    @foreach (var item in categories)
                     {
-                        
-                    } else { 
-                        <select  class="form-control" @onclick="OnFilterProducts"   @bind="query.CategoryId">
-                  <option value="">All Products</option>
-                 @foreach (var item in categories)
-                  {
-                     <option value="@item.Id">@item.Name</option>
-                   }
-             </select>
+                        <FluentOption Value="@item.Id.ToString()">@item.Name</FluentOption>
+                    }
+                   </FluentSelect>
 
           }
-                </div>
+                
             </form>
            
         </div>
@@ -70,10 +76,7 @@
        
        
     </fluent-toolbar>
-</fluent-design-system-provider>
 
-
-    
     
 
      <div class="col-md-18">
@@ -96,28 +99,24 @@
         <div class="col-md-1">
             <div hidden="@HideLabel">
                 
-               <div  class="checkbox">
+               <div class="flag-indeterminate" >
                 <label>
                  
                     @if (@item.Id > 0)
                     {
-                       
-                          <input name="AreChecked" type="checkbox" 
+                       <input  name="AreChecked" type="checkbox" 
                             value="@item.Id" 
                             @onchange = "eventArgs => { CheckChanged
                             (saveCompositeProductDTO, eventArgs.Value, item.Id, item.Price);
                             }"
-                                />                                 
+                                />
+                                                          
                     }
                      else
                      {
-                         
-                     <input name="AreChecked" type="checkbox" 
-                            value="@item.Id"  checked 
-                            @onchange="eventArgs => { CheckChanged 
-                            (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"
-                            
-                              />
+                       <input name="AreChecked" type="checkbox" value="@item.Id"  checked @onchange="eventArgs => { CheckChanged 
+           (saveCompositeProductDTO, eventArgs.Value, item.Id,item.Price);}"/>  
+                     
                      }
                     <span></span>
                 </label>
@@ -144,7 +143,7 @@
               <div class="col-md-18">
 
                   <div class="content-text-primary ">@item.SkuValue.OptionValue.Option.Product.ProductName </div>
-            <div class="content-text-secondary">@item.SkuValue.OptionValue.OptionValueName - KES @item.Price </div>
+            <div class="content-text-tertiary">@item.SkuValue.OptionValue.OptionValueName - KES @item.Price </div>
             
               </div>
               <div class="col-md-6">
@@ -197,12 +196,12 @@
          
          </div>
 
-    
+
 
 
 </div>
 
-
+  </FluentDesignSystemProvider>  
 
 
 
@@ -213,8 +212,14 @@
 @code {
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
-    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
-   
+    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO
+    {
+        
+    
+    };
+    
+    
+    
     protected bool IsDisabled = true;
     private bool HideLabel   = true;
     private bool HideAction   = true;
@@ -237,6 +242,8 @@
 
         [Parameter]
         public int Id { get; set; }
+
+        public string testValue = "";
 
         SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
         string errorTwo { get; set; }
@@ -298,14 +305,14 @@
                     {
                       IsDisabled = true;  
                     }
-                    
+
                     Console.WriteLine($"Last total: {saveCompositeProductDTO.TotalPrice}");
-                    
-                    
-                    
+
+
+
                 }
             } else {
-                    
+
             }
 
         }
@@ -318,21 +325,28 @@
             saveCompositeProductDTO.CombinedProducts.Clear();
 
             saveCompositeProductDTO.TotalPrice = 0;
-         
+
             navigationManager.NavigateTo("/composite");
         }
         private  async Task OnFilterProducts()
         {
-              var props = GetProperties(query);
+            var props = GetProperties(query);
             foreach (var prop in props)
-		{
+            {
                 if (prop.Key != "CategoryId")
                 {
-                 // productSkus = await ProductSkuDataService.GetProductSkus("");  
+                    // productSkus = await ProductSkuDataService.GetProductSkus("");  
                 } else if (prop.Key == "CategoryId") {
-
-                    var combined = $"{prop.Key}={prop.Value}";
-                    productSkus = await ProductSkuDataService.GetProductSkus(combined);
+                    if(query.CategoryId == 0)
+                    {
+                        var allProducts = $""; // pass empty string to have api call no query at all
+                        productSkus = await ProductSkuDataService.GetProductSkus(allProducts);
+                    } else
+                    {
+                       var queryValue = $"{prop.Key}={prop.Value}";
+                       productSkus = await ProductSkuDataService.GetProductSkus(queryValue);   
+                    }
+                    
 
                  //   await OnInitializedAsync();
                     // await OnFilterProducts();

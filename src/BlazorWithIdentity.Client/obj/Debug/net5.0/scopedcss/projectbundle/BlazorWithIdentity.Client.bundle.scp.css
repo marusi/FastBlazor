@@ -652,61 +652,51 @@
 /* /Shared/LoginLayout.razor.rz.scp.css */
 
 /* /Shared/MainLayout.razor.rz.scp.css */
-.main[b-07g7jfs9u7] {
-    display: grid;
-    grid-template-areas: 'navigation content';
-    grid-template-columns: 1fr 3fr;
-    min-height: 100vh;
-}
-
-.head[b-07g7jfs9u7] {
-    grid-area: head;
-}
-
-.navigation[b-07g7jfs9u7] {
-    grid-area: navigation;
-    padding-left: calc(var(--design-unit) * 3px);
-    box-shadow: 0 9px 19px rgba(0,0,0,0.30), 0 7px 6px rgba(0,0,0,0.22);
-}
-
-    .navigation > ul[b-07g7jfs9u7] {
-        list-style: none;
-        padding: 0;
-    }
-
-    .navigation h1[b-07g7jfs9u7] {
-        font-size: var(--type-ramp-plus-1-font-size);
-        line-height: var(--type-ramp-plus-1-line-height);
-        padding: 0 calc((10 + (var(--design-unit) * 2 * var(--density))) * 1px);
-    }
-
-.content[b-07g7jfs9u7] {
-    --elevation: 2;
-    --background-luminance: 1;
-    padding-inline-start: calc(var(--design-unit) * 6px);
-    box-shadow: 0 0 calc((var(--elevation) * 0.225px) + 2px) rgba(0, 0, 0, calc(.11 * (2 - var(--background-luminance, 1)))), 0 calc(var(--elevation) * 0.4px) calc((var(--elevation) * 0.9px)) rgba(0, 0, 0, calc(.13 * (2 - var(--background-luminance, 1))));
-}
-
-
-.navigation fluent-anchor[b-07g7jfs9u7] {
-    width: 100%;
-    color: #4cff00;
-}
-
-.navigation fluent-anchor[b-07g7jfs9u7]::part(control) {
-        justify-content: start;
- }
-
-.fluent-tree-item[b-07g7jfs9u7] {
-    font-size: larger;
-    color: #b6ff00;
-}
 /* /Shared/NavMenu.razor.rz.scp.css */
 
 
-.fluent-tree-item[b-234l2opi20] {
-    font-size: larger;
-    color:#00ff21;
+
+.nav-item[b-234l2opi20] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-234l2opi20] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-234l2opi20] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-234l2opi20]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item[b-234l2opi20]  a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .nav-item[b-234l2opi20]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-234l2opi20] {
+        display: none;
+    }
+
+    .collapse[b-234l2opi20] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
 }
 /* /Shared/Toast.razor.rz.scp.css */
 

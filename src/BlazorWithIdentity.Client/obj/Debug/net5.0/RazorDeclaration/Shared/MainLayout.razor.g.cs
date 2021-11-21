@@ -11,7 +11,6 @@ namespace BlazorWithIdentity.Client.Shared
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\_Imports.razor"
 using System.Net.Http;
@@ -146,7 +145,14 @@ using Microsoft.Fast.Components.FluentUI;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
+#line 2 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
+using Microsoft.AspNetCore.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
 using BlazorWithIdentity.Client.Pages;
 
 #line default
@@ -159,26 +165,6 @@ using BlazorWithIdentity.Client.Pages;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 64 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Shared\MainLayout.razor"
-       
-     protected override async Task OnInitializedAsync()
-    {
-        ViewOption.OnChanged = () =>
-        {
-          StateHasChanged();//Refresh
-        };
-    }
-    async Task LogoutClick()
-    {
-        await authStateProvider.Logout();
-        toastService.ShowToast("Logged out!", ToastLevel.Info);
-        navigationManager.NavigateTo("/login");
-    }
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ViewOptionService ViewOption { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IdentityAuthenticationStateProvider authStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }

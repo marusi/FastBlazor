@@ -10,6 +10,7 @@
 @using System.Threading.Tasks
 @inject HttpClient Http
 
+
 <h3>Composite Product List</h3>
 @if (compositeProducts == null)
 {
@@ -18,8 +19,8 @@
 { 
     @foreach(var item in compositeProducts){
       
-       
- 
+     <FluentDesignSystemProvider>   
+
 
   <div class="col-sm-22  ">
    
@@ -140,7 +141,7 @@
 
 
 
-
+</FluentDesignSystemProvider>
    
     
 }
@@ -187,4 +188,3 @@
 
         }
 }
-

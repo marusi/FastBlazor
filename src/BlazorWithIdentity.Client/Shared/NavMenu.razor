@@ -1,67 +1,110 @@
 ﻿
 
+@inject NavigationManager navigationmanager
 
 
-<fluent-tree-view  RenderCollapsedNodes="false">
-    <fluent-tree-item style="color: #555555;" >
-      Add Product
-     
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/category" >Categories</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/product" >Product Name</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/option" >Option</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/optionvalue" >Option Value</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Href="/skuvalue" Appearance="Appearance.Hypertext">Sku Value</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Href="/productsku" Appearance="Appearance.Hypertext">Price</fluent-anchor></fluent-tree-item>
-            
-           
-        
-      
-    </fluent-tree-item>
-     <fluent-tree-item>
-       Product List
-     
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/composite" >Composite Products</fluent-anchor></fluent-tree-item>
-            <fluent-tree-item > <fluent-anchor Appearance="Appearance.Hypertext" Href="/productlist" >Products</fluent-anchor></fluent-tree-item>
-
-            
-           
-        
-      
-    </fluent-tree-item>
+<FluentDesignSystemProvider role="navigation" class="navigation">
    
- 
-</fluent-tree-view>
-
-
-
-                      
-                     
-            
-
-
+   <FluentAccordion >
+    <FluentAccordionItem>
+        <span class="glyph glyph-edit" slot="start">
+          
+        </span>
+       
+        <span class="type-c1" slot="heading">Update</span>
+        <ul class="list-items">
+        <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                   <NavLinkFluentAnchor   Href="/Category" Appearance="Appearance.Stealth">Category</NavLinkFluentAnchor>      <!-- adjust the grid settings appropriately-->
+                </div>
                  
-                
-
                
-           
+            </div>
+        </li>
+      <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/product" Appearance="Appearance.Stealth">Product Name</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li>
+         <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/option" Appearance="Appearance.Stealth">Option</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li> 
+         <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/optionvalue" Appearance="Appearance.Stealth">Option Value</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li> 
+         <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/skuvalue" Appearance="Appearance.Stealth">Sku Value</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li> 
 
+         <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <NavLinkFluentAnchor Href="/productsku" Appearance="Appearance.Stealth">Price</NavLinkFluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li> 
+    </ul>
+    </FluentAccordionItem>
+    <FluentAccordionItem >
+        <span slot="start" class="glyph glyph-list">List</span>
+        <span slot="heading">List</span>
+         <ul class="list-items">
+        <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                 <FluentAnchor Appearance="Appearance.Stealth" Href="/productlist" >Products List</FluentAnchor>     <!-- adjust the grid settings appropriately-->
+                </div>
+                 
+               
+            </div>
+        </li>
+      <li class="list-items-row">
+            <div class="row">
+                <div class="col-md-24">  <!-- if you want more than one column at a narrow viewport-->
+                    <FluentAnchor Appearance="Appearance.Stealth" Href="/composite" >Composite Products</FluentAnchor>
+                </div>
+                
+               
+            </div>
+        </li> </ul>
+        
+       
+    </FluentAccordionItem>
+ 
+</FluentAccordion>
+  
 
+   
 
-
-
-
-
+</FluentDesignSystemProvider>
 
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
     
+
 }

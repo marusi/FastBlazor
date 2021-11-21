@@ -175,12 +175,18 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 213 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 212 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
        
 
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
-    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO();
-   
+    ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO
+    {
+        
+    
+    };
+    
+    
+    
     protected bool IsDisabled = true;
     private bool HideLabel   = true;
     private bool HideAction   = true;
@@ -201,7 +207,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 232 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 237 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                 
 
         // private ProductSkuDTO[] productSkus { get; set; }
@@ -210,6 +216,8 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 
         [Parameter]
         public int Id { get; set; }
+
+        public string testValue = "";
 
         SaveCompositeProductDTO saveCompositeProductDTO { get; set; } = new SaveCompositeProductDTO();
         string errorTwo { get; set; }
@@ -261,7 +269,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 285 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 292 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      if (saveCompositeProductDTO.CombinedProducts.Count > 1)
                     {
                       IsDisabled = false;  
@@ -271,7 +279,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 288 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 295 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      
 
 
@@ -287,7 +295,7 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 297 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 304 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      if (saveCompositeProductDTO.CombinedProducts.Count < 2)
                     {
                       IsDisabled = true;  
@@ -297,16 +305,16 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
 #line hidden
 #nullable disable
 #nullable restore
-#line 300 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
+#line 307 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductList.razor"
                      
-                    
+
                     Console.WriteLine($"Last total: {saveCompositeProductDTO.TotalPrice}");
-                    
-                    
-                    
+
+
+
                 }
             } else {
-                    
+
             }
 
         }
@@ -319,21 +327,28 @@ using BlazorWithIdentity.Shared.DTO.ProductSku;
             saveCompositeProductDTO.CombinedProducts.Clear();
 
             saveCompositeProductDTO.TotalPrice = 0;
-         
+
             navigationManager.NavigateTo("/composite");
         }
         private  async Task OnFilterProducts()
         {
-              var props = GetProperties(query);
+            var props = GetProperties(query);
             foreach (var prop in props)
-		{
+            {
                 if (prop.Key != "CategoryId")
                 {
-                 // productSkus = await ProductSkuDataService.GetProductSkus("");  
+                    // productSkus = await ProductSkuDataService.GetProductSkus("");  
                 } else if (prop.Key == "CategoryId") {
-
-                    var combined = $"{prop.Key}={prop.Value}";
-                    productSkus = await ProductSkuDataService.GetProductSkus(combined);
+                    if(query.CategoryId == 0)
+                    {
+                        var allProducts = $""; // pass empty string to have api call no query at all
+                        productSkus = await ProductSkuDataService.GetProductSkus(allProducts);
+                    } else
+                    {
+                       var queryValue = $"{prop.Key}={prop.Value}";
+                       productSkus = await ProductSkuDataService.GetProductSkus(queryValue);   
+                    }
+                    
 
                  //   await OnInitializedAsync();
                     // await OnFilterProducts();

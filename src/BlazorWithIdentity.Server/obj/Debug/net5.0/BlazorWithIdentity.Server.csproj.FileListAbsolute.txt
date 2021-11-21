@@ -160,7 +160,6 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.S
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
@@ -168,6 +167,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.S
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Server\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll

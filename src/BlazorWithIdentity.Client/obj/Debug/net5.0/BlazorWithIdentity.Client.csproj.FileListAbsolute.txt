@@ -1439,3 +1439,5 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\ref\BlazorWithIdentity.Client.dll
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.pdb
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\FluentSelectNumber.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Components\FluentSelectNumber.razor.g.cs

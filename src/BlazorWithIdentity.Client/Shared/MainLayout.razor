@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components
 
 @using BlazorWithIdentity.Client.Pages
 
@@ -6,42 +7,51 @@
     <AuthorizeView>
         <Authorized>
              
-            <fluent-design-system-provider fill-color="#333" >
-               
-               
-                  <fluent-toolbar   id="toolbar-fluent-components-main" style="width:100%; " >
-                        <fluent-anchor Href="/" Appearance="Appearance.Outline">Home</fluent-anchor>
-                           <fluent-switch onclick="document.darkTheme = !document.darkTheme; document.getElementsByTagName('fluent-design-system-provider')[0].setAttribute('background-color', darkTheme ? '#333333' : '#F7F7F7');">
-                      <span style="padding-inline-end: 8px;"> Theme</span>
-                      <span slot="checked-message">Dark</span>
-                       <span slot="unchecked-message">Light</span>
-                        </fluent-switch>
-                          <FluentListbox slot="end">
-                          <FluentOption   Value="Value content loses">
-                                Hi, @context.User.Identity.Name
-                          </FluentOption>
-                          
-                         <FluentOption @onclick="@LogoutClick" Value="log">
-                              <span class="glyph glyph-back" data-toggle="tooltip" title="Log out"   slot="end"></span> 
-                             Log Out
-                         </FluentOption>
+ <FluentDesignSystemProvider @ref=fdsp Direction=@dir BaseLayerLuminance=@baseLayerLuminance>
+     <div class="mainContainer">
+     <FluentDesignSystemProvider FillColor="#4B0082" >
+     <FluentToolbar id="toolbar-fluent-components-main" style="width:100%; " >
+         <FluentAnchor slot="start" Href="/" Appearance="Appearance.Outline">Home</FluentAnchor>
+                       
+              <FluentMenuItem slot="end"> Hi, @context.User.Identity.Name
+                <FluentMenu> 
+                    <FluentMenuItem @onclick="@LogoutClick" > 
+                        <span class="glyph glyph-back"></span>Log Out
+                    </FluentMenuItem>
+               </FluentMenu>
+             </FluentMenuItem>
+            
+                      
+                     
+                 
     
-                    </FluentListbox>
-    
-                      </fluent-toolbar>
-             </fluent-design-system-provider>
-     
-  
- <Toast></Toast>
-   
- <div class="main">
-  <FluentDesignSystemProvider role="navigation" class="navigation" FillColor="#E5E5E5">
-       <NavMenu/>
-      </FluentDesignSystemProvider>
-   <div class="content">
-        @Body
+                      </FluentToolbar>
+                </FluentDesignSystemProvider >
+                
+        <div class="main">
+            <div class="navigation ">
+                <div class="container">
+                     <NavMenu />
+                </div>
+               
+            </div>
+          <div class="content ">
+           <main>
+           <article class="content px-4">
+             <FluentSwitch @onchange=SwitchTheme >
+               <span style="padding-inline-end: 8px;"> Theme</span>
+               <span slot="checked-message">Dark</span>
+               <span slot="unchecked-message">Light</span>
+              </FluentSwitch>
+             @Body
+             </article>
+       </main>
+       
   </div>
 </div>
+</div>
+
+ </FluentDesignSystemProvider>
 
 
 
@@ -61,21 +71,6 @@
 
 
 
-@code {
-     protected override async Task OnInitializedAsync()
-    {
-        ViewOption.OnChanged = () =>
-        {
-          StateHasChanged();//Refresh
-        };
-    }
-    async Task LogoutClick()
-    {
-        await authStateProvider.Logout();
-        toastService.ShowToast("Logged out!", ToastLevel.Info);
-        navigationManager.NavigateTo("/login");
-    }
-}
 
 
 
