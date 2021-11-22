@@ -8,47 +8,57 @@
 <FluentDesignSystemProvider>
 <div class="row row-sm">
 <div class="container">
-      <h6>Edit Product</h6>
-    <FluentCard style="height:25%">
+      <h6>Edit Product Name</h6>
+    <FluentCard style="height:100%">
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
      
-     <div class="col-md-2">
-          <fluent-anchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></fluent-anchor> 
-      </div>
+     
+          <FluentAnchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></FluentAnchor> 
+     
          
-      <div class="col-md-6">
-
-          @if(categories == null) 
+      <div class="col-md-24">
+           @if(categories == null) 
           {
               <p><a href="/category">Insert</a> a new category </p>
           } else {
              
-               <InputSelect  class="form-control" id="category" @bind-Value="saveProductDTO.ProductCategoryId">
+               @if (testValue == null) { } else
+                                                {
+                                                    int bindValue;
+                                                    int.TryParse(testValue, out bindValue);
+                                                    saveProductDTO.ProductCategoryId = bindValue;
+                                                }
+                                                <FluentSelect  class="form-control" id="category" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in categories)
                                                     {
-                                                       
-                                                        <option value="@item.Id">@item.Name</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.Name</FluentOption>
                                                     }
-                                                </InputSelect>
-                                                 <p>Category</p>
+                                                </FluentSelect>
+                                                 
            }
 
-                </div>
-                <div class="col-md-8">
-
-                    <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
+      </div>
+      <div class="col-md-24">
+          <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveProductDTO.ProductName)" />
+    <label class="text-danger">@error</label> 
+      </div>
+
+       <div class="col-md-24">
+              <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton></div> 
+
+           
+
+                    
 
 
-                </div>
+           
+                 
+                   
 
-                <div class="col-md-8">
-                    <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
-                    <label class="text-danger">@error</label> 
-
-                </div>
+            
 
 
 
@@ -64,11 +74,11 @@
 
 
 @code {
-    
+
     [Parameter]
     public int Id { get; set; }
     string error { get; set; }
-
+    public string testValue = "";
 
     ProductDTO productItem { get; set; } = new ProductDTO();
     SaveProductDTO saveProductDTO { get; set; } = new SaveProductDTO();

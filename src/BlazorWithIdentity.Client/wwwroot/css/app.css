@@ -128,3 +128,11 @@ fluent-card {
     padding: 20px;
     margin: 12px;
 }
+
+fluent-breadcrumb-item::part(content) *::after {
+    content: ' '
+}
+
+fluent-breadcrumb-item::part(content) *::before {
+    content: ' '
+}

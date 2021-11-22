@@ -24,7 +24,7 @@
       @if (products == null)
          {
             
-             <fluent-progress-ring></fluent-progress-ring>
+             <FluentProgressRing></FluentProgressRing>
                
           }
         
@@ -38,13 +38,19 @@
                                   <div class="col-md-24">
                                       <div class="col-md-12">
                                           <p>Choose Category</p>
-                                               <InputSelect  class="form-control" id="category" @bind-Value="saveProductDTO.ProductCategoryId">
+                                                @if (testValue == null) { } else
+                                                {
+                                                    int bindValue;
+                                                    int.TryParse(testValue, out bindValue);
+                                                    saveProductDTO.ProductCategoryId = bindValue;
+                                                }
+                                                <FluentSelect  class="form-control" id="category" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in categories)
                                                     {
-                                                        <option value="@item.Id">@item.Name</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.Name</FluentOption>
                                                     }
-                                                </InputSelect>
+                                                </FluentSelect>
                                                
                                                 <br/>
                                       </div>
@@ -74,10 +80,15 @@
                                 <li class="list-items-row">
                                     <div class="row">
                                 <div class="col-md-16">
-                                    <ol class="breadcrumb">
-                                      <li><a href="categorydata/@item.ProductCategory.Id"> @item.ProductCategory.Name</a></li>
-                                      <li class="active"> @item.ProductName</li>
-                                    </ol>
+                                   
+                                   
+                                    <FluentBreadcrumb>
+                                       <FluentBreadcrumbItem Href="@($"categorydata/{@item.ProductCategory.Id}")">
+                                              @item.ProductCategory.Name
+                                        </FluentBreadcrumbItem>
+    
+                                    <FluentBreadcrumbItem>@item.ProductName</FluentBreadcrumbItem>
+                                    </FluentBreadcrumb>
 
                                 </div>
                
@@ -106,8 +117,9 @@
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
+    private string testValue = "";
     SaveProductDTO saveProductDTO { get; set; } = new SaveProductDTO();
     string error { get; set; }
 
