@@ -175,10 +175,12 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
-        [Parameter]
+#line 74 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+       
+    [Parameter]
     public int Id { get; set; }
     string error { get; set; }
+    public string testValue = ""; 
 
 
     OptionValueDTO optionValueItem { get; set; } = new OptionValueDTO();
@@ -219,7 +221,7 @@ using BlazorWithIdentity.Shared.DTO.OptionValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 102 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
+#line 113 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionValueData.razor"
                 
        private OptionDTO[] options { get; set; }
       protected override async Task OnInitializedAsync()

@@ -181,13 +181,15 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 99 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Option.razor"
+#line 112 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Option.razor"
       
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
+
+    public string testValue = "";
     SaveOptionDTO saveOptionDTO { get; set; } = new SaveOptionDTO();
     string error { get; set; }
 
@@ -229,7 +231,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 140 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Option.razor"
+#line 155 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\Option.razor"
               
 
 

@@ -181,15 +181,16 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSkuData.razor"
+#line 105 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSkuData.razor"
       
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
     SaveProductSkuDTO saveProductSkuDTO { get; set; } = new SaveProductSkuDTO();
     string error { get; set; }
+    private string testValue = "";
 
    
   //  ProductCategoryDTO productCategoryDTO { get; set; } = new ProductCategoryDTO();
@@ -229,7 +230,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 139 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSkuData.razor"
+#line 147 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSkuData.razor"
               
 
 

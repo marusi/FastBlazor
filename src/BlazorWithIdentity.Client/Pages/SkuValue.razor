@@ -23,27 +23,34 @@
       @if (skuValues == null)
          {
             
-           <fluent-progress-ring></fluent-progress-ring>
+           <FluentProgressRing></FluentProgressRing>
                
           }
         
          else
          {
             
-                   <ol class="list-items">
-                     <li class="list-items-row">
+                  
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveSkuValueDTO">
                                    <div class="col-md-24">
                                       <div class="col-md-12">
                                         <h6>Choose Option Value</h6>
-                                               <InputSelect  class="form-control" id="skuValue" @bind-Value="saveSkuValueDTO.OptionValueId">
+                                              @if(testValue == null){}
+                                              else {
+                                                  
+                                                  int bindValue;
+                                                  int.TryParse(testValue, out bindValue);
+                                            saveSkuValueDTO.OptionValueId = bindValue;
+                                            }
+                                            <FluentSelect  class="form-control" id="skuValue" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in optionValues)
                                                     {
-                                                        <option value="@item.Id">@item.OptionValueName</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.OptionValueName</FluentOption>
                                                     }
-                                                </InputSelect>
+                                                </FluentSelect>
+                                                
                                               <br>
                                               </div>
                                                <div class="col-md-12"></div>
@@ -64,30 +71,36 @@
                                          
                                    </EditForm>
                            </div>
-                     </li>
+
+                            <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+                      <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+                       <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Name</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+                      </FluentDataGridRow>
+                    
                       @foreach (var item in skuValues)
                         {
-                                <li class="list-items-row">
-                                    <div class="row">
-                                <div class="col-md-16">
-                                    <ol class="breadcrumb">
-                                      <li><a href="skuoptiondata/@item.OptionValue.Id"> @item.OptionValue.OptionValueName</a></li>
-                                      <li class="active"> @item.SkuValueName</li>
-                                    </ol>
 
-                                </div>
-               
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"skuvaluedata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteSkuValue(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-                     </ol>
+                             <FluentDataGridRow TItem=string>
+                            <FluentDataGridCell GridColumn=1>
+                               <FluentBreadcrumb>
+                                       <FluentBreadcrumbItem Href="@($"skuoptiondata/{item.OptionValue.Id}")">
+                                             @item.OptionValue.OptionValueName
+                                        </FluentBreadcrumbItem>
+    
+                                    <FluentBreadcrumbItem>@item.SkuValueName</FluentBreadcrumbItem>
+                                    </FluentBreadcrumb>
+                            
+                            
+                            </FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=2>  <FluentAnchor  Href="@($"skuvaluedata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor>    </FluentDataGridCell>
+                              <FluentDataGridCell GridColumn=3>  <FluentButton type="submit"   @onclick="(() => DeleteSkuValue(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+                                </FluentDataGridRow>
+                          }
+                      </FluentDataGrid>
+                              
+                                   
 
 }
              </FluentCard>
@@ -104,6 +117,7 @@
 
      [Parameter]
     public int Id { get; set; }
+    private string testValue = "";
     SaveSkuValueDTO saveSkuValueDTO { get; set; } = new SaveSkuValueDTO();
     string error { get; set; }
 

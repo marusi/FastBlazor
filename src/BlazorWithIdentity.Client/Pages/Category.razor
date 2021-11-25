@@ -22,15 +22,13 @@
    
       @if (categories == null)
          {
-            <fluent-progress-ring></fluent-progress-ring>
+            <FluentProgressRing></FluentProgressRing>
           }
          else
          {
         
               
-  <ol class="list-items">
 
-      <li class="list-items-row">
           <div class="row">
                   <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveProductCategoryDTO">
          
@@ -50,29 +48,26 @@
  
         </EditForm>
           </div>
-      </li>
-       @foreach (var item in categories)
+     
+      
+        <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+    <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+        <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Name</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+    </FluentDataGridRow>
+     @foreach (var item in categories)
        {
-        <li class="list-items-row">
-            <div class="row">
-             
-
-
-                <div class="col-md-16">
-                   @item.Name
-                </div>
-               
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"categorydata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteCategory(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-    </ol>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>@item.Name</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2>  <FluentAnchor  Href="@($"categorydata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor> </FluentDataGridCell>
+        <FluentDataGridCell GridColumn=3> <FluentButton type="submit"   @onclick="(() => DeleteCategory(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+    </FluentDataGridRow>
+   }
+</FluentDataGrid>
+       
+    
+    
     }
     </FluentCard>
   </div>

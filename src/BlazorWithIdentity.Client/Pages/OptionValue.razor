@@ -29,20 +29,31 @@
          else
          {
             
-                   <ol class="list-items">
-                     <li class="list-items-row">
+                 
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveOptionValueDTO">
                                    <div class="col-md-24">
                                       <div class="col-md-12">
                                         <h6>Choose Option</h6>
-                                               <InputSelect  class="form-control" id="product" @bind-Value="saveOptionValueDTO.OptionId">
+                                                @if (options == null)
+                                                {
+                                                    //warn the user
+                                                } else {
+                                                    @if (testValue == null) { }
+                                                    else
+                                                    {
+                                                        int bindValue;
+                                                        int.TryParse(testValue, out bindValue);
+                                                        saveOptionValueDTO.OptionId = bindValue;
+                                                    }
+                                                    <FluentSelect  class="form-control" id="product" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in options)
                                                     {
-                                                        <option value="@item.Id">@item.OptionName</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.OptionName - @item.Product.ProductName</FluentOption>
                                                     }
-                                                </InputSelect>
+                                                </FluentSelect>
+                                                }
                                               <br>
                                               </div>
                                                <div class="col-md-12"></div>
@@ -63,30 +74,33 @@
                                          
                                    </EditForm>
                            </div>
-                     </li>
+                      <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+                      <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+                       <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Name</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+                      </FluentDataGridRow>
                       @foreach (var item in optionValues)
                         {
-                                <li class="list-items-row">
-                                    <div class="row">
-                                <div class="col-md-16">
-                                    <ol class="breadcrumb">
-                                      <li><a href="optiondata/@item.Option.Id"> @item.Option.OptionName</a></li>
-                                      <li class="active"> @item.OptionValueName</li>
-                                    </ol>
 
-                                </div>
-               
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"optionvaluedata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteOptionValue(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-                     </ol>
+                             <FluentDataGridRow TItem=string>
+                            <FluentDataGridCell GridColumn=1>
+                               <FluentBreadcrumb>
+                                       <FluentBreadcrumbItem Href="@($"optiondata/{@item.Option.Id}")">
+                                              @item.Option.OptionName
+                                        </FluentBreadcrumbItem>
+    
+                                    <FluentBreadcrumbItem>@item.OptionValueName</FluentBreadcrumbItem>
+                                    </FluentBreadcrumb>
+                            
+                            
+                            </FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=2>  <FluentAnchor  Href="@($"optionvaluedata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor>   </FluentDataGridCell>
+                              <FluentDataGridCell GridColumn=3> <FluentButton type="submit"   @onclick="(() => DeleteOptionValue(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+                                </FluentDataGridRow>
+                          }
+                      </FluentDataGrid>
+                               
 
 }
              </FluentCard>
@@ -101,8 +115,10 @@
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
+
+    private string testValue = "";
     SaveOptionValueDTO saveOptionValueDTO { get; set; } = new SaveOptionValueDTO();
     string error { get; set; }
 

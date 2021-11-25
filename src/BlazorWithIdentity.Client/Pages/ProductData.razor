@@ -9,7 +9,7 @@
 <div class="row row-sm">
 <div class="container">
       <h6>Edit Product Name</h6>
-    <FluentCard style="height:100%">
+    <FluentCard >
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
      
@@ -41,7 +41,7 @@
 
       </div>
       <div class="col-md-24">
-          <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  placeholder="@productItem.ProductName"  ></FluentTextField>
+          <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  Current-Value="@productItem.ProductName"  ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveProductDTO.ProductName)" />
     <label class="text-danger">@error</label> 
       </div>

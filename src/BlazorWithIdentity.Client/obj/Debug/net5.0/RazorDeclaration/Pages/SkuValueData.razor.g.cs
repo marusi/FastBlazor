@@ -175,9 +175,11 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValueData.razor"
-        [Parameter]
+#line 73 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValueData.razor"
+       
+    [Parameter]
     public int Id { get; set; }
+    private string testValue = "";
     string error { get; set; }
 
 
@@ -219,7 +221,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 103 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValueData.razor"
+#line 112 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\SkuValueData.razor"
                 
        private OptionValueDTO[] optionValues { get; set; }
       protected override async Task OnInitializedAsync()

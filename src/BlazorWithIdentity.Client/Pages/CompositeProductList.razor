@@ -14,120 +14,84 @@
 <h3>Composite Product List</h3>
 @if (compositeProducts == null)
 {
- <fluent-progress-ring></fluent-progress-ring>
+ <FluentProgressRing></FluentProgressRing>
 } else
 { 
     @foreach(var item in compositeProducts){
       
-     <FluentDesignSystemProvider>   
+     
 
 
-  <div class="col-sm-22  ">
+    <FluentCard style="width:80%;height:100%" neutral-base-color="#3995C9">
    
+         
+         <FluentToolbar id="toolbar-fluent-composite-list" style="width:100%">
+             <h2 slot="end">KES @item.TotalPrice</h2>
+         </FluentToolbar>
+     <FluentDivider ></FluentDivider>
 
-      <ol class="list-items">
-        <li class="list-items-row">
-          <div class="col-md-22">
-              <div data-toggle="collapse" aria-expanded="false" data-target="#list-item-line-@item.Id">
-            <div class="container">
-              <div class="row ">
-                <div class="col-md-16 type-h5">
-                 
-                  @foreach(var productLabel in item.CombinedProducts)
-                   {
-                  <span class="typ-p4 color-type-secondary"> @productLabel.SkuValue.OptionValue.Option.Product.ProductName, </span>
-                   }
-
-                </div>
-                 <div class="col-md-4 type-h6">
-                  <span class="label label-success">KES @item.TotalPrice </span>
-                    
-                 </div>
-                 <div class="col-md-4 type-h6">
-                        <i class="glyph glyph-chevron-right"></i>
-                  <i class="glyph glyph-chevron-down"></i>
-                 </div>
-
-              </div>
-              <div class="col-md-12 ">
-
-              </div>
-            </div>
-          </div>
-          <div class="collapse" id="list-item-line-@item.Id">
-            <div class="row">
-              <div class="col-md-22 color-type-secondary">
-
-                <div class="row">
+              
+         
                  @foreach(var product in item.CombinedProducts)
                  {
-                                     
-                  <FluentHorizontalScroll class="right-gradient top-align" Speed="600" Easing="ease-in-out" >
-            <FluentCard style="width:100%;height:100%" neutral-base-color="#3995C9">
-                <div class="contents">
-                      <p> @product.SkuValue.OptionValue.Option.Product.ProductName</p> 
-           <pre><code class="language-xml">
- {
-      "id": @product.Id,
-      "price": @product.Price,
-      "skuValue": {
-        "id": @product.SkuValue.Id,
-        "skuValueName": "@product.SkuValue.SkuValueName",
-        "optionValue": {
-          "id": @product.SkuValue.OptionValue.Id,
-          "optionValueName": "@product.SkuValue.OptionValue.OptionValueName",
-          "option": {
-            "id": @product.SkuValue.OptionValue.Option.Id,
-            "optionName": "@product.SkuValue.OptionValue.Option.OptionName",
-            "product": {
-              "id": @product.SkuValue.OptionValue.Option.Product.Id,
-              "productName": "@product.SkuValue.OptionValue.Option.Product.ProductName",
-              "productCategory": {
-                "id": @product.SkuValue.OptionValue.Option.Product.ProductCategory.Id,
-                "name": "@product.SkuValue.OptionValue.Option.Product.ProductCategory.Name"
-              }
-            }
-          }
-        } 
-    
-        </code></pre>
-                   
-                </div>
-            </FluentCard>
-       </FluentHorizontalScroll>              }
+                      <div class="entity-list ">
+        <div class="entity-list-item "  >
+          <div class="item-icon">
+            <span class="glyph glyph-chevron-right"> </span>
+          </div>
+          <div class="item-content-secondary">
+               @product.SkuValue.SkuValueName
+              <div class="content-text-tertiary "> <span class="label label-warning">@product.SkuValue.OptionValue.Option.Product.ProductCategory.Name</span>  </div>
+              
+          </div>
 
+          <div class="item-content-primary">
+              <div class="col-md-18">
 
-                 
-
-                </div>
-
-
-
+                  <div class="content-text-primary ">@product.SkuValue.OptionValue.Option.Product.ProductName </div>
+            <div class="content-text-tertiary">@product.SkuValue.OptionValue.OptionValueName - KES @product.Price </div>
+            
+              </div>
+              <div class="col-md-6">
+                  <div class="content-text-tertiary ">
+                  
               </div>
             
-            </div>
-          </div>
-           
+                   
 
-          </div>
-          <div class="col-md-2"> 
-               <div class="putbox">
-             <div class="putbox-icon">
-            <span @onclick="(() => DeleteProduct(item.Id))"  class="glyph glyph-delete"></span>
-            </div>
-            </div>
                </div>
-         
-        </li>
-        
-      </ol>
+
+              </div>
+         </div>
+         </div>
+   
+          
+
+                   
+                 
+          
+                
+                   
+              
+           
+                }
+                   <FluentDivider ></FluentDivider>
+      <FluentDesignSystemProvider >
+    <FluentToolbar id="toolbar-fluent-composite-list" style="width:100%;">
+             <FluentButton Appearance="Appearance.Filled"  @onclick="(() => DeleteProduct(item.Id))" class="call-to-action btn btn-block "  slot="end"><span class="glyph glyph-delete"></span>Delete</FluentButton>
+             
+         </FluentToolbar>
+   </FluentDesignSystemProvider>
+
+ </FluentCard>
+                 
+
 
 
 
    
 
 
-</div>
 
 
 
@@ -141,7 +105,7 @@
 
 
 
-</FluentDesignSystemProvider>
+
    
     
 }

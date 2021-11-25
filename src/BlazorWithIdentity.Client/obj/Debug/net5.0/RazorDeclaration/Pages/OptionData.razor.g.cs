@@ -175,11 +175,12 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
+#line 73 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
        
     [Parameter]
-     public  int Id {get; set;}
-     string error { get; set; }
+    public  int Id {get; set;}
+    string error { get; set; }
+    private string testValue = "";
 
      OptionDTO optionItem {get; set;} = new OptionDTO();
      SaveOptionDTO saveOptionDTO {get; set;} = new SaveOptionDTO();
@@ -211,7 +212,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 94 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
+#line 103 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\OptionData.razor"
                 
 
         private ProductDTO[] products { get; set; }

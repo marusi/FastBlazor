@@ -21,27 +21,37 @@
    
       @if (options == null)
          {
-            <fluent-progress-ring></fluent-progress-ring>
+            <FluentProgressRing></FluentProgressRing>
                
           }
         
          else
          {
             
-                   <ol class="list-items">
-                     <li class="list-items-row">
+                
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveOptionDTO">
                                    <div class="col-md-24">
                                       <div class="col-md-12">
                                         <h6>Choose Product</h6>
-                                               <InputSelect  class="form-control" id="product" @bind-Value="saveOptionDTO.ProductId">
+                                      
+                                            @if (testValue == null) { 
+                                                //warn user  
+                                                } else { 
+                                                    int bindValue;
+                                                    int.TryParse(testValue, out bindValue);
+                                                    saveOptionDTO.ProductId = bindValue;
+                                               
+                                               <FluentSelect  class="form-control" id="product" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in products)
                                                     {
-                                                        <option value="@item.Id">@item.ProductName</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.ProductName</FluentOption>
                                                     }
-                                                </InputSelect>
+                                                </FluentSelect>
+
+                                                 }
+                                               
                                               <br/>
                                               </div>
                                               <div class="col-md-12"></div>
@@ -62,30 +72,33 @@
                                          
                                    </EditForm>
                            </div>
-                     </li>
+                    
+                     <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+                      <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+                       <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Name</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+                      </FluentDataGridRow>
                       @foreach (var item in options)
                         {
-                                <li class="list-items-row">
-                                    <div class="row">
-                                <div class="col-md-16">
-                                    <ol class="breadcrumb">
-                                      <li><a href="productdata/@item.Product.Id"> @item.Product.ProductName</a></li>
-                                      <li class="active"> @item.OptionName</li>
-                                    </ol>
-
-                                </div>
-               
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"optiondata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteOption(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-                     </ol>
+                            <FluentDataGridRow TItem=string>
+                            <FluentDataGridCell GridColumn=1>
+                               <FluentBreadcrumb>
+                                       <FluentBreadcrumbItem Href="@($"productdata/{@item.Product.Id}")">
+                                              @item.Product.ProductName
+                                        </FluentBreadcrumbItem>
+    
+                                    <FluentBreadcrumbItem>@item.OptionName</FluentBreadcrumbItem>
+                                    </FluentBreadcrumb>
+                            
+                            
+                            </FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=2>   <FluentAnchor  Href="@($"optiondata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor>  </FluentDataGridCell>
+                              <FluentDataGridCell GridColumn=3><FluentButton type="submit"   @onclick="(() => DeleteOption(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+                                </FluentDataGridRow>
+                          }
+                      </FluentDataGrid>
+                               
 
 }
              </FluentCard>
@@ -100,8 +113,10 @@
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
+
+    public string testValue = "";
     SaveOptionDTO saveOptionDTO { get; set; } = new SaveOptionDTO();
     string error { get; set; }
 

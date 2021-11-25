@@ -202,7 +202,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 116 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
+#line 124 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
       
 
     // private SuccessNotification _notification;
@@ -250,12 +250,13 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 #line hidden
 #nullable disable
 #nullable restore
-#line 157 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
+#line 165 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductSku.razor"
               
 
 
        private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
         private SkuValueDTO[] skuValues { get; set; }
+        private string testValue = "";
         string empty;
 
     protected override async Task OnInitializedAsync()

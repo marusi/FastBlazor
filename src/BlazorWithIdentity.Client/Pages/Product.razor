@@ -31,8 +31,7 @@
          else
          {
             
-                   <ol class="list-items">
-                     <li class="list-items-row">
+                 
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveProductDTO">
                                   <div class="col-md-24">
@@ -74,35 +73,35 @@
                                          
                                    </EditForm>
                            </div>
-                     </li>
+                     
+                     <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+                      <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+                       <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Name</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+                      </FluentDataGridRow>
                       @foreach (var item in products)
                         {
-                                <li class="list-items-row">
-                                    <div class="row">
-                                <div class="col-md-16">
-                                   
-                                   
-                                    <FluentBreadcrumb>
+                             <FluentDataGridRow TItem=string>
+                            <FluentDataGridCell GridColumn=1>
+                               <FluentBreadcrumb>
                                        <FluentBreadcrumbItem Href="@($"categorydata/{@item.ProductCategory.Id}")">
                                               @item.ProductCategory.Name
                                         </FluentBreadcrumbItem>
     
                                     <FluentBreadcrumbItem>@item.ProductName</FluentBreadcrumbItem>
                                     </FluentBreadcrumb>
-
-                                </div>
-               
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"productdata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteProduct(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-                     </ol>
+                            
+                            
+                            </FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=2>   <FluentAnchor  Href="@($"productdata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor>  </FluentDataGridCell>
+                              <FluentDataGridCell GridColumn=3> <FluentButton type="submit"   @onclick="(() => DeleteProduct(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+                                </FluentDataGridRow>
+                          }
+                      </FluentDataGrid>
+                              
+                                   
+                   
 
 }
              </FluentCard>

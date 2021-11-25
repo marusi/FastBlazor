@@ -25,35 +25,40 @@
       @if (productSkus == null)
          {
             
-             <fluent-progress-ring></fluent-progress-ring>
+             <FluentProgressRing></FluentProgressRing>
                
           }
         
          else
          {
             
-                   <ol class="list-items">
-                     <li class="list-items-row">
+                 
                             <div class="row">
                               <EditForm class="form-category" OnValidSubmit="OnSubmit" Model="saveProductSkuDTO">
                                   <div class="col-md-24">
                                       <div class="col-md-12">
                                           <p>Choose Category</p>
-                                               <InputSelect  class="form-control" id="optionValue" @bind-Value="saveProductSkuDTO.SkuValueId">
+                                        @if (testValue == null) { }
+                                        else { 
+                                            int bindValue;
+                                            int.TryParse(testValue, out bindValue);
+                                            saveProductSkuDTO.SkuValueId = bindValue;
+                                        }   
+                                        <FluentSelect  class="form-control" id="optionValue" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in skuValues)
                                                     {
                                                        
                                                       
-                                                     <option value="@item.Id">
+                                                     <FluentOption Value="@item.Id.ToString()">
                                                          @item.OptionValue.Option.Product.ProductName
                                                          @item.OptionValue.OptionValueName  @item.SkuValueName 
                                                          
-                                                         </option>
+                                                         </FluentOption>
 
                                                      
                                                 }
-                                                </InputSelect>
+                                                </FluentSelect>
                                                
                                                 <br/>
                                       </div>
@@ -77,32 +82,35 @@
                                          
                                    </EditForm>
                            </div>
-                     </li>
+                      <FluentDataGrid id="manualGrid" GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+                      <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+                       <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Description</FluentDataGridCell>
+                       <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Price</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=3 CellType="DataGridCellType.ColumnHeader">Edit</FluentDataGridCell>
+                        <FluentDataGridCell GridColumn=4 CellType="DataGridCellType.ColumnHeader">Delete</FluentDataGridCell>
+                      </FluentDataGridRow>
                       @foreach (var item in productSkus.Items)
                         {
-                                <li class="list-items-row">
-                                    <div class="row">
-                                <div class="col-md-16">
-                                    <ol class="breadcrumb">
-                                      <li>KES @item.Price</li>
-                                      <li>@item.SkuValue.OptionValue.Option.Product.ProductName</li>
-                                      <li>@item.SkuValue.OptionValue.OptionValueName</li>
-                                      <li class="active"> @item.SkuValue.SkuValueName</li>
-                                    </ol>
 
-                                </div>
+                            <FluentDataGridRow TItem=string>
+                            <FluentDataGridCell GridColumn=1>
+                               <FluentBreadcrumb>
+                                    <FluentBreadcrumbItem>@item.SkuValue.SkuValueName</FluentBreadcrumbItem>
+                                    <FluentBreadcrumbItem>@item.SkuValue.OptionValue.OptionValueName</FluentBreadcrumbItem>
+                                    <FluentBreadcrumbItem>@item.SkuValue.OptionValue.Option.Product.ProductName</FluentBreadcrumbItem>
+                                   
+                                    </FluentBreadcrumb>
+
+                                     </FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=2>KES @item.Price</FluentDataGridCell>
+                            <FluentDataGridCell GridColumn=3>   <FluentAnchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></FluentAnchor>    </FluentDataGridCell>
+                              <FluentDataGridCell GridColumn=4>  <FluentButton type="submit"   @onclick="(() => DeleteProductSku(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton></FluentDataGridCell>
+                                </FluentDataGridRow>
+                          }
+                      </FluentDataGrid>
+                               
                
-                <div class="col-md-4">
-                   <fluent-anchor  Href="@($"productskudata/{item.Id}")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-edit"></span></fluent-anchor> 
-                 
-                </div>
-                 <div class="col-md-4">
-                    <FluentButton type="submit"   @onclick="(() => DeleteProductSku(item.Id))" Appearance="Appearance.Stealth"><span style="color:red;" class="glyph glyph-delete"></span></FluentButton>
-                </div>
-            </div>
-        </li>
-        }
-                     </ol>
+                
 
 }
              </FluentCard>
@@ -159,6 +167,7 @@
 
        private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
         private SkuValueDTO[] skuValues { get; set; }
+        private string testValue = "";
         string empty;
 
     protected override async Task OnInitializedAsync()

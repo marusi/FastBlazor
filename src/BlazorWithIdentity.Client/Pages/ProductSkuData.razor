@@ -11,12 +11,12 @@
 @using BlazorWithIdentity.Shared.DTO.SkuValue
 @inject HttpClient Http
 
- <FluentDesignSystemProvider>
+
 <div class="row">
  <div class="container">
    <h6>Price </h6>
    <div class="col-md-12">
-    <FluentCard  style="height:50%">  
+    <FluentCard  >  
     
    
       @if (productSkus == null)
@@ -40,21 +40,28 @@
                                   <div class="col-md-24">
                                       <div class="col-md-12">
                                           <p>Choose Category</p>
-                                               <InputSelect  class="form-control" id="optionValue" @bind-Value="saveProductSkuDTO.SkuValueId">
+                                            @if (testValue == null){} else
+                                            {
+
+                                                int bindValue;
+                                                int.TryParse(testValue, out bindValue);
+                                                saveProductSkuDTO.SkuValueId = bindValue;
+                                            }
+                                            <FluentSelect  @bind-Value="testValue">
                                                   
                                                     @foreach (var item in skuValues)
                                                     {
                                                        
                                                       
-                                                     <option value="@item.Id">
-                                                         @item.OptionValue.Option.Product.ProductName
+                                                     <FluentOption Value="@item.Id.ToString()">
+                                                       @item.OptionValue.Option.Product.ProductName
                                                          @item.OptionValue.OptionValueName  @item.SkuValueName 
                                                          
-                                                         </option>
+                                                     </FluentOption>
 
                                                      
                                                 }
-                                                </InputSelect>
+                                                </FluentSelect>
                                                
                                                 <br/>
                                       </div>
@@ -93,16 +100,17 @@
      <div class="col-md-12"> </div>
  </div>
  </div>
-  </FluentDesignSystemProvider>
+
 
 @code{
 
     // private SuccessNotification _notification;
 
-     [Parameter]
+    [Parameter]
     public int Id { get; set; }
     SaveProductSkuDTO saveProductSkuDTO { get; set; } = new SaveProductSkuDTO();
     string error { get; set; }
+    private string testValue = "";
 
    
   //  ProductCategoryDTO productCategoryDTO { get; set; } = new ProductCategoryDTO();

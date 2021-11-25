@@ -12,7 +12,7 @@
 
 <div class="row row-sm">
 <div class="container">
-    <FluentCard style="height:25%">
+    <FluentCard >
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitOption" Model="optionItem">
          
@@ -26,22 +26,30 @@
           {
               <p><a href="/category">Insert</a> a new category </p>
           } else {
+              @if (testValue == null) {} 
+              else
+                {
+                    int bindValue;
+                    int.TryParse(testValue, out bindValue);
+                    saveOptionDTO.ProductId = bindValue;
+
+                 }
              
-               <InputSelect  class="form-control" id="products" @bind-Value="saveOptionDTO.ProductId">
+               <FluentSelect  class="form-control" id="products" @bind-Value="testValue">
                                                   
                        @foreach (var item in products)
                           {
                                                        
-                                 <option value="@item.Id">@item.ProductName</option>
+                                 <FluentOption Value="@item.ToString()">@item.ProductName</FluentOption>
                            }
-                </InputSelect>
-                                                 <p>Product</p>
+                </FluentSelect>
+                                               
            }
 
                 </div>
                 <div class="col-md-8">
 
-                    <FluentTextField id="inputCategory"  @bind-Value="saveOptionDTO.OptionName"  placeholder="@optionItem.OptionName"  ></FluentTextField>
+                    <FluentTextField id="inputCategory"  @bind-Value="saveOptionDTO.OptionName"  Current-Value="@optionItem.OptionName"  ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveOptionDTO.OptionName)" />
 
 
@@ -64,8 +72,9 @@
 
 @code {
     [Parameter]
-     public  int Id {get; set;}
-     string error { get; set; }
+    public  int Id {get; set;}
+    string error { get; set; }
+    private string testValue = "";
 
      OptionDTO optionItem {get; set;} = new OptionDTO();
      SaveOptionDTO saveOptionDTO {get; set;} = new SaveOptionDTO();

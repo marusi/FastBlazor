@@ -6,45 +6,52 @@
 @using BlazorWithIdentity.Shared.DTO.OptionValue
 @using BlazorWithIdentity.Shared.DTO.SkuValue
 
- <FluentDesignSystemProvider>
+
 <div class="row row-sm">
 <div class="container">
-    <FluentCard style="height:25%">
-  
+    <FluentCard >
+    <FluentAnchor  Href="@($"optionvalue")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></FluentAnchor> 
  <EditForm class="form-category" OnValidSubmit="OnSubmitSkuValue" Model="saveSkuValueDTO">
          
-     <div class="col-md-2">
-          <fluent-anchor  Href="@($"optionvalue")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></fluent-anchor> 
-      </div>
+    
+        
+     
          
-      <div class="col-md-6">
-
+      <div class="col-md-24">
+           <div class="col-md-12">
           @if(optionValues == null) 
           {
               <p><a href="/optionvalue">Insert</a> a new option value </p>
           } else {
-             
-               <InputSelect  class="form-control" id="options" @bind-Value="saveSkuValueDTO.OptionValueId">
+               @if(testValue == null) {}
+                        else
+                        {
+                            int bindValue;
+                            int.TryParse(testValue, out bindValue);
+                            saveSkuValueDTO.OptionValueId = bindValue;
+                        }
+                        <FluentSelect  class="form-control" id="options" @bind-Value="testValue">
                                                   
                                                     @foreach (var item in optionValues)
                                                     {
                                                        
-                                                        <option value="@item.Id">@item.OptionValueName</option>
+                                                        <FluentOption Value="@item.Id.ToString()">@item.OptionValueName</FluentOption>
                                                     }
-                                                </InputSelect>
+                                                </FluentSelect>
                                                  <p>Option Value</p>
            }
 
                 </div>
-                <div class="col-md-8">
+                </div>
+                <div class="col-md-12">
 
-                    <FluentTextField id="inputCategory"  @bind-Value="saveSkuValueDTO.SkuValueName"  placeholder="@skuValueItem.SkuValueName"  ></FluentTextField>
+                    <FluentTextField id="inputCategory" Current-Value="@skuValueItem.SkuValueName"  @bind-Value="saveSkuValueDTO.SkuValueName"   ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveSkuValueDTO.SkuValueName)" />
 
 
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
                     <label class="text-danger">@error</label> 
 
@@ -57,14 +64,16 @@
     </div>
 
 </div>
- </FluentDesignSystemProvider>
 
 
 
 
 
-@code { [Parameter]
+
+@code {
+    [Parameter]
     public int Id { get; set; }
+    private string testValue = "";
     string error { get; set; }
 
 

@@ -6,23 +6,10 @@
 
     <AuthorizeView>
         <Authorized>
-             
+    
  <FluentDesignSystemProvider @ref=fdsp Direction=@dir BaseLayerLuminance=@baseLayerLuminance>
      <div class="mainContainer">
-     <FluentDesignSystemProvider FillColor="#4B0082" >
-     <FluentToolbar id="toolbar-fluent-components-main" style="width:100%; " >
-         <FluentAnchor slot="start" Href="/" Appearance="Appearance.Outline">Home</FluentAnchor>
-                       
-              <FluentMenuItem slot="end"> Hi, @context.User.Identity.Name
-                <FluentMenu> 
-                    <FluentMenuItem @onclick="@LogoutClick" > 
-                        <span class="glyph glyph-back"></span>Log Out
-                    </FluentMenuItem>
-               </FluentMenu>
-             </FluentMenuItem>
-
-                      </FluentToolbar>
-                </FluentDesignSystemProvider >
+     <HeaderMenu/>
                 
         <div class="main">
             <Toast></Toast>
