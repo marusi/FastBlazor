@@ -158,6 +158,28 @@ namespace Blazor.Infrastructure.Migrations
                     b.ToTable("OptionValues");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Photo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PhotoFileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("ProductSkuId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductSkuId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.Products.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -583,6 +605,15 @@ namespace Blazor.Infrastructure.Migrations
                     b.Navigation("Option");
                 });
 
+            modelBuilder.Entity("Blazor.Domain.Models.Products.Photo", b =>
+                {
+                    b.HasOne("Blazor.Domain.Models.Products.ProductSku", null)
+                        .WithMany("Photos")
+                        .HasForeignKey("ProductSkuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Blazor.Domain.Models.Products.Product", b =>
                 {
                     b.HasOne("Blazor.Domain.Models.Products.ProductCategory", "ProductCategory")
@@ -701,6 +732,11 @@ namespace Blazor.Infrastructure.Migrations
             modelBuilder.Entity("Blazor.Domain.Models.Products.CompositeProduct", b =>
                 {
                     b.Navigation("CombinedProducts");
+                });
+
+            modelBuilder.Entity("Blazor.Domain.Models.Products.ProductSku", b =>
+                {
+                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("Blazor.Infrastructure.Models.ArticleDAO", b =>

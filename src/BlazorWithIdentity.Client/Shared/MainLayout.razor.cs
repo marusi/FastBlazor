@@ -9,7 +9,7 @@ namespace BlazorWithIdentity.Client.Shared
 {
     public partial class MainLayout
     {
-        [Inject] IJSRuntime? JSRuntime { get; set; }
+        // [Inject] IJSRuntime? JSRuntime { get; set; }
 
         //ErrorBoundary? errorBoundary;
         FluentDesignSystemProvider fdsp = new();

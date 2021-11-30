@@ -9,12 +9,30 @@
     
  <FluentDesignSystemProvider @ref=fdsp Direction=@dir BaseLayerLuminance=@baseLayerLuminance>
      <div class="mainContainer">
-     <HeaderMenu/>
+     
+<FluentDesignSystemProvider FillColor="#1A1A1A" >
+     <FluentToolbar id="toolbar-fluent-components-main" style="width:100%; " >
+       
+                   <a style="color:#ffffff;" class="navbar-brand" href="#">Deleted</a>    
+                <FluentSwitch slot="end" @onchange=SwitchTheme >
+               <span style="padding-inline-end: 8px;"> Theme</span>
+               <span slot="checked-message">Dark</span>
+               <span slot="unchecked-message">Light</span>
+              </FluentSwitch>
+            
+
+                      </FluentToolbar>
+                </FluentDesignSystemProvider >
                 
         <div class="main">
             <Toast></Toast>
             <div class="navigation ">
                 <div class="container">
+                    <h1 class="section-heading">Hello, @context.User.Identity.Name</h1>
+
+
+
+
                      <NavMenu />
                 </div>
                
@@ -22,11 +40,7 @@
           <div class="content ">
            <main>
            <article class="content px-4">
-             <FluentSwitch @onchange=SwitchTheme >
-               <span style="padding-inline-end: 8px;"> Theme</span>
-               <span slot="checked-message">Dark</span>
-               <span slot="unchecked-message">Light</span>
-              </FluentSwitch>
+           
              @Body
              </article>
        </main>

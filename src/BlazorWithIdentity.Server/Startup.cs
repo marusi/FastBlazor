@@ -21,6 +21,7 @@ using Blazor.Infrastructure;
 using MediatR;
 using System.Reflection;
 using NodaTime;
+using Blazor.Domain.Models.Products;
 
 namespace BlazorWithIdentity.Server
 {
@@ -43,6 +44,7 @@ namespace BlazorWithIdentity.Server
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddLocalization();
             services.AddSingleton<IClock>(SystemClock.Instance);
+            services.Configure<PhotoSettings>(Configuration.GetSection("PhotoSettings"));
             services.AddLogging();
             Loader.Register(services, Configuration);
             services.AddSwaggerGen(c =>

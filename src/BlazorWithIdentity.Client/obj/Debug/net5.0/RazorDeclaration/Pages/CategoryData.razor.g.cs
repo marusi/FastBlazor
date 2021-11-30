@@ -168,7 +168,7 @@ using BlazorWithIdentity.Shared.DTO.Category;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
+#line 48 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\CategoryData.razor"
        
     [Parameter]
     public int Id { get; set; }

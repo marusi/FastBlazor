@@ -28,6 +28,7 @@ namespace Blazor.Infrastructure
         public DbSet<OptionValue> OptionValues { get; set; }
         public DbSet<SkuValue> SkuValues { get; set; }
         public DbSet<ProductSku> ProductSkus { get; set; }
+        public DbSet<Photo> Photos { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

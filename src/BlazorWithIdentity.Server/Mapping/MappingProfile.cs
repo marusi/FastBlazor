@@ -14,6 +14,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
 using BlazorWithIdentity.Shared.DTO.ProductSku;
 using BlazorWithIdentity.Shared.DTO.SkuValue;
 using BlazorWithIdentity.Shared.DTO.Filter;
+using BlazorWithIdentity.Shared.DTO.Photo;
 
 namespace BlazorWithIdentity.Server.Mapping
 {
@@ -24,7 +25,7 @@ namespace BlazorWithIdentity.Server.Mapping
             // Domain to API DTO
            
             CreateMap(typeof(QueryResult<>), typeof(QueryResultDTO<>));
-
+            CreateMap<Photo, PhotoDTO>();
             CreateMap<ProductCategory, SaveProductCategoryDTO>();
             CreateMap<ProductCategory, ProductCategoryDTO>();
             CreateMap<ProductCategory, KeyValuePairDTO>();
@@ -52,7 +53,15 @@ namespace BlazorWithIdentity.Server.Mapping
             CreateMap<ProductSku, SaveProductSkuDTO>();
             CreateMap<ProductSku, ProductSkuDTO>()
               .ForMember(s => s.SkuValue, opt => opt.MapFrom(p => p.SkuValue))
-               .ForMember(s => s.Price, opt => opt.MapFrom(o => o.Price));
+               .ForMember(s => s.Price, opt => opt.MapFrom(o => o.Price))
+              .ForMember(pr => pr.Photos, opt => opt.MapFrom(p => p.Photos.Select(ps => new PhotoDTO
+              {
+                  Id = ps.Id,
+                  PhotoFileName = ps.PhotoFileName,
+
+
+
+              })));
 
             CreateMap<CompositeProduct, SaveCompositeProductDTO>()
                  .ForMember(pr => pr.CombinedProducts, opt => opt.MapFrom(p => p.CombinedProducts.Select(ps => ps.ProductSkuId)))

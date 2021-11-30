@@ -21,9 +21,9 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #c4cad1;
+    
     text-align: left;
-    background: #2a2a2a;
+   
 }
 
 footer {
@@ -712,6 +712,12 @@ fast-text-field {
         padding-inline-end: 10px;
     }
 
+.section-heading-hero,
+.section-heading {
+    font-size: var(--type-ramp-plus-4-font-size);
+    line-height: var(--type-ramp-plus-4-line-height);
+}
+
 .main {
    
     display: grid;
@@ -749,11 +755,25 @@ fast-text-field {
 
     .navigation fluent-anchor {
         width: 100%;
+        margin: 5px;
+        color: var(--accent-foreground-rest);
     }
 
         .navigation fluent-anchor::part(control) {
             justify-content: start;
+            font-size: var(--type-ramp-plus-1-font-size);
+            color: var(--neutral-foreground-rest);
         }
+
+    .navigation.debounce .fluent-anchor {
+        transition-duration: 0s;
+    }
+
+navigation.opened .fluent-anchor {
+    transform: translateY(0);
+    transition-delay: 0s;
+    visibility: visible;
+}
 
 .content {
     grid-area: content;

@@ -38,6 +38,7 @@ namespace BlazorWithIdentity.Controllers
         {
             var filter = mapper.Map<ProductSkuQueryDTO, ProductSkuQuery>(filterResource);
             var queryResult = await repository.GetProductSkus(filter);
+               
 
             return mapper.Map<QueryResult<ProductSku>, QueryResultDTO<ProductSkuDTO>>(queryResult);
         }

@@ -1,10 +1,13 @@
-﻿using Blazor.Domain.Services;
+﻿using Blazor.Domain.Models.Products;
+using Blazor.Domain.Services;
+using Blazor.Domain.Services.PhotoService;
 using Blazor.Infrastructure.Repositories;
 using Domain.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Configuration;
 
 namespace Blazor.Infrastructure.DI
 {
@@ -21,6 +24,16 @@ namespace Blazor.Infrastructure.DI
             services.AddScoped<ISkuValueRepository, SkuValueRepository>();
             services.AddScoped<IProductSkuRepository, ProductSkuRepository>();
             services.AddScoped<ICompositeProductRepository, CompositeProductRepository>();
+            
+            
+
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
+            services.AddTransient<IPhotoService, PhotoService>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddTransient<IPhotoStorage, FileSystemPhotoStorage>();
+
+
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<ISlugHistoryRepository, SlugHistoryRepository>();
            

@@ -10,17 +10,21 @@
 
 <FluentDesignSystemProvider>
 
-<div class="row row-sm">
-<div class="container">
+ <div class="container">
+ <div class="col-md-8 offset-md-2">
     <FluentCard >
-  
+   <div class="col-md-1">
+          <FluentAnchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></FluentAnchor> 
+      </div>
+      <div class="col-md-8">
+          <h6>Option Data edit</h6>
+      </div>
  <EditForm class="form-category" OnValidSubmit="OnSubmitOption" Model="optionItem">
          
-      <div class="col-md-2">
-          <fluent-anchor  Href="@($"product")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></fluent-anchor> 
-      </div>
+     
          
-      <div class="col-md-6">
+      <div class="col-md-24">
+      <div class="row ">
 
           @if(products == null) 
           {
@@ -34,40 +38,49 @@
                     saveOptionDTO.ProductId = bindValue;
 
                  }
-             
-               <FluentSelect  class="form-control" id="products" @bind-Value="testValue">
-                                                  
+              <div class="row">
+                                <div class="col-md-6 mb-3">
+               <FluentSelect style="width:50%;" class="form-control" id="products" @bind-Value="testValue">
+                       <FluentOption Value="">Blank</FluentOption>                            
                        @foreach (var item in products)
                           {
                                                        
                                  <FluentOption Value="@item.ToString()">@item.ProductName</FluentOption>
                            }
                 </FluentSelect>
+                 </div> </div>
                                                
            }
 
                 </div>
-                <div class="col-md-8">
+                <div class="row">
+                                <div class="col-md-6 mb-3">
 
                     <FluentTextField id="inputCategory"  @bind-Value="saveOptionDTO.OptionName"  Current-Value="@optionItem.OptionName"  ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveOptionDTO.OptionName)" />
 
 
                 </div>
+                </div>
 
-                <div class="col-md-8">
+                <div class="row">
+                                <div class="col-md-6 mb-3">
                     <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton>
                     <label class="text-danger">@error</label> 
 
                 </div>
+                </div>
 
-
+                </div>
 
             </EditForm>
         </FluentCard>
     </div>
 
 </div>
+
+
+
 </FluentDesignSystemProvider>
 
 @code {

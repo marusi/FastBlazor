@@ -30,8 +30,8 @@
                             int.TryParse(testValue, out bindValue);
                             saveSkuValueDTO.OptionValueId = bindValue;
                         }
-                        <FluentSelect  class="form-control" id="options" @bind-Value="testValue">
-                                                  
+                        <FluentSelect TValue="int"  class="form-control" id="options" @bind-Value="testValue">
+                                                   <FluentOption Value="">Blank</FluentOption>
                                                     @foreach (var item in optionValues)
                                                     {
                                                        

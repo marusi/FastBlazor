@@ -175,7 +175,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 76 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+#line 79 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
        
 
     [Parameter]
@@ -213,6 +213,7 @@ using BlazorWithIdentity.Shared.DTO.Product;
         {
             error = ex.Message;
              toastService.ShowToast($"{saveProductDTO.ProductName} failed to add", ToastLevel.Error);
+             Console.WriteLine(saveProductDTO.ProductCategoryId);
         }
     }
     
@@ -221,20 +222,21 @@ using BlazorWithIdentity.Shared.DTO.Product;
 #line hidden
 #nullable disable
 #nullable restore
-#line 115 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
+#line 119 "C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\Pages\ProductData.razor"
                 
 
-       
-       private ProductCategoryDTO[] categories { get; set; }
-       
-      
-      protected override async Task OnInitializedAsync()
-    {
-          
-          
-            
-          categories = await CategoryDataService.GetCategories();
+
+        private ProductCategoryDTO[] categories { get; set; }
+
+
+        protected override async Task OnInitializedAsync()
+        {
+
+
+
+            categories = await CategoryDataService.GetCategories();
             productItem = await ProductDataService.GetProductById(Id);
+            Console.WriteLine(saveProductDTO);
             // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 

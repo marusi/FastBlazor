@@ -27,7 +27,7 @@ namespace Blazor.Infrastructure.Repositories
             return await context.ProductSkus
 
                .Include(s => s.SkuValue).ThenInclude(ps => ps.OptionValue).ThenInclude(ps => ps.Option)
-
+               .Include(p => p.Photos).Where(photo => photo.Id == photo.Id)
               .SingleOrDefaultAsync(o => o.Id == id);
         }
 
@@ -51,6 +51,7 @@ namespace Blazor.Infrastructure.Repositories
                  .ThenInclude(a => a.OptionValue)
                  .ThenInclude(b => b.Option)
                  .ThenInclude(c => c.Product).ThenInclude(d => d.ProductCategory)
+                  .Include(p => p.Photos).Where(photo => photo.Id == photo.Id)
                    .AsQueryable();
 
             if (queryObj.CategoryId.HasValue)

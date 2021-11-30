@@ -236,7 +236,7 @@ using BlazorWithIdentity.Shared.DTO.SkuValue;
 
        private QueryResultDTO<ProductSkuDTO> productSkus { get; set; }
         private SkuValueDTO[] skuValues { get; set; }
-        string empty;
+        string empty = "";
 
     protected override async Task OnInitializedAsync()
     {

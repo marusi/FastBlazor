@@ -5,18 +5,12 @@
 
 @using Microsoft.Fast.Components.FluentUI
 
-<div class="container m-t-xs">
-  <div class="row">
-    <h1 class="type-h1">Register</h1>
 
-    <div class="col-md-10">
-      <h1 class="type-h3 color-type-accent">We will never forget</h1>
-      
-    </div>
-    <div class="col-md-14">
-
-<EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerParameters">
-     <FluentCard style="width:60%;height:100%">
+   <div class="container">
+                    <div class="col-md-8 offset-md-2">
+                        <h4 class="mb-3">Register</h4>
+                        <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerParameters">
+     <FluentCard style="height:100%">
     <DataAnnotationsValidator />
   
 
@@ -37,7 +31,7 @@
     <label class="text-danger">@error</label>
   
     </FluentCard>
-     <FluentCard style="width:60%;height:50%">
+     <FluentCard style="height:50%">
      <h6 > Already a member! <NavLink Appearance="Appearance.Outline" href="login">
         Login  </NavLink></h6>
    
@@ -45,11 +39,9 @@
 
  
 </EditForm>
-
- </div>
-    </div>
-    </div>
-  
+                    </div>
+                </div>
+       
 
 @functions{
 

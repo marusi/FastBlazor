@@ -1,7 +1,9 @@
 ﻿
+using BlazorWithIdentity.Shared.DTO.Photo;
 using BlazorWithIdentity.Shared.DTO.SkuValue;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +20,18 @@ namespace BlazorWithIdentity.Shared.DTO.ProductSku
 
         public DateTime LastUpdate { get; set; }
 
+        public ICollection<PhotoDTO> Photos { get; set; }
+
+        public ProductSkuDTO()
+        {
+           
+            Photos = new Collection<PhotoDTO>();
 
 
-     
+        }
+
+
+
+
     }
 }

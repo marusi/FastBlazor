@@ -1243,7 +1243,6 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\4t2+xWXG.gz
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\N4JLKDDJ.gz
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\JhBWevL0.gz
-C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\CehXbNdI.gz
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\4+4SRTic.gz
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\o6wjJBVK.gz
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\ZcuBAN8i.gz
@@ -1441,3 +1440,7 @@ C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.C
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\BlazorWithIdentity.Client.pdb
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\FluentSelectNumber.razor.g.cs
 C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\Razor\Pages\Components\FluentSelectNumber.razor.g.cs
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\bin\Debug\net5.0\wwwroot\_framework\Microsoft.AspNetCore.Http.Features.dll.gz
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\bin\Debug\net5.0\wwwroot\_framework\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\+ciYAUzl.gz
+C:\Users\Hp\Desktop\dddEven\TwoTouch\BlazorWithIdentity\src\BlazorWithIdentity.Client\obj\Debug\net5.0\build-gz\G76mylFB.gz

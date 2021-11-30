@@ -6,15 +6,21 @@
 
 <FluentDesignSystemProvider>
 <div class="container">
-    <h6>Edit Category</h6>
+
+    
 
     <FluentCard >
- <EditForm class="form-category" OnValidSubmit="OnSubmitCategory" Model="categoryItem">
-      <div class="col-md-2">
+
+         <div class="col-md-2">
           <FluentAnchor  Href="@($"category")" Appearance="Appearance.Stealth"><span style="color:green;" class="glyph glyph-back"></span></FluentAnchor> 
       </div>
+       <div class="col-md-22">
+         <h6>Edit Category</h6>
+      </div>
+ <EditForm class="form-category" OnValidSubmit="OnSubmitCategory" Model="categoryItem">
+     
          
-      <div class="col-md-10">
+      <div class="col-md-12">
        
        <FluentTextField id="inputCategory"  @bind-Value="categoryItem.Name"  placeholder="@categoryItem.Name"  ></FluentTextField>
          <ValidationMessage class="text-danger" For="@(() => categoryItem.Name)" />

@@ -6,18 +6,16 @@
 
 
 
-<div class="container m-t-xs">
+<div class="container ">
   <div class="row">
-    <h1 class="type-h1">Login</h1>
-
-    <div class="col-md-10">
-      <h1 class="type-h3 color-type-accent">Jump right in</h1>
+    <div class="col-md-8 offset-md-2">
+                        <h4 class="mb-3">Login</h4>
       
-    </div>
-    <div class="col-md-14">
+      
+ 
       <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginParameters">
          
- <FluentCard style="width:60%;height:100%">
+ <FluentCard style="height:100%">
 
 <FluentTextField id="inputUsername"  @bind-Value="loginParameters.UserName"  placeholder="Username"  ></FluentTextField>
  <ValidationMessage class="text-danger" For="@(() => loginParameters.UserName)" />
@@ -28,7 +26,7 @@
    <FluentButton type="submit" Appearance="Appearance.Accent">Sign in</FluentButton>
      <label class="text-danger">@error</label>
 </FluentCard>
- <FluentCard style="width:60%;height:50%">
+ <FluentCard style="height:50%">
    <h6 >New to Chama!<NavLink Appearance="Appearance.Outline" href="register">Create account </NavLink></h6>
     </FluentCard>
 

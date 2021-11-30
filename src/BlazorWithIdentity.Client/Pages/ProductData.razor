@@ -6,9 +6,9 @@
 @using BlazorWithIdentity.Shared.DTO.Product
 
 <FluentDesignSystemProvider>
-<div class="row row-sm">
-<div class="container">
-      <h6>Edit Product Name</h6>
+ <div class="container">
+                    <div class="col-md-8 offset-md-2">
+                        <h4 class="mb-3">Edit @productItem.ProductName</h4>
     <FluentCard >
   
  <EditForm class="form-category" OnValidSubmit="OnSubmitProduct" Model="productItem">
@@ -29,24 +29,27 @@
                                                     int.TryParse(testValue, out bindValue);
                                                     saveProductDTO.ProductCategoryId = bindValue;
                                                 }
+                                 <div class="row">
+                                <div class="col-md-6 mb-3">
                                                 <FluentSelect  class="form-control" id="category" @bind-Value="testValue">
-                                                  
+                                                  <FluentOption Value="">Blank</FluentOption>
                                                     @foreach (var item in categories)
                                                     {
                                                         <FluentOption Value="@item.Id.ToString()">@item.Name</FluentOption>
                                                     }
                                                 </FluentSelect>
+</div></div>
                                                  
            }
 
       </div>
-      <div class="col-md-24">
+       <div class="mb-3">
           <FluentTextField id="inputCategory"  @bind-Value="saveProductDTO.ProductName"  Current-Value="@productItem.ProductName"  ></FluentTextField>
                     <ValidationMessage class="text-danger" For="@(() => saveProductDTO.ProductName)" />
     <label class="text-danger">@error</label> 
       </div>
 
-       <div class="col-md-24">
+        <div class="mb-3">
               <FluentButton type="submit" Appearance="Appearance.Accent">Submit</FluentButton></div> 
 
            
@@ -110,21 +113,23 @@
         {
             error = ex.Message;
              toastService.ShowToast($"{saveProductDTO.ProductName} failed to add", ToastLevel.Error);
+             Console.WriteLine(saveProductDTO.ProductCategoryId);
         }
     }
     @functions {
 
-       
-       private ProductCategoryDTO[] categories { get; set; }
-       
-      
-      protected override async Task OnInitializedAsync()
-    {
-          
-          
-            
-          categories = await CategoryDataService.GetCategories();
+
+        private ProductCategoryDTO[] categories { get; set; }
+
+
+        protected override async Task OnInitializedAsync()
+        {
+
+
+
+            categories = await CategoryDataService.GetCategories();
             productItem = await ProductDataService.GetProductById(Id);
+            Console.WriteLine(saveProductDTO);
             // toastService.ShowToast($"Items loaded succesfuly", ToastLevel.Info);
     }
 
