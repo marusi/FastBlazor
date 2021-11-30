@@ -131,7 +131,17 @@
       <div class="entity-list ">
         <div class="entity-list-item "  >
           <div class="item-icon">
-            <span class="glyph glyph-chevron-right"> </span>
+                                            @if(@item.Photos == null)
+                                            {
+                                                <span class="glyph glyph-delete"> </span>
+                                            } else { 
+                                                @foreach(var pic in item.Photos){
+                    <img src="photoUploads/@pic.PhotoFileName" class="img" alt="My image" />
+                   
+                }
+            }
+           
+            
           </div>
           <div class="item-content-secondary">
                @item.SkuValue.SkuValueName
@@ -206,7 +216,7 @@
 
 
 @code {
-
+    string rootpath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot");
     ProductSkuDTO productSkuValueDTO { get; set; } = new ProductSkuDTO();
     ProductSkuQueryDTO query { get; set; } = new ProductSkuQueryDTO
     {

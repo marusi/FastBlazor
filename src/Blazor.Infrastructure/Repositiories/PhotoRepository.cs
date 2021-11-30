@@ -16,6 +16,17 @@ namespace Blazor.Infrastructure.Repositories
         {
             this.context = context;
         }
+
+        public async Task<Photo> GetPhoto(int id, bool includeRelated = true)
+        {
+            if (!includeRelated)
+                return await context.Photos.FindAsync(id);
+
+            return await context.Photos
+            .Include(p => p.ProductSkuId)
+
+              .SingleOrDefaultAsync(p => p.Id == id);
+        }
         public async Task<IEnumerable<Photo>> GetPhotos(int productSkuId)
         {
             return await context.Photos
@@ -27,6 +38,10 @@ namespace Blazor.Infrastructure.Repositories
         {
             context.Photos.Add(photo);
 
+        }
+        public void Remove(Photo photo)
+        {
+            context.Photos.Remove(photo);
         }
     }
 }

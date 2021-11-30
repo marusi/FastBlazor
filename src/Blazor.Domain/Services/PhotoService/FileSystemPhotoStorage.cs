@@ -23,5 +23,7 @@ namespace Blazor.Domain.Services.PhotoService
 
             return fileName;
         }
+
+   
     }
 }

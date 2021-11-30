@@ -8,5 +8,6 @@ namespace Blazor.Domain.Services.PhotoService
     public interface IPhotoService
     {
         Task<Photo> UploadPhoto(ProductSku productSku, IFormFile file, string uploadsFolderPath);
+      
     }
 }
